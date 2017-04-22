@@ -48,6 +48,7 @@
     <Compile Include="Refute\Counters.cs" />
     <Compile Include="Crowd\CrowdExpression.cs" />
     <Compile Include="Crowd\CrowdExpresses.cs" />
+    <Compile Include="Refute\RefuteButton.cs" />
     <Compile Include="Refute\Segue.cs" />
     <Compile Include="Refute\Statement.cs" />
     <Compile Include="Refute\ArgumentPoint.cs" />
@@ -88,6 +89,18 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Props\podium-r.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\refutebutton-default.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\refutebutton-hover.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\refutebutton-pressed.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\speechbubble.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Icon.ico" />
