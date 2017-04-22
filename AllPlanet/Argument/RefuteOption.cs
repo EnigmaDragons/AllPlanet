@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using AllPlanet.Debate;
 using AllPlanet.Player;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.EventSystem;
@@ -28,7 +29,8 @@ namespace AllPlanet.Argument
         public void Choose()
         {
             World.Publish(new Score(_score));
-            World.Subscribe(EventSubscription.Create<AdvanceRequested>(x => Continue(), this));
+            World.Subscribe(EventSubscription.Create<AdvanceArgument>(x => Continue(), this));
+            World.Publish(new ModeChanged(Mode.Presentation));
             Continue();
         }
 

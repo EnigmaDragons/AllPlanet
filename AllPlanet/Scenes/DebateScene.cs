@@ -5,6 +5,7 @@ using AllPlanet.Player;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
+using Microsoft.Xna.Framework;
 
 namespace AllPlanet.Scenes
 {
@@ -21,8 +22,8 @@ namespace AllPlanet.Scenes
             _clickUi = new ClickUI();
             _clickUi.Add(_debate.Branch);
             _clickUi.Add(_player.Branch);
+            _clickUi.Add(new SimpleClickable(new Rectangle(new Point(0, 0), new Point(1600, 900)), () => World.Publish(new AdvanceRequested())));
             World.Publish(new PresentationStarted());
-            World.Publish(new Segue("lava"));
         }
 
         public void Update(TimeSpan delta)

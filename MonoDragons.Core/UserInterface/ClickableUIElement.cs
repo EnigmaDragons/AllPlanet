@@ -11,11 +11,13 @@ namespace MonoDragons.Core.UserInterface
         
         public Vector2 ParentLocation { get; set; }
         public Rectangle Area { get; }
+        public bool IsEnabled { get; set; }
 
-        protected ClickableUIElement(Rectangle area)
+        protected ClickableUIElement(Rectangle area, bool isEnabled = true)
         {
             Area = area;
             ParentLocation = new Vector2(0, 0);
+            IsEnabled = isEnabled;
         }
     }
 }

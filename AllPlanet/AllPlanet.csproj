@@ -38,12 +38,15 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Argument\AdvanceArgument.cs" />
     <Compile Include="Argument\CurrentPoint.cs" />
+    <Compile Include="Argument\Mode.cs" />
+    <Compile Include="Argument\ModeChanged.cs" />
+    <Compile Include="ClickBranchPriority.cs" />
     <Compile Include="Player\ArgumentLearned.cs" />
     <Compile Include="Argument\ArgumentNavUI.cs" />
     <Compile Include="Argument\Concrete\MoonsAreNotGoodArgument.cs" />
     <Compile Include="Argument\Concrete\NoMoonArgument.cs" />
-    <Compile Include="Argument\RefutationStarted.cs" />
     <Compile Include="Argument\Score.cs" />
     <Compile Include="Argument\StatementChanged.cs" />
     <Compile Include="Argument\ArgumentPointFactory.cs" />
@@ -140,7 +143,7 @@
     <Content Include="Content\Sounds\crowd-boo.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Sounds\crowd-cheering.mp3">
+    <Content Include="Content\Sounds\crowd-cheer.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Sounds\crowd-clapping-long.mp3">

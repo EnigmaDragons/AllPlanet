@@ -1,7 +1,6 @@
 ﻿using System;
 using AllPlanet.Argument;
 using AllPlanet.Crowds;
-using AllPlanet.Planet;
 using MonoDragons.Core.Audio;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.EventSystem;
@@ -17,7 +16,6 @@ namespace AllPlanet.Debate
         private const int _transitionMillis = 3000;
 
         private readonly DebateMicrophone _mic;
-        private readonly EventPipe _stream;
         private readonly RefutationUI _refutation;
         private readonly StageUI _stageUi;
         private readonly CrowdUI _crowdUi;
@@ -25,6 +23,8 @@ namespace AllPlanet.Debate
         private int _remainingTransitionMillis;
         private bool _shouldShowCrowd;
         private bool _readyForTransition;
+        private bool _readyToAdvance;
+        private bool _finishedIntroductions;
 
         public ClickUIBranch Branch { get; }
 
@@ -35,14 +35,12 @@ namespace AllPlanet.Debate
             _mic = new DebateMicrophone();
             _stageUi = new StageUI();
             _crowdUi = new CrowdUI();
-            Branch = new ClickUIBranch("DebatePresentation", 1);
+            Branch = new ClickUIBranch("DebatePresentation", (int)ClickBranchPriority.Debate);
             Branch.Add(_refutation.Branch);
-            _stream = new EventPipe();
             Branch.Add(new SimpleClickable(new Rectangle(new Point(0, 0), new Point(1600, 900)), () => World.Publish(new AdvanceRequested())));
-            _stream.Subscribe<PresentationStarted>(StartPresentation);
-            _stream.Subscribe<PlanetResponds>(PlanetSays);
-            _stream.Subscribe<OpponentResponds>(OpponentSays);
-            _stream.Subscribe<CrowdResponds>(CrowdSays);
+            World.Subscribe(EventSubscription.Create<PresentationStarted>(StartPresentation, this));
+            World.Subscribe(EventSubscription.Create<CrowdResponds>(CrowdSays, this));
+            World.Subscribe(EventSubscription.Create<AdvanceRequested>(x => _readyToAdvance = _readyForTransition, this));
         }
 
         private void StartPresentation(PresentationStarted obj)
@@ -62,24 +60,6 @@ namespace AllPlanet.Debate
         {
             _shouldShowCrowd = true;
             _remainingTransitionMillis = _transitionMillis;
-            if (obj.Expression.Equals(CrowdExpression.Boo))
-                Audio.PlaySound("crowd-boo");
-            if (obj.Expression.Equals(CrowdExpression.Cheer))
-                Audio.PlaySound("crowd-cheering");
-        }
-
-        private void OpponentSays(OpponentResponds obj)
-        {
-            _mic.OpponentSays(obj.Statement);
-            _remainingTransitionMillis = _transitionMillis;
-            _readyForTransition = false;
-        }
-
-        private void PlanetSays(PlanetResponds obj)
-        {
-            _mic.PlanetSays(obj.Statement);
-            _remainingTransitionMillis = _transitionMillis;
-            _readyForTransition = false;
         }
 
         public void Update(TimeSpan delta)
@@ -88,18 +68,31 @@ namespace AllPlanet.Debate
                 _remainingTransitionMillis -= (int)delta.TotalMilliseconds;
             if (_remainingTransitionMillis <= 0)
             {
+                BeginFirstArgument();
                 _shouldShowCrowd = false;
                 _readyForTransition = true;
             }
 
-            if (_readyForTransition && _stream.HasNext)
-                _stream.Dequeue();
-            
+            if (_readyToAdvance)
+            {
+                _readyToAdvance = false;
+                World.Publish(new AdvanceArgument());
+            }
+
             _curtain.Update(delta);
             _mic.Update(delta);
             _refutation.Update(delta);
             _crowdUi.Update(delta);
             _stageUi.Update(delta);
+        }
+
+        private void BeginFirstArgument()
+        {
+            if (_finishedIntroductions)
+                return;
+
+            _finishedIntroductions = true;
+            World.Publish(new Segue("lava"));
         }
 
         public void Draw(Transform2 parentTransform)

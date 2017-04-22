@@ -16,42 +16,44 @@ namespace AllPlanet.Argument
         public bool HasNext => _indexer < _statements.Length - 1;
         public bool HasPrior => _indexer > 0;
 
-        private List<object> _opening;
-        private int _openingIndex;
+        private List<object> _presentation;
+        private int _presentingIndex;
         private Statement[] _statements;
         private int _indexer;
 
-        public ArgumentPoint(List<object> opening, string name, params Statement[] statements)
+        public ArgumentPoint(List<object> presentation, string name, params Statement[] statements)
         {
             Name = name;
             _statements = statements;
-            _opening = opening;
-            _openingIndex = 0;
+            _presentation = presentation;
+            _presentingIndex = 0;
             CurrentStatement = _statements[0];
             _indexer = 0;
         }
 
         public void Start()
         {
-            if (_openingIndex != _opening.Count)
+            if (_presentingIndex != _presentation.Count)
             {
-                World.Subscribe(EventSubscription.Create<AdvanceRequested>(x => Advance(), this));
+                World.Publish(new ModeChanged(Mode.Presentation));
+                World.Subscribe(EventSubscription.Create<AdvanceArgument>(x => Advance(), this));
                 Advance();
             }
-            Reset();
+            else
+                Reset();
         }
 
         private void Advance()
         {
-            if (_openingIndex != _opening.Count)
+            if (_presentingIndex == _presentation.Count)
             {
                 World.Unsubscribe(this);
                 Reset();
             }
             else
             {
-                var nextEvent = _opening[_openingIndex];
-                _openingIndex++;
+                var nextEvent = _presentation[_presentingIndex];
+                _presentingIndex++;
                 World.Publish(nextEvent);
             }
         }
@@ -74,7 +76,7 @@ namespace AllPlanet.Argument
         {
             _indexer = 0;
             CurrentStatement = _statements[0];
-            World.Publish(new RefutationStarted());
+            World.Publish(new ModeChanged(Mode.Refutation));
             World.Publish(new StatementChanged(CurrentStatement));
         }
     }
