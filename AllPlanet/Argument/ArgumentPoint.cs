@@ -1,6 +1,4 @@
-﻿using AllPlanet.Refute;
-
-namespace AllPlanet.Argument
+﻿namespace AllPlanet.Argument
 {
     public class ArgumentPoint
     {

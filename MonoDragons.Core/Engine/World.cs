@@ -18,7 +18,6 @@ namespace MonoDragons.Core.Engine
 {
     public static class World
     {
-        private static readonly MusicPlayer _musicPlayer = new MusicPlayer();
         private static readonly Events _events = new Events();
         private static readonly Events _persistentEvents = new Events();
         private static readonly List<EventSubscription> _eventSubs = new List<EventSubscription>();
@@ -42,16 +41,6 @@ namespace MonoDragons.Core.Engine
         public static void Draw(Texture2D texture, Rectangle rectangle, Color color)
         {
             _spriteBatch.Draw(texture, rectangle, color);
-        }
-
-        public static void PlaySound(string soundName)
-        {
-            Resources.Load<SoundEffect>(soundName).Play();
-        }
-
-        public static void PlayMusic(string songName)
-        {
-            _musicPlayer.PlaySong(songName);
         }
 
         public static void NavigateToScene(string sceneName)

@@ -98,6 +98,15 @@
     <Content Include="Content\Props\podium-r.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Sounds\crowd-boo.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sounds\crowd-cheering.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sounds\crowd-clapping1.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\UI\refutebutton-default.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

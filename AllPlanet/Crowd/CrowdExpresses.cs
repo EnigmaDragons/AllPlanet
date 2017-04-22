@@ -1,6 +1,4 @@
-﻿using AllPlanet.Refute;
-
-namespace AllPlanet.Crowd
+﻿namespace AllPlanet.Crowd
 {
     public class CrowdExpresses
     {

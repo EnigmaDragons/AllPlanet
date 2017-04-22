@@ -1,4 +1,4 @@
-﻿namespace AllPlanet.Refute
+﻿namespace AllPlanet.Crowd
 {
     public enum CrowdExpression
     {
