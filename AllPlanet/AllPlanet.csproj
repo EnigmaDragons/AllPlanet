@@ -42,6 +42,8 @@
     <Compile Include="Characters\OpponentStateChanged.cs" />
     <Compile Include="Characters\Scientist3.cs" />
     <Compile Include="Crowd\CrowdUI.cs" />
+    <Compile Include="Debate\SpeechUI.cs" />
+    <Compile Include="Debate\Side.cs" />
     <Compile Include="Debate\StageUI.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -54,6 +56,7 @@
     <Compile Include="Refute\ArgumentPoint.cs" />
     <Compile Include="Scenes\Intro.cs" />
     <Compile Include="Scenes\DebateScene.cs" />
+    <Compile Include="Scenes\SpeechUITest.cs" />
     <Compile Include="Sizes.cs" />
   </ItemGroup>
   <ItemGroup>
