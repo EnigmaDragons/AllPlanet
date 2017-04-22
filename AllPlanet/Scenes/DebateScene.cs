@@ -13,6 +13,7 @@ namespace AllPlanet.Scenes
         public void Init()
         {
             _debatePresentation = new DebatePresentation();
+            World.Publish(new PresentationStarted());
             World.Publish(new ReadyForSegue("lava"));
         }
 

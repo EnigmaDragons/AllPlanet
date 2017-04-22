@@ -20,8 +20,11 @@ namespace AllPlanet.Argument
 
         private Statement _currentStatement;
 
+        private bool _active;
         private bool _isRefuting;
         private bool _isRefutingChanged;
+        private bool CanClickRefute => _active && !_isRefuting;
+        private bool CanClickCancel => _active && _isRefuting;
 
         public RefutationUI(CurrentPoint point)
         {
@@ -31,9 +34,11 @@ namespace AllPlanet.Argument
             _clickUi = new ClickUI();
             _clickUi.Add(_navUi.Branch);
             _clickUi.Add(_interactBranch);
-            _refuteButton = Buttons.CreateRefute(new Transform2(new Vector2(650, 650), new Size2(300, 95)), Refute);
-            _cancelButton = Buttons.CreateCancel(new Transform2(new Vector2(650, 650), new Size2(300, 95)), Cancel);
+            _refuteButton = Buttons.CreateRefute(new Transform2(new Vector2(650, 650), new Size2(300, 95)), Refute, () => CanClickRefute);
+            _cancelButton = Buttons.CreateCancel(new Transform2(new Vector2(650, 650), new Size2(300, 95)), Cancel, () => CanClickCancel);
             _interactBranch.Add(_refuteButton);
+            _interactBranch.Add(_cancelButton);
+            World.Subscribe(EventSubscription.Create<RefutationStarted>(x => _active = true, this));
             World.Subscribe(EventSubscription.Create<StatementChanged>(ChangeStatement, this));
         }
 
@@ -64,30 +69,23 @@ namespace AllPlanet.Argument
 
         public void Draw(Transform2 parentTransform)
         {
+            if (!_active)
+                return;
+
+            _cancelButton.Draw(parentTransform);
+            _refuteButton.Draw(parentTransform);
+
             if (_isRefuting)
             {
                 _darken.Draw(parentTransform);
-                _cancelButton.Draw(parentTransform);
                 _optionButtons.ForEach(x => x.Draw(parentTransform));
             }
             else
-            {
                 _navUi.Draw(parentTransform);
-                _refuteButton.Draw(parentTransform);
-            }
         }
 
         private void UpdateRefuting()
         {
-            // TODO: Refactor this into ClickableUIElements
-            if (_isRefuting)
-                _interactBranch.Add(_cancelButton);
-            else
-                _interactBranch.Remove(_cancelButton);
-            if (!_isRefuting)
-                _interactBranch.Add(_refuteButton);
-            else
-                _interactBranch.Remove(_refuteButton);
             if (_isRefuting)
             {
                 var i = 0;
