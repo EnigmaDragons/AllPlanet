@@ -1,5 +1,6 @@
 ﻿using System;
 using AllPlanet.Argument;
+using AllPlanet.Planet;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.EventSystem;
 using MonoDragons.Core.PhysicsEngine;
@@ -14,6 +15,8 @@ namespace AllPlanet.Debate
         {
             _speech = new SpeechUI();
             World.Subscribe(EventSubscription.Create<StatementChanged>(ChangeStatement, this));
+            World.Subscribe(EventSubscription.Create<PlanetResponds>(x => PlanetSays(x.Statement), this));
+            World.Subscribe(EventSubscription.Create<OpponentResponds>(x => OpponentSays(x.Statement), this));
         }
 
         public void Update(TimeSpan delta)

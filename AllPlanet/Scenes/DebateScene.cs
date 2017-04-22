@@ -24,7 +24,6 @@ namespace AllPlanet.Scenes
             _clickUi.Add(_player.Branch);
             _clickUi.Add(new SimpleClickable(new Rectangle(new Point(0, 0), new Point(1600, 900)), () => World.Publish(new AdvanceRequested())));
             World.Publish(new PresentationStarted());
-            World.Publish(new ReadyForSegue("lava"));
         }
 
         public void Update(TimeSpan delta)
