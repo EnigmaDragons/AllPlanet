@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using AllPlanet.Player;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.EventSystem;
 
@@ -27,19 +28,22 @@ namespace AllPlanet.Argument
         public void Choose()
         {
             World.Publish(new Score(_score));
-            World.Publish(_responses[0]);
-            _responses.RemoveAt(0);
-            if(_responses.Count != 0)
-                World.Subscribe(EventSubscription.Create<AdvanceArgument>((A) => Continue(), this));
-            World.Publish(new ReadyForSegue(_nextArgumentName));
+            World.Subscribe(EventSubscription.Create<AdvanceRequested>(x => Continue(), this));
+            Continue();
         }
 
         private void Continue()
         {
-            World.Publish(_responses[0]);
-            _responses.RemoveAt(0);
             if (_responses.Count == 0)
+            {
                 World.Unsubscribe(this);
+                World.Publish(new Segue(_nextArgumentName));
+            }
+            else
+            {
+                World.Publish(_responses[0]);
+                _responses.RemoveAt(0);
+            }
         }
     }
 }

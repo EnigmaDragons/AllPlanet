@@ -43,7 +43,6 @@ namespace AllPlanet.Debate
             _stream.Subscribe<PlanetResponds>(PlanetSays);
             _stream.Subscribe<OpponentResponds>(OpponentSays);
             _stream.Subscribe<CrowdResponds>(CrowdSays);
-            _stream.Subscribe<ReadyForSegue>(Segue);
         }
 
         private void StartPresentation(PresentationStarted obj)
@@ -57,13 +56,6 @@ namespace AllPlanet.Debate
             _remainingTransitionMillis = 8500;
             Audio.PlaySound("crowd-clapping-long");
 #endif
-        }
-
-        private void Segue(ReadyForSegue obj)
-        {
-            obj.Go();
-            // TODO: Change this later when we have Presentation Mode
-            World.Publish(new RefutationStarted()); 
         }
 
         private void CrowdSays(CrowdResponds obj)

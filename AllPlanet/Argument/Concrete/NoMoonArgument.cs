@@ -1,12 +1,25 @@
-﻿using AllPlanet.Crowds;
+﻿using System.Collections.Generic;
+using AllPlanet.Crowds;
 using AllPlanet.Opponent;
 using AllPlanet.Planet;
+using AllPlanet.Player;
 
 namespace AllPlanet.Argument.Concrete
 {
     public class NoMoonArgument
     {
-        public ArgumentPoint Argument { get; } = new ArgumentPoint("no moon", 
+        public ArgumentPoint Argument { get; } = new ArgumentPoint(new List<object>
+            {
+                new PlanetResponds("*I wonder what argument is coming next*", PlanetExpression.Thinking),
+                new OpponentResponds("At night when you look up in the sky there is a light.", OpponentExpression.Proud),
+                new OpponentResponds("The moon showers light upon us.", OpponentExpression.Challenging),
+                new OpponentResponds("But you don't have a moon!", OpponentExpression.Challenging),
+                new OpponentResponds("Saturn has a whole belt of moons.", OpponentExpression.Bored),
+                new OpponentResponds("Therefore you are not a true planet.", OpponentExpression.Challenging),
+                new ArgumentLearned(ArgumentType.AgreeAndAmplify, "This argument does just solve some situations. It can solve your plumbing, get you a date, and save the world!"),
+                new ArgumentLearned(ArgumentType.AppealToEmotion, "Example here"),
+            }, 
+            "no moon", 
             new Statement("At night when you look up in the sky there is a light.", OpponentExpression.Proud, GenericDiscreditResponse.Create("no moon"),
                 new RefuteOption(ArgumentType.AppealToEmotion, "next", 
                     new PlanetResponds("Not all planet's have that light, just imagine complete darkness and how scary that must be!", PlanetExpression.Challenging),

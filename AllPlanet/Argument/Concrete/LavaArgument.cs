@@ -1,13 +1,24 @@
-﻿using AllPlanet.Argument.Concrete;
+﻿using System.Collections.Generic;
+using AllPlanet.Argument.Concrete;
 using AllPlanet.Crowds;
 using AllPlanet.Opponent;
 using AllPlanet.Planet;
+using AllPlanet.Player;
 
 namespace AllPlanet.Argument
 {
     public class LavaArgument
     {
-        public ArgumentPoint Argument { get; } = new ArgumentPoint("lava",
+        public ArgumentPoint Argument { get; } = new ArgumentPoint(new List<object>
+            {
+                new PlanetResponds("*I will defend my existance as a planet*", PlanetExpression.Thinking),
+                new OpponentResponds("You are not a planet, you are a popsicle.", OpponentExpression.Challenging),
+                new OpponentResponds("Why? Because earth, like all planets has lava.", OpponentExpression.Challenging),
+                new OpponentResponds("You don't have lava, you're not hot.", OpponentExpression.Proud),
+                new OpponentResponds("Popsicles also don't have lava, therefore you are a popsicle.", OpponentExpression.Challenging),
+                new ArgumentLearned(ArgumentType.FakeStatistic, "76% of all winning arguments use fake statistics"),
+            }, 
+            "lava",
             new Statement("You are not a planet, you are a popsicle.", OpponentExpression.Challenging, GenericDiscreditResponse.Create("lava argument"),
                 new RefuteOption(ArgumentType.FakeStatistic, "no moon",
                     new PlanetResponds("22% of all planets are popsicles, I'll have you know.", PlanetExpression.Proud), 
