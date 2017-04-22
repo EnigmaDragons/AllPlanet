@@ -3,6 +3,7 @@
     public enum ArgumentType
     {
         Discredit,
-        FakeStatistic
+        FakeStatistic,
+        AgreeAndAmplify
     }
 }

@@ -26,7 +26,7 @@ namespace AllPlanet.Argument
                     new CrowdResponds(CrowdExpression.Boo),
                     new PlanetResponds("*He just implied I'm a comet*", PlanetExpression.Worry))),
             new Statement("Popsicles also don't have lava, therefore you are a popsicle.", OpponentExpression.Challenging, GenericDiscreditResponse.Create("lava argument"),
-                new RefuteOption(ArgumentType.FakeStatistic, "lava", //change to tangent
+                new RefuteOption(ArgumentType.FakeStatistic, "popsicle",
                     new PlanetResponds("Only 10% of things that are not lava are popsicles, so how can you be sure.", PlanetExpression.Challenging),
                     new OpponentResponds("Well then I'm gonna prove you are in that 10%.", OpponentExpression.Challenging),
                     new CrowdResponds(CrowdExpression.NoComment))));
