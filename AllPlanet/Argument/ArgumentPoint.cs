@@ -6,9 +6,9 @@ namespace AllPlanet.Argument
     {
         public Statement[] Statements;
 
-        public ArgumentPoint(Statement[] statement)
+        public ArgumentPoint(params Statement[] statements)
         {
-            Statements = statement;
+            Statements = statements;
         }
     }
 }
