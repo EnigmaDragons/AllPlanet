@@ -39,6 +39,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Argument\AdvanceArgument.cs" />
+    <Compile Include="Argument\ArgumentLearned.cs" />
     <Compile Include="Argument\ArgumentNavUI.cs" />
     <Compile Include="Argument\CurrentPoint.cs" />
     <Compile Include="Argument\ReadyForSegue.cs" />
