@@ -38,6 +38,7 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Argument\RefutationUI.cs" />
     <Compile Include="Argument\ArgumentType.cs" />
     <Compile Include="Argument\GenericDiscreditResponse.cs" />
     <Compile Include="Argument\Concrete\LavaArgument.cs" />
@@ -110,6 +111,12 @@
     <Content Include="Content\Sounds\crowd-clapping1.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\UI\back-button.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\next-button.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\UI\refutebutton-default.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -117,6 +124,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\UI\refutebutton-pressed.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\speechbubble-r.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\UI\speechbubble.png">
