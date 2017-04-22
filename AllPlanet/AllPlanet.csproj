@@ -39,6 +39,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Argument\ArgumentNavUI.cs" />
+    <Compile Include="Argument\Concrete\MoonsAreNotGoodArgument.cs" />
+    <Compile Include="Argument\Concrete\NoMoonArgument.cs" />
     <Compile Include="Argument\CurrentPoint.cs" />
     <Compile Include="Argument\ReadyForSegue.cs" />
     <Compile Include="Argument\StatementChanged.cs" />

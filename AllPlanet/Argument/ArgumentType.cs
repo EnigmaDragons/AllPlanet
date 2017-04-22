@@ -4,6 +4,7 @@
     {
         Discredit,
         FakeStatistic,
-        AgreeAndAmplify
+        AgreeAndAmplify,
+        AppealToEmotion
     }
 }
