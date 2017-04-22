@@ -31,9 +31,9 @@ namespace AllPlanet.Argument
             _navUi = new ArgumentNavUI(point);
             _refuteButton = Buttons.CreateRefute(new Transform2(new Vector2(650, 650), new Size2(300, 95)), Refute, () => CanClickRefute);
             _cancelButton = Buttons.CreateCancel(new Transform2(new Vector2(650, 650), new Size2(300, 95)), Cancel, () => CanClickCancel);
-            _interactBranch = new ClickUIBranch("Interact", 2);
+            _interactBranch = new ClickUIBranch("Interact", (int)ClickBranchPriority.Interact);
             _interactBranch.Add(_refuteButton);
-            Branch = new ClickUIBranch("RefutationUI", 2);
+            Branch = new ClickUIBranch("RefutationUI", (int)ClickBranchPriority.Refute);
             Branch.Add(_navUi.Branch);
             Branch.Add(_interactBranch);
             World.Subscribe(EventSubscription.Create<RefutationStarted>(x => _active = true, this));

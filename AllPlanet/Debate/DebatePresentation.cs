@@ -35,10 +35,9 @@ namespace AllPlanet.Debate
             _mic = new DebateMicrophone();
             _stageUi = new StageUI();
             _crowdUi = new CrowdUI();
-            Branch = new ClickUIBranch("DebatePresentation", 1);
+            Branch = new ClickUIBranch("DebatePresentation", (int)ClickBranchPriority.Debate);
             Branch.Add(_refutation.Branch);
             _stream = new EventPipe();
-            Branch.Add(new SimpleClickable(new Rectangle(new Point(0, 0), new Point(1600, 900)), () => World.Publish(new AdvanceRequested())));
             _stream.Subscribe<PresentationStarted>(StartPresentation);
             _stream.Subscribe<PlanetResponds>(PlanetSays);
             _stream.Subscribe<OpponentResponds>(OpponentSays);
