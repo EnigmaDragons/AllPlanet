@@ -39,6 +39,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Argument\StatementChanged.cs" />
+    <Compile Include="Argument\ArgumentPointFactory.cs" />
+    <Compile Include="Argument\RefutationUI.cs" />
+    <Compile Include="Argument\ArgumentType.cs" />
+    <Compile Include="Argument\Concrete\PopsicleArgument.cs" />
+    <Compile Include="Argument\GenericDiscreditResponse.cs" />
+    <Compile Include="Argument\Concrete\LavaArgument.cs" />
     <Compile Include="Characters\OpponentState.cs" />
     <Compile Include="Characters\OpponentStateChanged.cs" />
     <Compile Include="Characters\Scientist3.cs" />
@@ -54,7 +60,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Argument\RefuteOption.cs" />
     <Compile Include="Crowd\CrowdExpression.cs" />
-    <Compile Include="Crowd\CrowdExpresses.cs" />
+    <Compile Include="Crowd\CrowdResponds.cs" />
     <Compile Include="Argument\RefuteButton.cs" />
     <Compile Include="Argument\Segue.cs" />
     <Compile Include="Argument\Statement.cs" />
@@ -99,6 +105,21 @@
     <Content Include="Content\Props\podium-r.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Sounds\crowd-boo.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sounds\crowd-cheering.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sounds\crowd-clapping1.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\back-button.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\next-button.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\UI\refutebutton-default.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -106,6 +127,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\UI\refutebutton-pressed.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\speechbubble-r.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\UI\speechbubble.png">

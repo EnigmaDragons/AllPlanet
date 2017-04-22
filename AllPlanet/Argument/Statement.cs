@@ -12,20 +12,25 @@ namespace AllPlanet.Argument
 
         public string Message { get; }
         public OpponentExpression Expression { get; }
-        public List<string> Options => _options.Select(c => c.Name).ToList();
+        public List<ArgumentType> Options => _options.Select(c => c.Type).ToList();
         public bool IsRefutable => Options.Count > 0;
 
-        public Statement(string message, List<RefuteOption> options, Dictionary<string, RefuteOption> discredits, RefuteOption genericDiscredit)
+        public Statement(string message, OpponentExpression expression, RefuteOption genericDiscredit, params RefuteOption[] options)
+            : this(message, expression, new Dictionary<string, RefuteOption>(), genericDiscredit, options) {}
+
+        public Statement(string message, OpponentExpression expression, 
+            Dictionary<string, RefuteOption> discredits, RefuteOption genericDiscredit, params RefuteOption[] options)
         {
             Message = message;
-            _options = options;
+            Expression = expression;
+            _options = options.ToList();
             _discredits = discredits;
             _genericDiscredit = genericDiscredit;
         }
 
-        public void Counter(string optionName)
+        public void Refute(ArgumentType optionName)
         {
-            var counter = _options.Find(c => c.Name == optionName);
+            var counter = _options.Find(c => c.Type == optionName);
             counter.Choose();
             _options.Remove(counter);
         }
