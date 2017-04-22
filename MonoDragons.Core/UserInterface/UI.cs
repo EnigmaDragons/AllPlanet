@@ -58,13 +58,16 @@ namespace MonoDragons.Core.UserInterface
 
         public static void DrawTextCentered(string text, Rectangle area, Color color)
         {
-            var size = DefaultFont.Font.MeasureString(text);
-            DrawText(text, GetCenteredPosition(area, size), color);
+            var wrapped = new Behaviors.WrappingText(() => DefaultFont.Font, () => area.Width).Wrap(text);
+            var size = DefaultFont.Font.MeasureString(wrapped);
+            DrawText(wrapped, GetCenteredPosition(area, size), color);
         }
-
+        
         public static void DrawTextCentered(string text, Rectangle area, Color color, string font)
         {
-            var size = Resources.Load<SpriteFont>(font).MeasureString(text);
+            var spriteFont = Resources.Load<SpriteFont>(font);
+            var wrapped = new Behaviors.WrappingText(() => spriteFont, () => area.Width).Wrap(text);
+            var size = spriteFont.MeasureString(text);
             DrawText(text, GetCenteredPosition(area, size), color, font);
         }
 

@@ -105,6 +105,8 @@
     <Compile Include="Render\Animations.cs" />
     <Compile Include="Render\Camera.cs" />
     <Compile Include="Navigation\FadingInScene.cs" />
+    <Compile Include="UserInterface\IWrapText.cs" />
+    <Compile Include="UserInterface\Behaviors\WrappingText.cs" />
     <Compile Include="UserInterface\AutoSizingLabel.cs" />
     <Compile Include="UserInterface\Bordered.cs" />
     <Compile Include="UserInterface\ClickUIBranch.cs" />
