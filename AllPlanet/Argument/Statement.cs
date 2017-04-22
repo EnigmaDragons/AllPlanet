@@ -6,11 +6,11 @@ namespace AllPlanet.Refute
     public class Statement
     {
         public string Comment;
-        private List<Counter> _counters;
+        private List<RefuteOption> _counters;
         public List<string> Counters => _counters.Select((c) => c.Statement).ToList();
         public bool IsRefutable => Counters.Count > 0;
 
-        public Statement(string comment, List<Counter> counters)
+        public Statement(string comment, List<RefuteOption> counters)
         {
             Comment = comment;
             _counters = counters;
