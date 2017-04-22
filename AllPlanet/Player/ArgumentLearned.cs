@@ -1,4 +1,5 @@
-﻿
+﻿using AllPlanet.Argument;
+
 namespace AllPlanet.Player
 {
     public class ArgumentLearned
@@ -6,9 +7,9 @@ namespace AllPlanet.Player
         public string Name { get; }
         public string Desc { get; }
 
-        public ArgumentLearned(string name, string desc)
+        public ArgumentLearned(ArgumentType type, string desc)
         {
-            Name = name;
+            Name = type.ToString();
             Desc = desc;
         }
     }

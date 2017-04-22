@@ -1,7 +1,6 @@
 ﻿
 using System;
 using AllPlanet.Argument;
-using AllPlanet.Planet;
 using AllPlanet.Player;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.PhysicsEngine;
@@ -15,7 +14,7 @@ namespace AllPlanet.Scenes
         public void Init()
         {
             _ui = new ArgumentLearnedUI();
-            World.Publish(new ArgumentLearned("Sample Name", "lorem ipsum 1iohiosndfqwkerkqwerqwerqwer"));
+            World.Publish(new ArgumentLearned(ArgumentType.AppealToEmotion, "lorem ipsum 1iohiosndfqwkerkqwerqwerqwer"));
         }
 
         public void Update(TimeSpan delta)
