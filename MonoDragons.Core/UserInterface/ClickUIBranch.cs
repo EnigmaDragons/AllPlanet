@@ -11,6 +11,7 @@ namespace MonoDragons.Core.UserInterface
         private HashSet<ClickableUIElement> _elements = new HashSet<ClickableUIElement>();
         private List<ClickUIBranch> _subBranches = new List<ClickUIBranch>();
         public readonly int Priority;
+        public float Scale;
         private readonly string _name;
         private List<Action<ClickUIBranch>[]> subscriberActions = new List<Action<ClickUIBranch>[]>();
 
@@ -40,8 +41,9 @@ namespace MonoDragons.Core.UserInterface
         }
         private Vector2 totalLocation;
 
-        public ClickUIBranch(string name, int priority)
+        public ClickUIBranch(string name, int priority, float scale = 1)
         {
+            Scale = scale;
             Priority = priority;
             _name = name;
         }
@@ -95,7 +97,8 @@ namespace MonoDragons.Core.UserInterface
 
         public ClickableUIElement GetElement(Point mousePosition)
         {
-            var element = _elements.FirstOrDefault(x => x.Area.Contains(mousePosition - totalLocation.ToPoint()) && x.IsEnabled);
+            var position = new Point((int)Math.Round(mousePosition.X * Scale), (int)Math.Round(mousePosition.Y * Scale));
+            var element = _elements.FirstOrDefault(x => x.Area.Contains(position - totalLocation.ToPoint()) && x.IsEnabled);
             return element ?? ClickUI.None;
         }
 
