@@ -38,6 +38,9 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Characters\OpponentState.cs" />
+    <Compile Include="Characters\OpponentStateChanged.cs" />
+    <Compile Include="Characters\Scientist3.cs" />
     <Compile Include="Crowd\CrowdUI.cs" />
     <Compile Include="Debate\StageUI.cs" />
     <Compile Include="Program.cs" />
@@ -67,6 +70,18 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Backdrops\stage.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Characters\sci3-bored.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Characters\sci3-challenging.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Characters\sci3-proud.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Characters\sci3-worried.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Props\podium-l.png">

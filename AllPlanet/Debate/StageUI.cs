@@ -1,4 +1,5 @@
 ﻿using System;
+using AllPlanet.Characters;
 using Microsoft.Xna.Framework;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.PhysicsEngine;
@@ -8,15 +9,19 @@ namespace AllPlanet.Debate
 {
     public sealed class StageUI : IVisualAutomaton
     {
+        private IVisualAutomaton _opponent = new Scientist3();
+
         public void Update(TimeSpan delta)
         {
+            _opponent.Update(delta);
         }
 
         public void Draw(Transform2 parentTransform)
         {
             UI.DrawCentered("Backdrops/stage", Sizes.Backdrop);
-            World.Draw("Props/podium-l", new Vector2(450, 380));
-            World.Draw("Props/podium-r", new Vector2(950, 380));
+            _opponent.Draw(new Transform2(new Vector2(950, 320)));
+            World.Draw("Props/podium-l", new Rectangle(460, 500, 150, 300));
+            World.Draw("Props/podium-r", new Rectangle(940, 500, 150, 300));
         }
     }
 }
