@@ -1,5 +1,4 @@
-﻿using System.Linq.Expressions;
-using AllPlanet.Crowd;
+﻿using AllPlanet.Crowds;
 using AllPlanet.Opponent;
 using AllPlanet.Planet;
 
@@ -13,7 +12,7 @@ namespace AllPlanet.Argument.Concrete
                     new PlanetResponds("Not all planet's have that light, just imagine complete darkness and how scary that must be!", PlanetExpression.Challenging),
                     new PlanetResponds("That is how I am feeling when I think of what might happen if these crazy scientists win!", PlanetExpression.Worried),
                     new CrowdResponds(CrowdExpression.NoComment), //possible add crowd expression for this
-                    new OpponentResponds("That seems hardly the point!", OpponentExpression.Upset))),
+                    new OpponentResponds("That seems hardly the point!", OpponentExpression.Worried))),
             new Statement("The moon showers light upon us.", OpponentExpression.Challenging, GenericDiscreditResponse.Create("no moon"), 
                 new RefuteOption(ArgumentType.FakeStatistic, "next", 
                     new PlanetResponds("Well for 1 out of every 29 days it doesn't, it's a new moon.", PlanetExpression.Challenging),
