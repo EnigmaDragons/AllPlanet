@@ -1,24 +1,25 @@
 ﻿using System;
+using AllPlanet.Argument;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.EventSystem;
 using MonoDragons.Core.PhysicsEngine;
 
-namespace AllPlanet.Characters
+namespace AllPlanet.Opponent
 {
     public class Scientist3 : IVisualAutomaton
     {
-        private OpponentState _state = OpponentState.Bored;
+        private OpponentExpression _exp = OpponentExpression.Bored;
         private readonly string _imgPre = "Characters/sci3-";
-        private string Image => _imgPre + _state.ToString().ToLower();
+        private string Image => _imgPre + _exp.ToString().ToLower();
 
         public Scientist3()
         {
-            World.SubscribeForScene(EventSubscription.Create<OpponentStateChanged>(StateChanged, this));
+            World.SubscribeForScene(EventSubscription.Create<StatementChanged>(StatementChanged, this));
         }
 
-        private void StateChanged(OpponentStateChanged obj)
+        private void StatementChanged(StatementChanged obj)
         {
-            _state = obj.State;
+            _exp = obj.Statement.Expression;
         }
 
         public void Update(TimeSpan delta)

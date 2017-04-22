@@ -6,22 +6,18 @@ namespace MonoDragons.Core.EventSystem
 {
     public class EventPipe
     {
-        private List<Action> actions = new List<Action>();
-        public bool HasNext => actions.Count > 0;
-        
-        public EventPipe()
-        {
-        }
+        private readonly List<Action> _actions = new List<Action>();
+        public bool HasNext => _actions.Count > 0;
 
         public void Subscribe<T>(Action<T> act)
         {
-            World.Subscribe(EventSubscription.Create<T>((e) => actions.Add(() => act(e)), this));
+            World.Subscribe(EventSubscription.Create<T>((e) => _actions.Add(() => act(e)), this));
         }
 
         public void Dequeue()
         {
-            actions[0]();
-            actions.RemoveAt(0);
+            _actions[0]();
+            _actions.RemoveAt(0);
         }
     }
 }

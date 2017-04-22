@@ -1,5 +1,5 @@
 ﻿using System;
-using AllPlanet.Characters;
+using AllPlanet.Opponent;
 using Microsoft.Xna.Framework;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.PhysicsEngine;

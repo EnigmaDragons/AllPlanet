@@ -5,6 +5,9 @@ namespace AllPlanet.Argument
 {
     public class ArgumentPoint
     {
+        public static ArgumentPoint None = new ArgumentPoint("None",
+            new Statement("Empty", Opponent.OpponentExpression.Bored, new RefuteOption(ArgumentType.AgreeAndAmplify, "")));
+
         public string Name { get; }
         public Statement[] Statements { get; }
         public Statement CurrentStatement { get; private set; }
