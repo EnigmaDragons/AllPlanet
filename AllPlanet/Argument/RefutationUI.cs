@@ -45,9 +45,7 @@ namespace AllPlanet.Argument
 
         private void Cancel()
         {
-            _isRefuting = false;
-            _clickUi.Add(_navUi.Branch);
-            _isRefutingChanged = true;
+            ResetRefuting();
         }
 
         private void Refute()
@@ -62,8 +60,7 @@ namespace AllPlanet.Argument
             UpdateCurrentStatement();
             if (_isRefutingChanged)
                 UpdateRefuting();
-
-            _navUi.Update(delta);
+            
             _speech.Update(delta);
             _clickUi.Update(delta);
         }
@@ -115,7 +112,10 @@ namespace AllPlanet.Argument
                 {
                     var opt = Buttons.CreateOption(x.ToString(),
                         new Transform2(new Vector2(650, 250 + (i * 50)), new Size2(300, 95)),
-                        () => _currentStatement.Refute(x));
+                        () => {
+                            _currentStatement.Refute(x);
+                            ResetRefuting();
+                        });
                     _optionButtons.Add(opt);
                     _interactBranch.Add(opt);
                     i++;
@@ -128,6 +128,13 @@ namespace AllPlanet.Argument
             }
 
             _isRefutingChanged = false;
+        }
+
+        private void ResetRefuting()
+        {
+            _isRefuting = false;
+            _clickUi.Add(_navUi.Branch);
+            _isRefutingChanged = true;
         }
     }
 }

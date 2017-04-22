@@ -21,18 +21,20 @@ namespace AllPlanet.Argument
                 cancelAction);
         }
 
-        public static ImageButton CreateNext(Transform2 transform, Action nextAction)
+        public static ImageButton CreateNext(Transform2 transform, Action nextAction, Func<bool> visibleCondition)
         {
             return new ImageButton("UI/next-button", "UI/next-button", "UI/next-button",
                 transform,
-                nextAction);
+                nextAction, 
+                visibleCondition);
         }
 
-        public static ImageButton CreateBack(Transform2 transform, Action backAction)
+        public static ImageButton CreateBack(Transform2 transform, Action backAction, Func<bool> visibleCondition)
         {
             return new ImageButton("UI/back-button", "UI/back-button", "UI/back-button",
                 transform,
-                backAction);
+                backAction,
+                visibleCondition);
         }
 
         public static TextButton CreateOption(string text, Transform2 transform, Action option)

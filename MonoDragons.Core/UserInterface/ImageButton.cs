@@ -16,7 +16,7 @@ namespace MonoDragons.Core.UserInterface
         private string _current;
 
         public ImageButton(string basic, string hover, string press, Transform2 transform, Action onClick)
-            : this(basic, hover, press, transform, onClick, null) { }
+            : this(basic, hover, press, transform, onClick, () => true) { }
 
         public ImageButton(string basic, string hover, string press, Transform2 transform, Action onClick, Func<bool> isVisible)
             : base(transform.ToRectangle())
@@ -26,12 +26,10 @@ namespace MonoDragons.Core.UserInterface
             _press = press;
             _transform = transform;
             _onClick = onClick;
-            _isVisible = isVisible ?? new Func<bool>(() => true);
+            _isVisible = isVisible;
 
             _current = _basic;
         }
-
-
 
         public void Draw(Transform2 parentTransform)
         {
