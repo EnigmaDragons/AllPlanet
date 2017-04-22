@@ -1,8 +1,8 @@
-﻿using Microsoft.Xna.Framework.Graphics;
-using System;
+﻿using System;
 using System.Text;
+using Microsoft.Xna.Framework.Graphics;
 
-namespace MonoDragons.Core.UserInterface.Behaviors
+namespace MonoDragons.Core.Text
 {
     public class WrappingText : IWrapText
     {

@@ -4,16 +4,18 @@ using MonoDragons.Core.PhysicsEngine;
 using System;
 using Microsoft.Xna.Framework.Graphics;
 using MonoDragons.Core.Memory;
-using MonoDragons.Core.UserInterface.Behaviors;
+using MonoDragons.Core.Text;
 
 namespace MonoDragons.Core.UserInterface
 {
     public sealed class Label : IVisual, IDisposable
     {
+        private readonly ColoredRectangle _background = new ColoredRectangle();
+        private readonly IWrapText _textWrapper;
+
         public string Font { get; set; } = "Fonts/Arial";
         public Color TextColor { get; set; } = Color.White;
 
-        private readonly ColoredRectangle _background = new ColoredRectangle();
         public Transform2 Transform
         {
             get { return _background.Transform; }
@@ -30,15 +32,12 @@ namespace MonoDragons.Core.UserInterface
             get { return _textWrapper.Wrap(RawText); } //TODO: cache?
             set { RawText = value; }
         }
-        public string RawText { get; private set; }
 
-        IWrapText _textWrapper;
-        public Label(IWrapText textWrapper = null)
+        public string RawText { get; set; }
+
+        public Label()
         {
-            _textWrapper = textWrapper
-                ?? new WrappingText(
-                    () => Resources.Load<SpriteFont>(Font),
-                    () => _background.Transform.Size.Width);
+            _textWrapper = new WrappingText(() => Resources.Load<SpriteFont>(Font), () => _background.Transform.Size.Width);
         }
 
         public void Draw(Transform2 parentTransform)
