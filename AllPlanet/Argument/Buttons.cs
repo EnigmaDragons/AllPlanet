@@ -7,18 +7,20 @@ namespace AllPlanet.Argument
 {
     public static class Buttons
     {
-        public static ImageButton CreateRefute(Transform2 transform, Action refuteAction)
+        public static ImageButton CreateRefute(Transform2 transform, Action refuteAction, Func<bool> visibleCondition)
         {
             return new ImageButton("UI/refutebutton-default", "UI/refutebutton-hover", "UI/refutebutton-pressed",
                 transform,
-                refuteAction);
+                refuteAction,
+                visibleCondition);
         }
 
-        public static ImageButton CreateCancel(Transform2 transform, Action cancelAction)
+        public static ImageButton CreateCancel(Transform2 transform, Action cancelAction, Func<bool> visibleCondition)
         {
             return new ImageButton("UI/cancelbutton-default", "UI/cancelbutton-hover", "UI/cancelbutton-pressed",
                 transform,
-                cancelAction);
+                cancelAction,
+                visibleCondition);
         }
 
         public static ImageButton CreateNext(Transform2 transform, Action nextAction, Func<bool> visibleCondition)

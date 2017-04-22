@@ -1,11 +1,12 @@
 ﻿using System;
 using AllPlanet.Argument;
-using AllPlanet.Crowd;
+using AllPlanet.Crowds;
 using AllPlanet.Planet;
 using MonoDragons.Core.Audio;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.EventSystem;
 using MonoDragons.Core.PhysicsEngine;
+using MonoDragons.Core.UserInterface;
 
 namespace AllPlanet.Debate
 {
@@ -18,26 +19,48 @@ namespace AllPlanet.Debate
         private readonly RefutationUI _refutation;
         private readonly StageUI _stageUi;
         private readonly CrowdUI _crowdUi;
+        private readonly StageCurtain _curtain;
         private int _remainingTransitionMillis;
         private bool _shouldShowCrowd;
         private bool _readyForTransition;
 
+        public ClickUIBranch Branch { get; }
+
         public DebatePresentation()
         {
             _refutation = new RefutationUI(new CurrentPoint());
+            _curtain = new StageCurtain();
             _mic = new DebateMicrophone();
             _stageUi = new StageUI();
             _crowdUi = new CrowdUI();
+            Branch = new ClickUIBranch("DebatePresentation", 1);
+            Branch.Add(_refutation.Branch);
             _stream = new EventPipe();
+            _stream.Subscribe<PresentationStarted>(StartPresentation);
             _stream.Subscribe<PlanetResponds>(PlanetSays);
             _stream.Subscribe<OpponentResponds>(OpponentSays);
             _stream.Subscribe<CrowdResponds>(CrowdSays);
             _stream.Subscribe<ReadyForSegue>(Segue);
         }
 
+        private void StartPresentation(PresentationStarted obj)
+        {
+            _curtain.Raise();
+            _readyForTransition = false;
+#if DEBUG
+            _remainingTransitionMillis = 3500;
+            Audio.PlaySound("crowd-clapping-short");
+#else
+            _remainingTransitionMillis = 8500;
+            Audio.PlaySound("crowd-clapping-long");
+#endif
+        }
+
         private void Segue(ReadyForSegue obj)
         {
             obj.Go();
+            // TODO: Change this later when we have Presentation Mode
+            World.Publish(new RefutationStarted()); 
         }
 
         private void CrowdSays(CrowdResponds obj)
@@ -77,6 +100,7 @@ namespace AllPlanet.Debate
             if (_readyForTransition && _stream.HasNext)
                 _stream.Dequeue();
 
+            _curtain.Update(delta);
             _mic.Update(delta);
             _refutation.Update(delta);
             _crowdUi.Update(delta);
@@ -92,6 +116,7 @@ namespace AllPlanet.Debate
                 _stageUi.Draw(Transform2.Zero);
                 _mic.Draw(Transform2.Zero);
                 _refutation.Draw(Transform2.Zero);
+                _curtain.Draw(Transform2.Zero);
             }
         }
     }

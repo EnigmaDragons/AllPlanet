@@ -11,29 +11,33 @@ namespace AllPlanet.Argument
     public sealed class RefutationUI : IVisualAutomaton
     {
         private readonly ArgumentNavUI _navUi;
-        private readonly ClickUI _clickUi;
         private readonly ClickUIBranch _interactBranch;
         private readonly ImageButton _refuteButton;
         private readonly ImageButton _cancelButton;
-        private readonly ColoredRectangle _darken;
         private readonly List<TextButton> _optionButtons = new List<TextButton>();
 
         private Statement _currentStatement;
 
+        private bool _active;
         private bool _isRefuting;
         private bool _isRefutingChanged;
+        private bool CanClickRefute => _active && !_isRefuting;
+        private bool CanClickCancel => _active && _isRefuting;
+
+        public ClickUIBranch Branch { get; }
 
         public RefutationUI(CurrentPoint point)
         {
             _navUi = new ArgumentNavUI(point);
-            _darken = new ColoredRectangle { Color = Color.FromNonPremultiplied(0, 0, 0, 130), Transform = new Transform2(new Size2(1600, 900)) };
+            _refuteButton = Buttons.CreateRefute(new Transform2(new Vector2(650, 650), new Size2(300, 95)), Refute, () => CanClickRefute);
+            _cancelButton = Buttons.CreateCancel(new Transform2(new Vector2(650, 650), new Size2(300, 95)), Cancel, () => CanClickCancel);
             _interactBranch = new ClickUIBranch("Interact", 2);
-            _clickUi = new ClickUI();
-            _clickUi.Add(_navUi.Branch);
-            _clickUi.Add(_interactBranch);
-            _refuteButton = Buttons.CreateRefute(new Transform2(new Vector2(650, 650), new Size2(300, 95)), Refute);
-            _cancelButton = Buttons.CreateCancel(new Transform2(new Vector2(650, 650), new Size2(300, 95)), Cancel);
             _interactBranch.Add(_refuteButton);
+            _interactBranch.Add(_cancelButton);
+            Branch = new ClickUIBranch("RefutationUI", 2);
+            Branch.Add(_navUi.Branch);
+            Branch.Add(_interactBranch);
+            World.Subscribe(EventSubscription.Create<RefutationStarted>(x => _active = true, this));
             World.Subscribe(EventSubscription.Create<StatementChanged>(ChangeStatement, this));
         }
 
@@ -50,7 +54,7 @@ namespace AllPlanet.Argument
         private void Refute()
         {
             _isRefuting = true;
-            _clickUi.Remove(_navUi.Branch);
+            Branch.Remove(_navUi.Branch);
             _isRefutingChanged = true;
         }
 
@@ -58,36 +62,27 @@ namespace AllPlanet.Argument
         {
             if (_isRefutingChanged)
                 UpdateRefuting();
-            
-            _clickUi.Update(delta);
         }
 
         public void Draw(Transform2 parentTransform)
         {
+            if (!_active)
+                return;
+
             if (_isRefuting)
             {
-                _darken.Draw(parentTransform);
-                _cancelButton.Draw(parentTransform);
+                World.Darken();
                 _optionButtons.ForEach(x => x.Draw(parentTransform));
             }
             else
-            {
                 _navUi.Draw(parentTransform);
-                _refuteButton.Draw(parentTransform);
-            }
+
+            _cancelButton.Draw(parentTransform);
+            _refuteButton.Draw(parentTransform);
         }
 
         private void UpdateRefuting()
         {
-            // TODO: Refactor this into ClickableUIElements
-            if (_isRefuting)
-                _interactBranch.Add(_cancelButton);
-            else
-                _interactBranch.Remove(_cancelButton);
-            if (!_isRefuting)
-                _interactBranch.Add(_refuteButton);
-            else
-                _interactBranch.Remove(_refuteButton);
             if (_isRefuting)
             {
                 var i = 0;
@@ -116,7 +111,7 @@ namespace AllPlanet.Argument
         private void ResetRefuting()
         {
             _isRefuting = false;
-            _clickUi.Add(_navUi.Branch);
+            Branch.Add(_navUi.Branch);
             _isRefutingChanged = true;
         }
     }

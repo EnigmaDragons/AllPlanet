@@ -36,6 +36,7 @@ namespace AllPlanet
                 { "Logo", () => new FadingInScene(new LogoScene()) },
                 { "Debate", () => new DebateScene() },
                 { "Speech", () => new SpeechUITest() },
+                { "Learned", () => new ArgumentLearnedUITest() },
             });
         }
     }

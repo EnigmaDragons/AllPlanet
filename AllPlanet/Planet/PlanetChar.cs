@@ -7,7 +7,7 @@ namespace AllPlanet.Planet
 {
     public sealed class PlanetChar : IVisualAutomaton
     {
-        private PlanetExpression _exp = PlanetExpression.Worried;
+        private PlanetExpression _exp = PlanetExpression.Thinking;
         private readonly string _imgPre = "Characters/planet-";
         private string Image => _imgPre + _exp.ToString().ToLower();
 

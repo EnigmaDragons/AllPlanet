@@ -1,5 +1,5 @@
 ﻿using AllPlanet.Argument.Concrete;
-using AllPlanet.Crowd;
+using AllPlanet.Crowds;
 using AllPlanet.Opponent;
 using AllPlanet.Planet;
 
@@ -17,7 +17,7 @@ namespace AllPlanet.Argument
             new Statement("Why? Because earth, like all planets has lava.", OpponentExpression.Challenging, GenericDiscreditResponse.Create("lava argument"),
                 new RefuteOption(ArgumentType.FakeStatistic, "no moon",
                     new PlanetResponds("Actually only 12% of planets have lava.", PlanetExpression.Challenging),
-                    new OpponentResponds("I merely forgot about all those silly planets without lava.", OpponentExpression.Upset),
+                    new OpponentResponds("I merely forgot about all those silly planets without lava.", OpponentExpression.Worried),
                     new CrowdResponds(CrowdExpression.Cheer))),
             new Statement("You don't have lava, you're not hot.", OpponentExpression.Proud, GenericDiscreditResponse.Create("lava argument"),
                 new RefuteOption(ArgumentType.FakeStatistic, "no moon",
