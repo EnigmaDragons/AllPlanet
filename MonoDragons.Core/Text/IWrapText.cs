@@ -1,4 +1,4 @@
-﻿namespace MonoDragons.Core.UserInterface
+﻿namespace MonoDragons.Core.Text
 {
     public interface IWrapText
     {
