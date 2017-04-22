@@ -57,6 +57,7 @@
     <Compile Include="Engine\IVisualAutomaton.cs" />
     <Compile Include="Engine\Metrics.cs" />
     <Compile Include="Engine\Timer.cs" />
+    <Compile Include="EventSystem\EventBuffer.cs" />
     <Compile Include="IO\AppDataJsonIo.cs" />
     <Compile Include="Navigation\INavigation.cs" />
     <Compile Include="Engine\IScene.cs" />
