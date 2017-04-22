@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AllPlanet.Opponent;
 
 namespace AllPlanet.Argument
 {
-    class OpponentResponse
+    public class OpponentResponds
     {
+        public string Statement { get; }
+        public OpponentExpression Expression { get; }
+
+        public OpponentResponds(string statement, OpponentExpression expression)
+        {
+            Statement = statement;
+            Expression = expression;
+        }
     }
 }

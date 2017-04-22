@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AllPlanet.Planet
+﻿namespace AllPlanet.Planet
 {
-    class PlanetResponse
+    public class PlanetResponds
     {
+        public string Statement { get; }
+        public PlanetExpression Expression { get; }
+
+        public PlanetResponds(string statement, PlanetExpression expression)
+        {
+            Statement = statement;
+            Expression = expression;
+        }
     }
 }

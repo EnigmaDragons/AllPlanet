@@ -1,12 +1,12 @@
-﻿namespace AllPlanet.Refute
+﻿namespace AllPlanet.Argument
 {
     public class Segue
     {
-        public string ArgumentPointToNavigateTo;
+        public string ArgumentName { get; }
 
-        public Segue(string argumentPointToNavigateTo)
+        public Segue(string argumentName)
         {
-            ArgumentPointToNavigateTo = argumentPointToNavigateTo;
+            ArgumentName = argumentName;
         }
     }
 }

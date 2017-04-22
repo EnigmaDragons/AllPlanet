@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AllPlanet.Planet
+﻿namespace AllPlanet.Planet
 {
-    class PlanetExpression
+    public enum PlanetExpression
     {
+        Worry,
+        Proud,
+        Challenging,
     }
 }

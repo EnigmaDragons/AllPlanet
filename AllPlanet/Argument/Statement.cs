@@ -1,26 +1,29 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using AllPlanet.Opponent;
 
-namespace AllPlanet.Refute
+namespace AllPlanet.Argument
 {
     public class Statement
     {
-        public string Comment;
-        private List<RefuteOption> _counters;
-        public List<string> Counters => _counters.Select((c) => c.Statement).ToList();
-        public bool IsRefutable => Counters.Count > 0;
+        private readonly List<RefuteOption> _options;
 
-        public Statement(string comment, List<RefuteOption> counters)
+        public string Message { get; }
+        public OpponentExpression Expression { get; }
+        public List<string> Options => _options.Select(c => c.Name).ToList();
+        public bool IsRefutable => Options.Count > 0;
+
+        public Statement(string message, List<RefuteOption> options)
         {
-            Comment = comment;
-            _counters = counters;
+            Message = message;
+            _options = options;
         }
 
-        public void Counter(string counterStatement)
+        public void Counter(string optionName)
         {
-            var counter = _counters.Find((c) => c.Statement == counterStatement);
-            counter.Go();
-            _counters.Remove(counter);
+            var counter = _options.Find(c => c.Name == optionName);
+            counter.Choose();
+            _options.Remove(counter);
         }
     }
 }

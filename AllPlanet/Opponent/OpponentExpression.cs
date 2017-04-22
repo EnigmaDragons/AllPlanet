@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AllPlanet.Opponent
+﻿namespace AllPlanet.Opponent
 {
-    class OpponentExpression
+    public enum OpponentExpression
     {
+        Upset,
+        Proud,
+        Challenging,
+        Bored
     }
 }

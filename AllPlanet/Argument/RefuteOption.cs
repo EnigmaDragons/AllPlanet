@@ -1,26 +1,33 @@
 ﻿using AllPlanet.Crowd;
+using AllPlanet.Planet;
+using AllPlanet.Refute;
 using MonoDragons.Core.Engine;
-using System;
 
-namespace AllPlanet.Refute
+namespace AllPlanet.Argument
 {
-    public class Counter
+    public class RefuteOption
     {
-        public string Statement;
-        private CrowdExpression _expression;
-        private string _argumentPointToNavigateTo;
+        public string Name { get; }
+        private readonly PlanetResponds _planetResponse;
+        private readonly OpponentResponds _opponentsResponse;
+        private readonly CrowdExpression _crowdExpression;
+        private readonly string _arguementName;
 
-        public Counter(string statement, CrowdExpression expression, string argumentPointToNavigateTo)
+        public RefuteOption(string name, PlanetResponds planetResponse, OpponentResponds opponentsResponse, CrowdExpression crowdExpression, string arguementName)
         {
-            Statement = statement;
-            _expression = expression;
-            _argumentPointToNavigateTo = argumentPointToNavigateTo;
+            Name = name;
+            _planetResponse = planetResponse;
+            _opponentsResponse = opponentsResponse;
+            _crowdExpression = crowdExpression;
+            _arguementName = arguementName;
         }
 
-        public void Go()
+        public void Choose()
         {
-            World.Publish(new CrowdExpresses(_expression));
-            World.Publish(new Segue(_argumentPointToNavigateTo));
+            World.Publish(_planetResponse);
+            World.Publish(_opponentsResponse);
+            World.Publish(new CrowdExpresses(_crowdExpression));
+            World.Publish(new Segue(_arguementName));
         }
     }
 }
