@@ -22,7 +22,6 @@ namespace AllPlanet.Scenes
             _clickUi.Add(_debate.Branch);
             _clickUi.Add(_player.Branch);
             World.Publish(new PresentationStarted());
-            World.Publish(new ReadyForSegue("lava"));
         }
 
         public void Update(TimeSpan delta)
