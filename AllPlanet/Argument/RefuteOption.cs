@@ -8,20 +8,20 @@ namespace AllPlanet.Argument
     {
         public ArgumentType Type { get; }
 
-        private readonly string _nextNextArgumentName;
+        private readonly string _nextArgumentName;
         private readonly List<object> _responses;
 
         public RefuteOption(ArgumentType arguementType, string nextArgumentName, params object[] responses)
         {
             Type = arguementType;
-            _nextNextArgumentName = nextArgumentName;
+            _nextArgumentName = nextArgumentName;
             _responses = responses.ToList();
         }
 
         public void Choose()
         {
             _responses.ForEach(World.Publish);
-            World.Publish(new Segue(_nextNextArgumentName));
+            World.Publish(new Segue(_nextArgumentName));
         }
     }
 }

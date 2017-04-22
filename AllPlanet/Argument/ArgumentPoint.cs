@@ -21,13 +21,13 @@ namespace AllPlanet.Argument
 
         public void Next()
         {
-            _indexer = Math.Max(_indexer + 1, Statements.Length - 1);
+            _indexer = Math.Min(_indexer + 1, Statements.Length - 1);
             CurrentStatement = Statements[_indexer];
         }
 
         public void Prior()
         {
-            _indexer = Math.Min(_indexer - 1, 0);
+            _indexer = Math.Max(_indexer - 1, 0);
             CurrentStatement = Statements[_indexer];
         }
 

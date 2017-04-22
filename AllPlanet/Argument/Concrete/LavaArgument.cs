@@ -1,9 +1,7 @@
-﻿using System.Collections.Generic;
-using AllPlanet.Argument.Concrete;
+﻿using AllPlanet.Argument.Concrete;
 using AllPlanet.Crowd;
 using AllPlanet.Opponent;
 using AllPlanet.Planet;
-using AllPlanet.Refute;
 
 namespace AllPlanet.Argument
 {

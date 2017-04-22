@@ -1,6 +1,5 @@
 ﻿using AllPlanet.Crowd;
 using AllPlanet.Opponent;
-using AllPlanet.Refute;
 
 namespace AllPlanet.Argument.Concrete
 {
