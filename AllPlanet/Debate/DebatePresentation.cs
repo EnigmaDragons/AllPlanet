@@ -41,8 +41,14 @@ namespace AllPlanet.Debate
         private void StartPresentation(PresentationStarted obj)
         {
             _curtain.Raise();
-            _remainingTransitionMillis = 2000;
             _readyForTransition = false;
+#if DEBUG
+            _remainingTransitionMillis = 3500;
+            Audio.PlaySound("crowd-clapping-short");
+#else
+            _remainingTransitionMillis = 8500;
+            Audio.PlaySound("crowd-clapping-long");
+#endif
         }
 
         private void Segue(ReadyForSegue obj)
