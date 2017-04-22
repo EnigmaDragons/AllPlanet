@@ -22,6 +22,8 @@ namespace AllPlanet.Scenes
 
         public void Update(TimeSpan delta)
         {
+            _crowdUi.Update(delta);
+            _stageUi.Update(delta);
         }
 
         public void Draw()
