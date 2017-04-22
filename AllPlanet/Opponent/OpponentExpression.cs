@@ -2,7 +2,7 @@
 {
     public enum OpponentExpression
     {
-        Upset,
+        Worried,
         Proud,
         Challenging,
         Bored

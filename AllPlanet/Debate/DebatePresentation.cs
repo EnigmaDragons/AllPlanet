@@ -6,6 +6,7 @@ using MonoDragons.Core.Audio;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.EventSystem;
 using MonoDragons.Core.PhysicsEngine;
+using MonoDragons.Core.UserInterface;
 
 namespace AllPlanet.Debate
 {
@@ -23,6 +24,8 @@ namespace AllPlanet.Debate
         private bool _shouldShowCrowd;
         private bool _readyForTransition;
 
+        public ClickUIBranch Branch { get; }
+
         public DebatePresentation()
         {
             _refutation = new RefutationUI(new CurrentPoint());
@@ -30,6 +33,8 @@ namespace AllPlanet.Debate
             _mic = new DebateMicrophone();
             _stageUi = new StageUI();
             _crowdUi = new CrowdUI();
+            Branch = new ClickUIBranch("DebatePresentation", 1);
+            Branch.Add(_refutation.Branch);
             _stream = new EventPipe();
             _stream.Subscribe<PresentationStarted>(StartPresentation);
             _stream.Subscribe<PlanetResponds>(PlanetSays);

@@ -38,6 +38,7 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Player\ArgumentLearned.cs" />
     <Compile Include="Argument\ArgumentNavUI.cs" />
     <Compile Include="Argument\CurrentPoint.cs" />
     <Compile Include="Argument\ReadyForSegue.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="Debate\Side.cs" />
     <Compile Include="Debate\StageUI.cs" />
     <Compile Include="Opponent\OpponentExpression.cs" />
+    <Compile Include="Player\ArgumentLearnedUI.cs" />
     <Compile Include="Planet\PlanetExpression.cs" />
     <Compile Include="Planet\PlanetResponds.cs" />
     <Compile Include="Planet\PlanetChar.cs" />
@@ -72,6 +74,7 @@
     <Compile Include="Argument\Segue.cs" />
     <Compile Include="Argument\Statement.cs" />
     <Compile Include="Argument\ArgumentPoint.cs" />
+    <Compile Include="Scenes\ArgumentLearnedUITest.cs" />
     <Compile Include="Scenes\Intro.cs" />
     <Compile Include="Scenes\DebateScene.cs" />
     <Compile Include="Scenes\SpeechUITest.cs" />
@@ -127,6 +130,9 @@
     <Content Include="Content\Props\podium-r.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Sounds\argument-learned.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Sounds\crowd-boo.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -139,6 +145,9 @@
     <Content Include="Content\Sounds\crowd-clapping-short.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\UI\argument-learned.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\UI\back-button.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -149,6 +158,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\UI\cancelbutton-pressed.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\checkmark.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\UI\next-button.png">
