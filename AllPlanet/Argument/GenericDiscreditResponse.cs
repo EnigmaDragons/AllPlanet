@@ -1,4 +1,4 @@
-﻿using AllPlanet.Crowd;
+﻿using AllPlanet.Crowds;
 using AllPlanet.Opponent;
 
 namespace AllPlanet.Argument.Concrete

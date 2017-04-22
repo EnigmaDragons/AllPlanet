@@ -1,6 +1,6 @@
 ﻿using System;
 using AllPlanet.Argument;
-using AllPlanet.Crowd;
+using AllPlanet.Crowds;
 using AllPlanet.Planet;
 using MonoDragons.Core.Audio;
 using MonoDragons.Core.Engine;

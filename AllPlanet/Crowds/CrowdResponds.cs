@@ -1,4 +1,4 @@
-﻿namespace AllPlanet.Crowd
+﻿namespace AllPlanet.Crowds
 {
     public class CrowdResponds
     {
