@@ -13,7 +13,7 @@ namespace MonoDragons.Core.UserInterface
         private readonly ColoredRectangle _background = new ColoredRectangle();
         private readonly IWrapText _textWrapper;
 
-        public string Font { get; set; } = "Fonts/Arial";
+        public string Font { get; set; } = DefaultFont.Name;
         public Color TextColor { get; set; } = Color.White;
 
         public Transform2 Transform
@@ -33,7 +33,7 @@ namespace MonoDragons.Core.UserInterface
             set { RawText = value; }
         }
 
-        public string RawText { get; set; }
+        public string RawText { get; set; } = "";
 
         public Label()
         {

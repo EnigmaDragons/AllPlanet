@@ -22,10 +22,11 @@ namespace AllPlanet.Debate
         private readonly StageUI _stageUi;
         private readonly CrowdUI _crowdUi;
         private readonly StageCurtain _curtain;
-        private ClickUI _clickUi;
         private int _remainingTransitionMillis;
         private bool _shouldShowCrowd;
         private bool _readyForTransition;
+
+        public ClickUIBranch Branch { get; }
 
         public DebatePresentation()
         {
@@ -34,10 +35,10 @@ namespace AllPlanet.Debate
             _mic = new DebateMicrophone();
             _stageUi = new StageUI();
             _crowdUi = new CrowdUI();
+            Branch = new ClickUIBranch("DebatePresentation", 1);
+            Branch.Add(_refutation.Branch);
             _stream = new EventPipe();
-            _clickUi = new ClickUI();
-            _clickUi.Add(new SimpleClickable(new Rectangle(new Point(0, 0), new Point(1600, 900)), () => World.Publish(new AdvanceRequested())));
-            _clickUi.Add(_refutation.ClickUiBranch);
+            Branch.Add(new SimpleClickable(new Rectangle(new Point(0, 0), new Point(1600, 900)), () => World.Publish(new AdvanceRequested())));
             _stream.Subscribe<PresentationStarted>(StartPresentation);
             _stream.Subscribe<PlanetResponds>(PlanetSays);
             _stream.Subscribe<OpponentResponds>(OpponentSays);
@@ -101,8 +102,7 @@ namespace AllPlanet.Debate
 
             if (_readyForTransition && _stream.HasNext)
                 _stream.Dequeue();
-
-            _clickUi.Update(delta);
+            
             _curtain.Update(delta);
             _mic.Update(delta);
             _refutation.Update(delta);
