@@ -9,12 +9,18 @@ namespace MonoDragons.Core.UserInterface
     {
         private readonly ImageButton _button;
         private readonly Label _label;
+        private readonly Func<bool> _isVisible;
 
         public string Text { set { _label.Text = value; } }
 
-        public ImageTextButton(string text, string basic, string hover, string press, Transform2 transform, Action onClick) : base(transform.ToRectangle())
+        public ImageTextButton(string text, string basic, string hover, string press, Transform2 transform, Action onClick)
+            : this(text, basic, hover, press, transform, onClick, null) { }
+
+        public ImageTextButton(string text, string basic, string hover, string press, Transform2 transform, Action onClick, Func<bool> isVisible)
+            : base(transform.ToRectangle())
         {
-            _button = new ImageButton(basic, hover, press, transform, onClick);
+            _isVisible = isVisible ?? new Func<bool>(() => true);
+            _button = new ImageButton(basic, hover, press, transform, onClick, _isVisible);
             _label = new Label { BackgroundColor = Color.Transparent, Text = text, Transform = transform, TextColor = Color.White };
         }
 
@@ -40,8 +46,11 @@ namespace MonoDragons.Core.UserInterface
 
         public void Draw(Transform2 parentTransform)
         {
-            _button.Draw(parentTransform);
-            _label.Draw(parentTransform);
+            if (_isVisible())
+            {
+                _button.Draw(parentTransform);
+                _label.Draw(parentTransform);
+            }
         }
     }
 }
