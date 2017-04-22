@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoDragons.Core.Memory;
+using MonoDragons.Core.Text;
 
 namespace MonoDragons.Core.UserInterface
 {
@@ -58,14 +59,17 @@ namespace MonoDragons.Core.UserInterface
 
         public static void DrawTextCentered(string text, Rectangle area, Color color)
         {
-            var size = DefaultFont.Font.MeasureString(text);
-            DrawText(text, GetCenteredPosition(area, size), color);
+            var wrapped = new WrappingText(() => DefaultFont.Font, () => area.Width).Wrap(text);
+            var size = DefaultFont.Font.MeasureString(wrapped);
+            DrawText(wrapped, GetCenteredPosition(area, size), color);
         }
-
+        
         public static void DrawTextCentered(string text, Rectangle area, Color color, string font)
         {
-            var size = Resources.Load<SpriteFont>(font).MeasureString(text);
-            DrawText(text, GetCenteredPosition(area, size), color, font);
+            var spriteFont = Resources.Load<SpriteFont>(font);
+            var wrapped = new WrappingText(() => spriteFont, () => area.Width).Wrap(text);
+            var size = spriteFont.MeasureString(wrapped);
+            DrawText(wrapped, GetCenteredPosition(area, size), color, font);
         }
 
         private static Vector2 GetCenteredPosition(Rectangle area, Vector2 size)

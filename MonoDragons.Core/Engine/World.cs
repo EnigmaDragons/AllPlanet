@@ -12,6 +12,7 @@ using MonoDragons.Core.Common;
 using MonoDragons.Core.EventSystem;
 using MonoDragons.Core.Memory;
 using MonoDragons.Core.PhysicsEngine;
+using MonoDragons.Core.Text;
 using MonoDragons.Core.UserInterface;
 
 namespace MonoDragons.Core.Engine

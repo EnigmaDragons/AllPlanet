@@ -13,7 +13,7 @@ namespace AllPlanet.Debate
         private string _speechbubbleleft = "UI/speechbubble";
         private string _speechbubbleright = "UI/speechbubble-r";
 
-        private string _currentDisplayMessage = "Enter message is deing displayed. Hello.";
+        private string _currentDisplayMessage = "";
         private Side _currentSide = Side.Left;
         private string _currentContent = "";
         private long _totalMessageTime = 0;
@@ -28,9 +28,12 @@ namespace AllPlanet.Debate
 
         public void Draw(Transform2 parentTransform)
         {
+            if (_currentDisplayMessage.Equals(""))
+                return;
+
             var bubble = _currentSide.Equals(Side.Left) ? _speechbubbleleft : _speechbubbleright;
             UI.DrawCenteredWithOffset(bubble, new Vector2(800, 200), new Vector2(0, -300));
-            UI.DrawTextCentered(_currentContent, new Rectangle(0, 0, 1600, 300), Color.Black);
+            UI.DrawTextCentered(_currentContent, new Rectangle(470, 0, 680, 300), Color.Black);
         }
 
         public void Show(string message, Side side)

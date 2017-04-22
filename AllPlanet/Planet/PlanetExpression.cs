@@ -2,7 +2,9 @@
 {
     public enum PlanetExpression
     {
-        Worry,
+        Neutral,
+        Thinking,
+        Worried,
         Proud,
         Challenging,
     }

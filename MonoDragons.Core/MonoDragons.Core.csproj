@@ -105,6 +105,8 @@
     <Compile Include="Render\Animations.cs" />
     <Compile Include="Render\Camera.cs" />
     <Compile Include="Navigation\FadingInScene.cs" />
+    <Compile Include="Text\IWrapText.cs" />
+    <Compile Include="Text\WrappingText.cs" />
     <Compile Include="UserInterface\AutoSizingLabel.cs" />
     <Compile Include="UserInterface\Bordered.cs" />
     <Compile Include="UserInterface\ClickUIBranch.cs" />
@@ -120,7 +122,7 @@
     <Compile Include="UserInterface\ClickableUIElement.cs" />
     <Compile Include="UserInterface\ClickUI.cs" />
     <Compile Include="UserInterface\ImageBox.cs" />
-    <Compile Include="UserInterface\DefaultFont.cs" />
+    <Compile Include="Text\DefaultFont.cs" />
     <Compile Include="UserInterface\ImageButton.cs" />
     <Compile Include="UserInterface\NoneClickableUIElement.cs" />
     <Compile Include="UserInterface\OffsetClickableUIElement.cs" />
