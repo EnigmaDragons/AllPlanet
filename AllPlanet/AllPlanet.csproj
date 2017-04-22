@@ -45,6 +45,12 @@
     <Compile Include="Debate\StageUI.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Refute\Counters.cs" />
+    <Compile Include="Crowd\CrowdExpression.cs" />
+    <Compile Include="Crowd\CrowdExpresses.cs" />
+    <Compile Include="Refute\Segue.cs" />
+    <Compile Include="Refute\Statement.cs" />
+    <Compile Include="Refute\ArgumentPoint.cs" />
     <Compile Include="Scenes\Intro.cs" />
     <Compile Include="Scenes\DebateScene.cs" />
     <Compile Include="Sizes.cs" />
