@@ -39,12 +39,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Argument\ArgumentType.cs" />
+    <Compile Include="Argument\GenericDiscreditResponse.cs" />
     <Compile Include="Argument\Concrete\LavaArgument.cs" />
     <Compile Include="Characters\OpponentState.cs" />
     <Compile Include="Characters\OpponentStateChanged.cs" />
     <Compile Include="Characters\Scientist3.cs" />
     <Compile Include="Opponent\OpponentResponds.cs" />
     <Compile Include="Crowd\CrowdUI.cs" />
+    <Compile Include="Debate\SpeechUI.cs" />
+    <Compile Include="Debate\Side.cs" />
     <Compile Include="Debate\StageUI.cs" />
     <Compile Include="Opponent\OpponentExpression.cs" />
     <Compile Include="Planet\PlanetExpression.cs" />
@@ -54,11 +57,13 @@
     <Compile Include="Argument\RefuteOption.cs" />
     <Compile Include="Crowd\CrowdExpression.cs" />
     <Compile Include="Crowd\CrowdResponds.cs" />
+    <Compile Include="Argument\RefuteButton.cs" />
     <Compile Include="Argument\Segue.cs" />
     <Compile Include="Argument\Statement.cs" />
     <Compile Include="Argument\ArgumentPoint.cs" />
     <Compile Include="Scenes\Intro.cs" />
     <Compile Include="Scenes\DebateScene.cs" />
+    <Compile Include="Scenes\SpeechUITest.cs" />
     <Compile Include="Sizes.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -94,6 +99,18 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Props\podium-r.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\refutebutton-default.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\refutebutton-hover.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\refutebutton-pressed.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\speechbubble.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Icon.ico" />

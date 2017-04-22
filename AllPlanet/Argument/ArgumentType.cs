@@ -2,6 +2,7 @@
 {
     public enum ArgumentType
     {
+        Discredit,
         FakeStatistic
     }
 }
