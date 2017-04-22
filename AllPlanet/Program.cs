@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using AllPlanet.Scenes;
 using Microsoft.Xna.Framework.Input;
 using MonoDragons.Core.EngimaDragons;
 using MonoDragons.Core.Engine;
@@ -14,7 +15,7 @@ namespace AllPlanet
         [STAThread]
         static void Main()
         {
-            using (var game = new MainGame("Logo", new ScreenSettings(1600, 900, false), CreateSceneFactory(), CreateKeyboardController()))
+            using (var game = new MainGame("Debate", new ScreenSettings(1600, 900, false), CreateSceneFactory(), CreateKeyboardController()))
                 game.Run();
         }
 
@@ -33,6 +34,7 @@ namespace AllPlanet
             return new SceneFactory(new Dictionary<string, Func<IScene>>
             {
                 { "Logo", () => new FadingInScene(new LogoScene()) },
+                { "Debate", () => new DebateScene() },
             });
         }
     }
