@@ -24,18 +24,15 @@ namespace MonoDragons.Core.UserInterface
             var colorData = new Color[(_rangeDoubled + 1) * (_rangeDoubled + 1)];
 
             var diam = _rangeDoubled / 2f;
-            var diamsq = diam * diam; //TODO FIX THIS
-            // 90 degree = 2 per layer, 1 --=+=-- 2 -----=+++=-----
+            var diamsq = diam * diam;
+
             for (var x = 0; x < _rangeDoubled + 1; x++)
                 for (var y = 0; y < _rangeDoubled + 1; y++)
                 {
                     var index = x  + y * _rangeDoubled;
                     var layer = Math.Max(Math.Abs(x - diam), Math.Abs(y - diam));
-                    if (y >= diam)
-                        x = x;
-                    var a = 2 * (_rangeDoubled - y);
                     var requirement = y >= diam
-                        ? Math.Abs(2 * (x - diam)) + 2 * (_rangeDoubled - y)
+                        ? Math.Abs(2 * (x - diam)) + 2 * (diam + layer - y)
                         : 4 * layer + 2 * (layer - Math.Abs(diam - x)) + 2 * (diam - y);
                     var pos = new Vector2(x - diam, y - diam);
                     if (pos.LengthSquared() <= diamsq && layer * _angle.Value / 45 >= requirement)
