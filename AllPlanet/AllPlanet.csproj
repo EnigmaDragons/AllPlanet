@@ -38,6 +38,7 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Argument\ArgumentNavUI.cs" />
     <Compile Include="Argument\StatementChanged.cs" />
     <Compile Include="Argument\ArgumentPointFactory.cs" />
     <Compile Include="Argument\RefutationUI.cs" />
@@ -61,7 +62,7 @@
     <Compile Include="Argument\RefuteOption.cs" />
     <Compile Include="Crowd\CrowdExpression.cs" />
     <Compile Include="Crowd\CrowdResponds.cs" />
-    <Compile Include="Argument\RefuteButton.cs" />
+    <Compile Include="Argument\Buttons.cs" />
     <Compile Include="Argument\Segue.cs" />
     <Compile Include="Argument\Statement.cs" />
     <Compile Include="Argument\ArgumentPoint.cs" />
@@ -115,6 +116,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\UI\back-button.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\cancelbutton-default.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\cancelbutton-hover.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\cancelbutton-pressed.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\UI\next-button.png">

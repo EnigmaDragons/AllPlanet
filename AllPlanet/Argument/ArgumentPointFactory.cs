@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Dynamic;
 using AllPlanet.Argument.Concrete;
 
 namespace AllPlanet.Argument
