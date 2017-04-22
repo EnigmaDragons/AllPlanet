@@ -38,6 +38,7 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Argument\ArgumentLearned.cs" />
     <Compile Include="Player\ArgumentLearned.cs" />
     <Compile Include="Argument\AdvanceArgument.cs" />
     <Compile Include="Argument\ArgumentNavUI.cs" />
