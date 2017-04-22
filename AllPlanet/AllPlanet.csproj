@@ -43,6 +43,7 @@
     <Compile Include="Argument\CurrentPoint.cs" />
     <Compile Include="Argument\ReadyForSegue.cs" />
     <Compile Include="Argument\RefutationStarted.cs" />
+    <Compile Include="Argument\Score.cs" />
     <Compile Include="Argument\StatementChanged.cs" />
     <Compile Include="Argument\ArgumentPointFactory.cs" />
     <Compile Include="Argument\RefutationUI.cs" />

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using AllPlanet.Crowd;
-using AllPlanet.Planet;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.EventSystem;
 
@@ -14,16 +11,22 @@ namespace AllPlanet.Argument
 
         private readonly string _nextArgumentName;
         private readonly List<object> _responses;
+        private readonly int _score;
 
         public RefuteOption(ArgumentType arguementType, string nextArgumentName, params object[] responses)
+            : this(arguementType, nextArgumentName, 0, responses) { }
+
+        public RefuteOption(ArgumentType arguementType, string nextArgumentName, int score, params object[] responses)
         {
             Type = arguementType;
             _nextArgumentName = nextArgumentName;
             _responses = responses.ToList();
+            _score = score;
         }
 
         public void Choose()
         {
+            World.Publish(new Score(_score));
             World.Publish(_responses[0]);
             _responses.RemoveAt(0);
             if(_responses.Count != 0)
