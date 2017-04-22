@@ -15,7 +15,7 @@ namespace AllPlanet
         [STAThread]
         static void Main()
         {
-            using (var game = new MainGame("Debate", new ScreenSettings(1600, 900, false), CreateSceneFactory(), CreateKeyboardController()))
+            using (var game = new MainGame("Speech", new ScreenSettings(1600, 900, false), CreateSceneFactory(), CreateKeyboardController()))
                 game.Run();
         }
 
@@ -35,6 +35,7 @@ namespace AllPlanet
             {
                 { "Logo", () => new FadingInScene(new LogoScene()) },
                 { "Debate", () => new DebateScene() },
+                { "Speech", () => new SpeechUITest() },
             });
         }
     }
