@@ -17,8 +17,8 @@ namespace AllPlanet.Scenes
         {
             _ui = new SpeechUI();
             cone = new ColoredCone();
-            cone.Transform = new Transform2(new Size2(10, 10));
-            cone.angle = new Rotation2(360);
+            cone.Transform = new Transform2(new Size2(200, 200));
+            cone.angle = new Rotation2(90);
             cone.Color = Color.Red;
             
         }
