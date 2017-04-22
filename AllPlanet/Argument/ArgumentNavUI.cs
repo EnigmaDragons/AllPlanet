@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using MonoDragons.Core.Engine;
+using MonoDragons.Core.Inputs;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
 
@@ -25,6 +26,14 @@ namespace AllPlanet.Argument
             _nextButton = Buttons.CreateNext(new Transform2(new Vector2(1500, 400), new Size2(64, 64)), Next, () => HasNext);
             Branch.Add(_nextButton);
             Branch.Add(_backButton);
+
+            Input.OnDirection(d =>
+            {
+                if (d.HDir == HorizontalDirection.Left && HasBack)
+                    Back();
+                else if (d.HDir == HorizontalDirection.Right && HasNext)
+                    Next();
+            });
         }
 
         public void Draw(Transform2 parentTransform)
