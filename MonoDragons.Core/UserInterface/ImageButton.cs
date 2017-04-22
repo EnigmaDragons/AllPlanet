@@ -11,10 +11,14 @@ namespace MonoDragons.Core.UserInterface
         private readonly string _press;
         private readonly Transform2 _transform;
         private readonly Action _onClick;
-        
+        private readonly Func<bool> _isVisible;
+
         private string _current;
 
-        public ImageButton(string basic, string hover, string press, Transform2 transform, Action onClick) 
+        public ImageButton(string basic, string hover, string press, Transform2 transform, Action onClick)
+            : this(basic, hover, press, transform, onClick, null) { }
+
+        public ImageButton(string basic, string hover, string press, Transform2 transform, Action onClick, Func<bool> isVisible)
             : base(transform.ToRectangle())
         {
             _basic = basic;
@@ -22,12 +26,17 @@ namespace MonoDragons.Core.UserInterface
             _press = press;
             _transform = transform;
             _onClick = onClick;
+            _isVisible = isVisible ?? new Func<bool>(() => true);
+
             _current = _basic;
         }
 
+
+
         public void Draw(Transform2 parentTransform)
         {
-            World.Draw(_current, parentTransform + _transform);
+            if (_isVisible())
+                World.Draw(_current, parentTransform + _transform);
         }
 
         public override void OnEntered()
@@ -48,12 +57,14 @@ namespace MonoDragons.Core.UserInterface
         public override void OnReleased()
         {
             _current = _basic;
-            _onClick.Invoke();
+
+            if (_isVisible())
+                _onClick.Invoke();
         }
 
         public override string ToString()
         {
-            return _basic;
+            return _current;
         }
     }
 }

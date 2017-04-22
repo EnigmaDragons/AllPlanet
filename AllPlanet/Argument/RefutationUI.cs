@@ -26,13 +26,15 @@ namespace AllPlanet.Argument
             _navBranch = new ClickUIBranch("Nav", 1);
             _clickUi = new ClickUI();
             _clickUi.Add(_navBranch);
-            _backButton = new ImageButton("UI/back-button", "UI/back-button", "UI/back-button",
-                new Transform2(new Vector2(100, 400), new Size2(64, 64)), Back);
-            _nextButton = new ImageButton("UI/next-button", "UI/next-button", "UI/next-button",
-                new Transform2(new Vector2(1500, 400), new Size2(64, 64)), Next);
+
             _currentPoint = new LavaArgument().Argument;
             _currentStatement = _currentPoint.CurrentStatement;
             _currentStatementChanged = true;
+            _backButton = new ImageButton("UI/back-button", "UI/back-button", "UI/back-button",
+                new Transform2(new Vector2(100, 400), new Size2(64, 64)), Back, () => _currentPoint.HasPrior);
+            _nextButton = new ImageButton("UI/next-button", "UI/next-button", "UI/next-button",
+                new Transform2(new Vector2(1500, 400), new Size2(64, 64)), Next, () => _currentPoint.HasNext);
+
             World.Subscribe(EventSubscription.Create<Segue>(UpdatePoint, this));
         }
 
