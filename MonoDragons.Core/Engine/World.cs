@@ -81,6 +81,13 @@ namespace MonoDragons.Core.Engine
             _spriteBatch.Draw(texture, rectPosition, Color.White);
         }
 
+        public static void Draw(Texture2D texture, Rectangle rectPosition, Rotation2 rotation)
+        {
+            Resources.Put(texture.GetHashCode().ToString(), texture);
+            _spriteBatch.Draw(texture, null, rectPosition, null, new Vector2(rectPosition.Width / 2, rectPosition.Height / 2),
+                rotation.Value, new Vector2(1, 1));
+        }
+
         [DebuggerStepThrough]
         public static void Publish<T>(T payload)
         {

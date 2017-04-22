@@ -1,4 +1,5 @@
 ﻿using AllPlanet.Refute;
+using MonoDragons.Core.Engine;
 using System;
 
 namespace AllPlanet.Argument
@@ -22,17 +23,21 @@ namespace AllPlanet.Argument
         {
             indexer = Math.Max(indexer + 1, Statements.Length - 1);
             CurrentStatement = Statements[indexer];
+            World.Publish(new StatementChanged(CurrentStatement));
         }
 
         public void Prior()
         {
             indexer = Math.Min(indexer - 1, 0);
             CurrentStatement = Statements[indexer];
+            World.Publish(new StatementChanged(CurrentStatement));
         }
 
         public void Reset()
         {
+            indexer = 0;
             CurrentStatement = Statements[0];
+            World.Publish(new StatementChanged(CurrentStatement));
         }
     }
 }

@@ -17,13 +17,13 @@ namespace MonoDragons.Core.Graphics
 
         public Texture2D Create()
         {
-            var colorData = new Color[_radius * _radius];
+            var colorData = new Color[(_radius + 1) * (_radius + 1)];
 
             var diam = _radius / 2f;
             var diamsq = diam * diam;
 
-            for (var x = 0; x < _radius; x++)
-                for (var y = 0; y < _radius; y++)
+            for (var x = 0; x < _radius + 1; x++)
+                for (var y = 0; y < _radius + 1; y++)
                 {
                     var index = x * _radius + y;
                     var pos = new Vector2(x - diam, y - diam);

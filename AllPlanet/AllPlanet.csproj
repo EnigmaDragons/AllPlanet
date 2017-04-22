@@ -38,6 +38,7 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Argument\StatementChanged.cs" />
     <Compile Include="Characters\OpponentState.cs" />
     <Compile Include="Characters\OpponentStateChanged.cs" />
     <Compile Include="Characters\Scientist3.cs" />

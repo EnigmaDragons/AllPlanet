@@ -8,7 +8,7 @@ namespace MonoDragons.Core.Graphics
     {
         public Color Next()
         {
-            return new Color(Rng.Int(255), Rng.Int(255), Rng.Int(255));
+            return new Color(Rng.Int(256), Rng.Int(256), Rng.Int(256));
         }
     }
 }
