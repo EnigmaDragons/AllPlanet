@@ -49,6 +49,7 @@
     <Compile Include="Characters\OpponentState.cs" />
     <Compile Include="Characters\OpponentStateChanged.cs" />
     <Compile Include="Characters\Scientist3.cs" />
+    <Compile Include="Debate\DebateCamera.cs" />
     <Compile Include="Opponent\OpponentResponds.cs" />
     <Compile Include="Crowd\CrowdUI.cs" />
     <Compile Include="Debate\SpeechUI.cs" />

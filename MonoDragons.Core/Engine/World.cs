@@ -77,7 +77,7 @@ namespace MonoDragons.Core.Engine
                 rotation.Value, new Vector2(1, 1));
         }
 
-        [DebuggerStepThrough]
+        //[DebuggerStepThrough]
         public static void Publish<T>(T payload)
         {
             _events.Publish(payload);
