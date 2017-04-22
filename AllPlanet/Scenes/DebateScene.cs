@@ -17,7 +17,7 @@ namespace AllPlanet.Scenes
 
         public void Init()
         {
-            _refutation = new RefutationUI();
+            _refutation = new RefutationUI(new Segue("lava"));
             _stageUi = new StageUI();
             _crowdUi = new CrowdUI();
             Input.On(Control.A, () => _shouldShowCrowd = !_shouldShowCrowd);

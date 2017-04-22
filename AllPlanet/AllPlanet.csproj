@@ -39,8 +39,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Argument\ArgumentNavUI.cs" />
+    <Compile Include="Argument\StatementChanged.cs" />
+    <Compile Include="Argument\ArgumentPointFactory.cs" />
     <Compile Include="Argument\RefutationUI.cs" />
     <Compile Include="Argument\ArgumentType.cs" />
+    <Compile Include="Argument\Concrete\PopsicleArgument.cs" />
     <Compile Include="Argument\GenericDiscreditResponse.cs" />
     <Compile Include="Argument\Concrete\LavaArgument.cs" />
     <Compile Include="Characters\OpponentState.cs" />

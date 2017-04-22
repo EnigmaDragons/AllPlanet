@@ -27,9 +27,9 @@ namespace AllPlanet.Argument
         private bool _isRefuting;
         private bool _isRefutingChanged;
 
-        public RefutationUI()
+        public RefutationUI(Segue segue)
         {
-            _navUi = new ArgumentNavUI();
+            _navUi = new ArgumentNavUI(segue);
             _darken = new ColoredRectangle { Color = Color.FromNonPremultiplied(0, 0, 0, 130), Transform = new Transform2(new Size2(1600, 900)) };
             _speech = new SpeechUI();
             _interactBranch = new ClickUIBranch("Interact", 2);
@@ -39,9 +39,7 @@ namespace AllPlanet.Argument
             _refuteButton = Buttons.CreateRefute(new Transform2(new Vector2(650, 650), new Size2(300, 95)), Refute);
             _cancelButton = Buttons.CreateCancel(new Transform2(new Vector2(650, 650), new Size2(300, 95)), Cancel);
             _interactBranch.Add(_refuteButton);
-            _currentPoint = new LavaArgument().Argument;
-            _currentStatement = _currentPoint.CurrentStatement;
-            _currentStatementChanged = true;
+            UpdatePoint(segue);
             World.Subscribe(EventSubscription.Create<Segue>(UpdatePoint, this));
         }
 
@@ -61,15 +59,21 @@ namespace AllPlanet.Argument
 
         public void Update(TimeSpan delta)
         {
-            var currentStatementChanged = _currentStatement != _currentPoint.CurrentStatement;
-            if (currentStatementChanged)
-                _speech.Show(_currentStatement.Message, Side.Right);
-
+            UpdateCurrentStatement();
             if (_isRefutingChanged)
                 UpdateRefuting();
 
+            _navUi.Update(delta);
             _speech.Update(delta);
             _clickUi.Update(delta);
+        }
+
+        private void UpdateCurrentStatement()
+        {
+            var currentStatementChanged = _currentStatement != _currentPoint.CurrentStatement;
+            _currentStatement = _currentPoint.CurrentStatement;
+            if (currentStatementChanged)
+                _speech.Show(_currentStatement.Message, Side.Right);
         }
 
         public void Draw(Transform2 parentTransform)
@@ -90,7 +94,7 @@ namespace AllPlanet.Argument
 
         private void UpdatePoint(Segue segue)
         {
-            // TODO: Implement once I have a provider
+            _currentPoint = ArgumentPointFactory.Create(segue.ArgumentName);
         }
 
         private void UpdateRefuting()

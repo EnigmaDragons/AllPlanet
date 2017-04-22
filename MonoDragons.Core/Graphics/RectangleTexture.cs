@@ -11,9 +11,7 @@ namespace MonoDragons.Core.Graphics
         private readonly int _height;
         private readonly Color _color;
 
-        public RectangleTexture(Rectangle rect, Color color)
-            : this (rect.Size.X, rect.Size.Y, color) { }
-
+        public RectangleTexture(Rectangle rect, Color color) : this (rect.Size.X, rect.Size.Y, color) { }
         public RectangleTexture(Size2 size, Color color) : this(size.Width, size.Height, color) { }
 
         public RectangleTexture(int width, int height, Color color)

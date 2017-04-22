@@ -107,7 +107,9 @@
     <Compile Include="UserInterface\AutoSizingLabel.cs" />
     <Compile Include="UserInterface\Bordered.cs" />
     <Compile Include="UserInterface\ClickUIBranch.cs" />
+    <Compile Include="UserInterface\ColoredCone.cs" />
     <Compile Include="UserInterface\ColoredRectangle.cs" />
+    <Compile Include="Graphics\ConeTexture.cs" />
     <Compile Include="UserInterface\IconButton.cs" />
     <Compile Include="UserInterface\ImageLabel.cs" />
     <Compile Include="UserInterface\ImageTextButton.cs" />

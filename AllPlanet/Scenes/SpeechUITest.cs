@@ -11,21 +11,29 @@ namespace AllPlanet.Scenes
     public class SpeechUITest : IScene
     {
         private SpeechUI _ui;
+        private ColoredCone cone;
 
         public void Init()
         {
             _ui = new SpeechUI();
+            cone = new ColoredCone();
+            cone.Transform = new Transform2(new Size2(10, 10));
+            cone.angle = new Rotation2(360);
+            cone.Color = Color.Red;
+            
         }
 
         public void Update(TimeSpan delta)
         {
             _ui.Update(delta);
+
         }
 
         public void Draw()
         {
             UI.DrawBackgroundColor(Color.White);
             _ui.Draw(Transform2.Zero);
+            cone.Draw(new Transform2(new Vector2(100, 100)));
         }
     }
 }
