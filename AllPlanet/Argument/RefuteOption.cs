@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using AllPlanet.Crowd;
 using AllPlanet.Planet;
 using MonoDragons.Core.Engine;
+using MonoDragons.Core.EventSystem;
 
 namespace AllPlanet.Argument
 {
@@ -22,19 +24,19 @@ namespace AllPlanet.Argument
 
         public void Choose()
         {
-            // TODO: Kill this once Event Publishing is upgraded
-            _responses.ForEach(PublishRetyped);
+            World.Publish(_responses[0]);
+            _responses.RemoveAt(0);
+            if(_responses.Count != 0)
+                World.Subscribe(EventSubscription.Create<AdvanceArgument>((A) => Continue(), this));
             World.Publish(new ReadyForSegue(_nextArgumentName));
         }
 
-        private void PublishRetyped(object o)
+        private void Continue()
         {
-            if (o is PlanetResponds)
-                World.Publish((PlanetResponds)o);
-            if (o is CrowdResponds)
-                World.Publish((CrowdResponds)o);
-            if (o is OpponentResponds)
-                World.Publish((OpponentResponds)o);
+            World.Publish(_responses[0]);
+            _responses.RemoveAt(0);
+            if (_responses.Count == 0)
+                World.Unsubscribe(this);
         }
     }
 }
