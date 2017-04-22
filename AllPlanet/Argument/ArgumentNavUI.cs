@@ -20,7 +20,7 @@ namespace AllPlanet.Argument
         public ArgumentNavUI(CurrentPoint point)
         {
             _currentPoint = point;
-            Branch = new ClickUIBranch("Nav", 1);
+            Branch = new ClickUIBranch("Nav", (int)ClickBranchPriority.Navigation);
             _backButton = Buttons.CreateBack(new Transform2(new Vector2(100, 400), new Size2(64, 64)), Back, () => HasBack);
             _nextButton = Buttons.CreateNext(new Transform2(new Vector2(1500, 400), new Size2(64, 64)), Next, () => HasNext);
             Branch.Add(_nextButton);

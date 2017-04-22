@@ -21,7 +21,7 @@ namespace AllPlanet.Player
 
         public ArgumentLearnedUI()
         {
-            Branch = new ClickUIBranch("Learn", 8);
+            Branch = new ClickUIBranch("Learn", (int)ClickBranchPriority.Learn);
             _title = new Label { BackgroundColor = Color.Transparent, Transform = new Transform2(new Vector2(250, 200), new Size2(1100, 100)), Text = "New Argument Learned!" };
             _name = new Label { BackgroundColor = Color.Transparent, Transform = new Transform2(new Vector2(250, 200 + 75), new Size2(1100, 100)), Text = "File a bug ticket if you see this."};
             _desc = new Label { BackgroundColor = Color.Transparent, Transform = new Transform2(new Vector2(250, 200 + 150), new Size2(1100, 100)) };

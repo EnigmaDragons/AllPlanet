@@ -95,7 +95,7 @@ namespace MonoDragons.Core.UserInterface
 
         public ClickableUIElement GetElement(Point mousePosition)
         {
-            var element = _elements.FirstOrDefault(x => x.Area.Contains(mousePosition - totalLocation.ToPoint()));
+            var element = _elements.FirstOrDefault(x => x.Area.Contains(mousePosition - totalLocation.ToPoint()) && x.IsEnabled);
             return element ?? ClickUI.None;
         }
 
