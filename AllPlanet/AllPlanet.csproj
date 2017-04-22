@@ -85,6 +85,7 @@
     <Compile Include="Scenes\Intro.cs" />
     <Compile Include="Scenes\DebateScene.cs" />
     <Compile Include="Scenes\SpeechUITest.cs" />
+    <Compile Include="Scenes\TestScene.cs" />
     <Compile Include="Sizes.cs" />
   </ItemGroup>
   <ItemGroup>

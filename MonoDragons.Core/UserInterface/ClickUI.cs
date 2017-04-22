@@ -22,6 +22,8 @@ namespace MonoDragons.Core.UserInterface
         private bool _elementChangeAfterPressed;
         private readonly Action<ClickUIBranch>[] subscribeAction;
 
+        public float Scale = 1;
+
         public ClickUI()
             : this (new Size2(1600, 900)) { }
 
@@ -131,8 +133,9 @@ namespace MonoDragons.Core.UserInterface
 
         private ClickableUIElement GetElement(Point mousePosition)
         {
-            var branch = _branches.Find((b) => b.GetElement(mousePosition) != None);
-            return branch != null ? branch.GetElement(mousePosition) : None ;
+            var position = new Point((int)Math.Round(mousePosition.X * Scale), (int)Math.Round(mousePosition.Y * Scale));
+            var branch = _branches.Find((b) => b.GetElement(position) != None);
+            return branch != null ? branch.GetElement(position) : None ;
         }
 
         public void Draw(Transform2 parentTransform)
