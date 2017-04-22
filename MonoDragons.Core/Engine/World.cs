@@ -71,7 +71,7 @@ namespace MonoDragons.Core.Engine
         {
             Resources.Put(texture.GetHashCode().ToString(), texture);
             _spriteBatch.Draw(texture, null, rectPosition, null, new Vector2(rectPosition.Width / 2, rectPosition.Height / 2),
-                rotation.Value, new Vector2(1, 1));
+                rotation.Value * .017453292519f, new Vector2(1, 1));
         }
 
         //[DebuggerStepThrough]

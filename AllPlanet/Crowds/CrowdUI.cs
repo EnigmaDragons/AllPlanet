@@ -3,7 +3,7 @@ using MonoDragons.Core.Engine;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
 
-namespace AllPlanet.Crowd
+namespace AllPlanet.Crowds
 {
     public class CrowdUI : IVisualAutomaton
     {

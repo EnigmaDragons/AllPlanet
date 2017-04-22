@@ -131,6 +131,7 @@
     <Compile Include="UserInterface\TextButton.cs" />
     <Compile Include="UserInterface\TextClickable.cs" />
     <Compile Include="UserInterface\UI.cs" />
+    <Compile Include="UserInterface\WrapGrid.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="NAudio, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">

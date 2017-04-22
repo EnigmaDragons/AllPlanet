@@ -39,10 +39,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Player\ArgumentLearned.cs" />
+    <Compile Include="Argument\AdvanceArgument.cs" />
     <Compile Include="Argument\ArgumentNavUI.cs" />
     <Compile Include="Argument\CurrentPoint.cs" />
     <Compile Include="Argument\ReadyForSegue.cs" />
     <Compile Include="Argument\RefutationStarted.cs" />
+    <Compile Include="Argument\Score.cs" />
     <Compile Include="Argument\StatementChanged.cs" />
     <Compile Include="Argument\ArgumentPointFactory.cs" />
     <Compile Include="Argument\RefutationUI.cs" />
@@ -50,13 +52,14 @@
     <Compile Include="Argument\Concrete\PopsicleArgument.cs" />
     <Compile Include="Argument\GenericDiscreditResponse.cs" />
     <Compile Include="Argument\Concrete\LavaArgument.cs" />
+    <Compile Include="Crowds\Crowd.cs" />
     <Compile Include="Debate\DebateMicrophone.cs" />
     <Compile Include="Debate\PresentationStarted.cs" />
     <Compile Include="Debate\StageCurtain.cs" />
     <Compile Include="Opponent\Scientist3.cs" />
     <Compile Include="Debate\DebatePresentation.cs" />
     <Compile Include="Opponent\OpponentResponds.cs" />
-    <Compile Include="Crowd\CrowdUI.cs" />
+    <Compile Include="Crowds\CrowdUI.cs" />
     <Compile Include="Debate\SpeechUI.cs" />
     <Compile Include="Debate\Side.cs" />
     <Compile Include="Debate\StageUI.cs" />
@@ -68,8 +71,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Argument\RefuteOption.cs" />
-    <Compile Include="Crowd\CrowdExpression.cs" />
-    <Compile Include="Crowd\CrowdResponds.cs" />
+    <Compile Include="Crowds\CrowdExpression.cs" />
+    <Compile Include="Crowds\CrowdResponds.cs" />
     <Compile Include="Argument\Buttons.cs" />
     <Compile Include="Argument\Segue.cs" />
     <Compile Include="Argument\Statement.cs" />

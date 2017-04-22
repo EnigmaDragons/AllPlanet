@@ -1,5 +1,5 @@
 ﻿using AllPlanet.Argument.Concrete;
-using AllPlanet.Crowd;
+using AllPlanet.Crowds;
 using AllPlanet.Opponent;
 using AllPlanet.Planet;
 

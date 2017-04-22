@@ -13,11 +13,10 @@ namespace MonoDragons.Core.EventSystem
 
         public void Publish<T>(T payload)
         {
-            var eventType = typeof(T);
-            if (!_eventActions.ContainsKey(eventType))
-                return;
-            foreach (var action in _eventActions[eventType].ToList())
-                ((Action<T>)action)(payload);
+            var eventType = payload.GetType();
+            if (_eventActions.ContainsKey(eventType))
+                foreach (var action in _eventActions[eventType].ToList())
+                    ((Action<object>)action)(payload);
         }
 
         public void Subscribe(EventSubscription subscription)
