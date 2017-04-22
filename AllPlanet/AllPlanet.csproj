@@ -38,15 +38,15 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Argument\AdvanceArgument.cs" />
+    <Compile Include="Argument\CurrentPoint.cs" />
+    <Compile Include="Argument\Mode.cs" />
+    <Compile Include="Argument\ModeChanged.cs" />
     <Compile Include="ClickBranchPriority.cs" />
     <Compile Include="Player\ArgumentLearned.cs" />
-    <Compile Include="Argument\AdvanceArgument.cs" />
     <Compile Include="Argument\ArgumentNavUI.cs" />
     <Compile Include="Argument\Concrete\MoonsAreNotGoodArgument.cs" />
     <Compile Include="Argument\Concrete\NoMoonArgument.cs" />
-    <Compile Include="Argument\CurrentPoint.cs" />
-    <Compile Include="Argument\ReadyForSegue.cs" />
-    <Compile Include="Argument\RefutationStarted.cs" />
     <Compile Include="Argument\Score.cs" />
     <Compile Include="Argument\StatementChanged.cs" />
     <Compile Include="Argument\ArgumentPointFactory.cs" />
@@ -85,6 +85,7 @@
     <Compile Include="Scenes\Intro.cs" />
     <Compile Include="Scenes\DebateScene.cs" />
     <Compile Include="Scenes\SpeechUITest.cs" />
+    <Compile Include="Scenes\TestScene.cs" />
     <Compile Include="Sizes.cs" />
   </ItemGroup>
   <ItemGroup>

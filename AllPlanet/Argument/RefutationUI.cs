@@ -36,13 +36,13 @@ namespace AllPlanet.Argument
             Branch = new ClickUIBranch("RefutationUI", (int)ClickBranchPriority.Refute);
             Branch.Add(_navUi.Branch);
             Branch.Add(_interactBranch);
-            World.Subscribe(EventSubscription.Create<RefutationStarted>(StartRefutationMode, this));
+            World.Subscribe(EventSubscription.Create<ModeChanged>(ChangeMode, this));
             World.Subscribe(EventSubscription.Create<StatementChanged>(ChangeStatement, this));
         }
 
-        private void StartRefutationMode(RefutationStarted obj)
+        private void ChangeMode(ModeChanged obj)
         {
-            _active = true;
+            _active = obj.Mode == Mode.Refutation;
         }
 
         private void ChangeStatement(StatementChanged obj)

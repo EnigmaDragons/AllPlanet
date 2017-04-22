@@ -21,7 +21,7 @@ namespace AllPlanet.Argument
         private void Segue(Segue obj)
         {
             _currentPoint = ArgumentPointFactory.Create(obj.ArgumentName);
-            World.Publish(new StatementChanged(_currentPoint.CurrentStatement));
+            _currentPoint.Start();
         }
     }
 }

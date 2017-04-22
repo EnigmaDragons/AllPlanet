@@ -23,6 +23,7 @@ namespace AllPlanet.Debate
         private int _remainingTransitionMillis;
         private bool _shouldShowCrowd;
         private bool _readyForTransition;
+        private bool _readyToAdvance;
         private bool _finishedIntroductions;
 
         public ClickUIBranch Branch { get; }
@@ -37,10 +38,9 @@ namespace AllPlanet.Debate
             Branch = new ClickUIBranch("DebatePresentation", (int)ClickBranchPriority.Debate);
             Branch.Add(_refutation.Branch);
             Branch.Add(new SimpleClickable(new Rectangle(new Point(0, 0), new Point(1600, 900)), () => World.Publish(new AdvanceRequested())));
-            World.Subscribe(EventSubscription.Create<ReadyForSegue>(Segue, this));
             World.Subscribe(EventSubscription.Create<PresentationStarted>(StartPresentation, this));
             World.Subscribe(EventSubscription.Create<CrowdResponds>(CrowdSays, this));
-            World.Subscribe(EventSubscription.Create<AdvanceRequested>(x => _readyForTransition = true, this));
+            World.Subscribe(EventSubscription.Create<AdvanceRequested>(x => _readyToAdvance = _readyForTransition, this));
         }
 
         private void StartPresentation(PresentationStarted obj)
@@ -54,13 +54,6 @@ namespace AllPlanet.Debate
             _remainingTransitionMillis = 8500;
             Audio.Play("crowd-clapping-long");
 #endif
-        }
-
-        private void Segue(ReadyForSegue obj)
-        {
-            obj.Go();
-            // TODO: Change this later when we have Presentation Mode
-            World.Publish(new RefutationStarted()); 
         }
 
         private void CrowdSays(CrowdResponds obj)
@@ -80,10 +73,10 @@ namespace AllPlanet.Debate
                 _readyForTransition = true;
             }
 
-            if (_readyForTransition)
+            if (_readyToAdvance)
             {
+                _readyToAdvance = false;
                 World.Publish(new AdvanceArgument());
-                _readyForTransition = false;
             }
 
             _curtain.Update(delta);
@@ -100,7 +93,7 @@ namespace AllPlanet.Debate
 
             _finishedIntroductions = true;
             Audio.PlayMusic("Music/bgm1", 0.5f);
-            World.Publish(new ReadyForSegue("lava"));
+            World.Publish(new Segue("lava"));
         }
 
         public void Draw(Transform2 parentTransform)

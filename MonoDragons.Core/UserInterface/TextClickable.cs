@@ -15,6 +15,7 @@ namespace MonoDragons.Core.UserInterface
         {
             _area = area;
             _text = text;
+            _onClick = action;
         }
 
         public void Draw(Transform2 parentTransform)

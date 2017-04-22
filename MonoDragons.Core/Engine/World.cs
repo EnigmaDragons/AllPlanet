@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
@@ -77,6 +78,7 @@ namespace MonoDragons.Core.Engine
         //[DebuggerStepThrough]
         public static void Publish<T>(T payload)
         {
+            Debug.WriteLine(payload.GetType());
             _events.Publish(payload);
             _persistentEvents.Publish(payload);
         }
