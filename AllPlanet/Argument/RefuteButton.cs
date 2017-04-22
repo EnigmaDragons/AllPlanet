@@ -2,7 +2,7 @@
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
 
-namespace AllPlanet.Refute
+namespace AllPlanet.Argument
 {
     public static class RefuteButton
     {
