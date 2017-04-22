@@ -11,7 +11,7 @@ namespace AllPlanet.Argument
     public sealed class RefutationUI : IVisualAutomaton
     {
         private readonly ArgumentNavUI _navUi;
-        private readonly ClickUI _clickUi;
+        public readonly ClickUIBranch ClickUiBranch;
         private readonly ClickUIBranch _interactBranch;
         private readonly ImageButton _refuteButton;
         private readonly ImageButton _cancelButton;
@@ -31,9 +31,9 @@ namespace AllPlanet.Argument
             _navUi = new ArgumentNavUI(point);
             _darken = new ColoredRectangle { Color = Color.FromNonPremultiplied(0, 0, 0, 130), Transform = new Transform2(new Size2(1600, 900)) };
             _interactBranch = new ClickUIBranch("Interact", 2);
-            _clickUi = new ClickUI();
-            _clickUi.Add(_navUi.Branch);
-            _clickUi.Add(_interactBranch);
+            ClickUiBranch = new ClickUIBranch("Refutation", -1);
+            ClickUiBranch.Add(_navUi.Branch);
+            ClickUiBranch.Add(_interactBranch);
             _refuteButton = Buttons.CreateRefute(new Transform2(new Vector2(650, 650), new Size2(300, 95)), Refute, () => CanClickRefute);
             _cancelButton = Buttons.CreateCancel(new Transform2(new Vector2(650, 650), new Size2(300, 95)), Cancel, () => CanClickCancel);
             _interactBranch.Add(_refuteButton);
@@ -55,7 +55,8 @@ namespace AllPlanet.Argument
         private void Refute()
         {
             _isRefuting = true;
-            _clickUi.Remove(_navUi.Branch);
+            ClickUiBranch.Remove(_navUi.Branch);
+            _interactBranch.Remove(_refuteButton);
             _isRefutingChanged = true;
         }
 
@@ -63,8 +64,6 @@ namespace AllPlanet.Argument
         {
             if (_isRefutingChanged)
                 UpdateRefuting();
-            
-            _clickUi.Update(delta);
         }
 
         public void Draw(Transform2 parentTransform)
@@ -114,7 +113,8 @@ namespace AllPlanet.Argument
         private void ResetRefuting()
         {
             _isRefuting = false;
-            _clickUi.Add(_navUi.Branch);
+            ClickUiBranch.Add(_refuteButton);
+            ClickUiBranch.Add(_navUi.Branch);
             _isRefutingChanged = true;
         }
     }
