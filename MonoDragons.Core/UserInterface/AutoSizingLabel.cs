@@ -17,7 +17,7 @@ namespace MonoDragons.Core.UserInterface
 
         public void Draw(Transform2 parentTransform)
         {
-            var size = Resources.Load<SpriteFont>(_label.Font).MeasureString(_label.Text);
+            var size = Resources.Load<SpriteFont>(_label.Font).MeasureString(_label.RawText);
             _label.Transform = new Transform2(new Size2((int)size.X, (int)size.Y));
             _label.Draw(parentTransform);
         }
