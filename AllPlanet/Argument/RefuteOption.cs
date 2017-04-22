@@ -1,32 +1,27 @@
-﻿using AllPlanet.Crowd;
-using AllPlanet.Planet;
+﻿using System.Collections.Generic;
+using System.Linq;
 using MonoDragons.Core.Engine;
 
 namespace AllPlanet.Argument
 {
     public class RefuteOption
     {
-        public string Name { get; }
-        private readonly PlanetResponds _planetResponse;
-        private readonly OpponentResponds _opponentsResponse;
-        private readonly CrowdExpression _crowdExpression;
-        private readonly string _arguementName;
+        public ArgumentType Type { get; }
 
-        public RefuteOption(string name, PlanetResponds planetResponse, OpponentResponds opponentsResponse, CrowdExpression crowdExpression, string arguementName)
+        private readonly string _nextNextArgumentName;
+        private readonly List<object> _responses;
+
+        public RefuteOption(ArgumentType arguementType, string nextArgumentName, params object[] responses)
         {
-            Name = name;
-            _planetResponse = planetResponse;
-            _opponentsResponse = opponentsResponse;
-            _crowdExpression = crowdExpression;
-            _arguementName = arguementName;
+            Type = arguementType;
+            _nextNextArgumentName = nextArgumentName;
+            _responses = responses.ToList();
         }
 
         public void Choose()
         {
-            World.Publish(_planetResponse);
-            World.Publish(_opponentsResponse);
-            World.Publish(new CrowdExpresses(_crowdExpression));
-            World.Publish(new Segue(_arguementName));
+            _responses.ForEach(World.Publish);
+            World.Publish(new Segue(_nextNextArgumentName));
         }
     }
 }

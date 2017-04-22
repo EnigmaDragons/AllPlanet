@@ -1,10 +1,10 @@
 ﻿namespace AllPlanet.Crowd
 {
-    public class CrowdExpresses
+    public class CrowdResponds
     {
         public CrowdExpression Expression;
 
-        public CrowdExpresses(CrowdExpression expression)
+        public CrowdResponds(CrowdExpression expression)
         {
             Expression = expression;
         }
