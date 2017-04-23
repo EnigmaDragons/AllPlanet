@@ -39,6 +39,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Argument\AdvanceArgument.cs" />
+    <Compile Include="Argument\ClosingArgument.cs" />
+    <Compile Include="Argument\ClosingChoice.cs" />
+    <Compile Include="Argument\ClosingOption.cs" />
+    <Compile Include="Argument\Concrete\ClosingArgument1.cs" />
     <Compile Include="Argument\CurrentPoint.cs" />
     <Compile Include="Argument\Mode.cs" />
     <Compile Include="Argument\ModeChanged.cs" />
