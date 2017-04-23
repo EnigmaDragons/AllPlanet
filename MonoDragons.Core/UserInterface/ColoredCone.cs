@@ -11,16 +11,30 @@ namespace MonoDragons.Core.UserInterface
     {
         private Texture2D _background;
 
-        public Color Color { get; set; } = Color.Orange;
-        public Transform2 Transform { get; set; } = new Transform2(new Size2(400, 400));
-        public Rotation2 Angle { get; set; } = new Rotation2(0);
+        private Color color;
+        public Color Color { get { return color; } set { color = value; GenerateTexture(); } }
+        private Transform2 transform;
+        public Transform2 Transform { get { return transform; } set { transform = value; GenerateTexture(); } }
+        private Rotation2 angle;
+        public Rotation2 Angle { get { return angle; } set { angle = value; GenerateTexture(); } }
+
+        public ColoredCone()
+        {
+            color = Color.Orange;
+            transform = new Transform2(new Size2(400, 400));
+            angle = new Rotation2(90);
+        }
 
         public void Draw(Transform2 parentTransform)
         {
             var position = parentTransform + Transform;
+            World.Draw(_background, position.ToRectangle(), Transform.Rotation);
+        }
+
+        private void GenerateTexture()
+        {
             Resources.Dispose(_background);
             _background = new ConeTexture(Transform.Size.Height / 2, Angle, Color).Create();
-            World.Draw(_background, position.ToRectangle(), Transform.Rotation);
         }
 
         public void Dispose()
