@@ -24,8 +24,8 @@ namespace AllPlanet
             return new KeyboardController(new Map<Keys, Control>
             {
                 { Keys.Enter, Control.Start },
-                { Keys.V, Control.A },
-                { Keys.O, Control.X }
+                { Keys.Z, Control.A },
+                { Keys.X, Control.X }
             });
         }
 

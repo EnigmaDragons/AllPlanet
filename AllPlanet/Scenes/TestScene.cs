@@ -9,7 +9,7 @@ namespace AllPlanet.Scenes
 {
     public class TestScene : IScene
     {
-        private ClickUI _clickUi;
+        //private ClickUI _clickUi;
 
         public void Init()
         {
