@@ -48,7 +48,7 @@ namespace AllPlanet.Argument
             _currentArgument.Get().CurrentChoice.AvailableOptionDescriptions.ForEach(x =>
             {
                 var opt = Buttons.CreateClosingArgument(x.ToString(),
-                    new Transform2(new Vector2(500, 200 + (i * 140)), new Size2(600, 120)),
+                    new Transform2(new Vector2(275, 200 + (i * 140)), new Size2(1050, 120)),
                         () => { _currentArgument.Get().Choose(x); UpdateOptions(); });
                 _optionButtons.Add(opt);
                 Branch.Add(opt);

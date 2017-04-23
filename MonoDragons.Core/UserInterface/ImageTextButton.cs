@@ -14,14 +14,14 @@ namespace MonoDragons.Core.UserInterface
         public string Text { set { _label.Text = value; } }
 
         public ImageTextButton(string text, string basic, string hover, string press, Transform2 transform, Action onClick)
-            : this(text, basic, hover, press, transform, onClick, null) { }
+            : this(text, basic, hover, press, transform, onClick, () => true) { }
 
         public ImageTextButton(string text, string basic, string hover, string press, Transform2 transform, Action onClick, Func<bool> isVisible)
             : base(transform.ToRectangle())
         {
-            _isVisible = isVisible ?? new Func<bool>(() => true);
+            _isVisible = isVisible;
             _button = new ImageButton(basic, hover, press, transform, onClick, _isVisible);
-            _label = new Label { BackgroundColor = Color.Transparent, Text = text, Transform = transform, TextColor = Color.White };
+            _label = new Label { BackgroundColor = Color.Transparent, Text = text, Transform = transform.WithPadding(8, 8), TextColor = Color.White };
         }
 
         public override void OnEntered()
