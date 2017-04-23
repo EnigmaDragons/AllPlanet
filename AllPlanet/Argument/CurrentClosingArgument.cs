@@ -1,6 +1,5 @@
 ﻿using MonoDragons.Core.Engine;
 using MonoDragons.Core.EventSystem;
-using System.Collections.Generic;
 
 namespace AllPlanet.Argument
 {

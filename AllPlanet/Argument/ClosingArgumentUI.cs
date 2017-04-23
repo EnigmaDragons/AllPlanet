@@ -32,7 +32,7 @@ namespace AllPlanet.Argument
                 _currentArgument.Get().CurrentChoice.AvailableOptionDescriptions.ForEach(x =>
                 {
                     var opt = Buttons.CreateOption(x.ToString(),
-                        new Transform2(new Vector2(650, 250 + (i * 90)), new Size2(300, 80)),
+                        new Transform2(new Vector2(500, 200 + (i * 140)), new Size2(600, 120)),
                         () => { _currentArgument.Get().Choose(x); ChangeOptions(); });
                     _optionButtons.Add(opt);
                     Branch.Add(opt);
@@ -54,7 +54,7 @@ namespace AllPlanet.Argument
             _currentArgument.Get().CurrentChoice.AvailableOptionDescriptions.ForEach(x =>
             {
                 var opt = Buttons.CreateOption(x.ToString(),
-                    new Transform2(new Vector2(650, 250 + (i * 90)), new Size2(300, 80)),
+                    new Transform2(new Vector2(500, 200 + (i * 140)), new Size2(600, 120)),
                     () => { _currentArgument.Get().Choose(x); ChangeOptions(); });
                 _optionButtons.Add(opt);
                 Branch.Add(opt);
