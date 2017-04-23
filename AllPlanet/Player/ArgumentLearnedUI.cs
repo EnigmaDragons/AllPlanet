@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using AllPlanet.Argument;
+using Microsoft.Xna.Framework;
 using MonoDragons.Core.Audio;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.EventSystem;
@@ -9,6 +11,7 @@ namespace AllPlanet.Player
 {
     public class ArgumentLearnedUI : IVisual
     {
+        private readonly List<string> _argumentsLearned = new List<string>();
         private readonly string _backdrop = "UI/argument-learned";
         private readonly ImageButton _confirm;
         private readonly Label _title;
@@ -34,6 +37,12 @@ namespace AllPlanet.Player
 
         private void LearnArgument(ArgumentLearned obj)
         {
+            if (_argumentsLearned.Contains(obj.Name))
+            {
+                World.Publish(new AdvanceArgument());
+                return;
+            }
+            _argumentsLearned.Add(obj.Name);
             _name.Text = obj.Name;
             _desc.Text = obj.Desc;
             Dismissed = false;
