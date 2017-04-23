@@ -60,6 +60,7 @@
     <Compile Include="Engine\Metrics.cs" />
     <Compile Include="Engine\Timer.cs" />
     <Compile Include="EventSystem\EventPipe.cs" />
+    <Compile Include="Graphics\BobbingEffect.cs" />
     <Compile Include="IO\AppDataJsonIo.cs" />
     <Compile Include="Navigation\INavigation.cs" />
     <Compile Include="Engine\IScene.cs" />
