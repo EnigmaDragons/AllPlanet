@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using AllPlanet.Debate;
-using AllPlanet.Player;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.EventSystem;
 
@@ -14,9 +12,6 @@ namespace AllPlanet.Argument
         private readonly string _nextArgumentName;
         private readonly List<object> _responses;
         private readonly int _score;
-
-        public RefuteOption(ArgumentType arguementType, string nextArgumentName, params object[] responses)
-            : this(arguementType, nextArgumentName, 0, responses) { }
 
         public RefuteOption(ArgumentType arguementType, string nextArgumentName, int score, params object[] responses)
         {

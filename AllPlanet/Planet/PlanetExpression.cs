@@ -7,5 +7,6 @@
         Worried,
         Proud,
         Challenging,
+        Sad,
     }
 }

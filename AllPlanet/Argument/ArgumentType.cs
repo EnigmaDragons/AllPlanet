@@ -5,6 +5,7 @@
         Discredit,
         FakeStatistic,
         AgreeAndAmplify,
-        AppealToEmotion
+        AppealToEmotion,
+        Reframe
     }
 }

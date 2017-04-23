@@ -16,7 +16,7 @@ namespace AllPlanet.Argument
                 new OpponentResponds("Why? Because earth, like all planets has lava.", OpponentExpression.Challenging),
                 new OpponentResponds("You don't have lava, you're not hot.", OpponentExpression.Proud),
                 new OpponentResponds("Popsicles also don't have lava, therefore you are a popsicle.", OpponentExpression.Challenging),
-                new ArgumentLearned(ArgumentType.FakeStatistic, "76% of all winning arguments use fake statistics"),
+                ArgumentLearnedFactory.Create(ArgumentType.FakeStatistic),
             }, 
             "lava",
             new Statement("You are not a planet, you are a popsicle.", OpponentExpression.Challenging, GenericDiscreditResponse.Create("lava argument"),

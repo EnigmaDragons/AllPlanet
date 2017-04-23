@@ -9,7 +9,7 @@ namespace AllPlanet.Argument
     public class ArgumentPoint
     {
         public static ArgumentPoint None = new ArgumentPoint(new List<object>(), "None",
-            new Statement("Empty", Opponent.OpponentExpression.Bored, new RefuteOption(ArgumentType.AgreeAndAmplify, "")));
+            new Statement("Empty", Opponent.OpponentExpression.Bored, new RefuteOption(ArgumentType.AgreeAndAmplify, "", 0)));
 
         public string Name { get; }
         public Statement CurrentStatement { get; private set; }

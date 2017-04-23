@@ -28,7 +28,7 @@ namespace AllPlanet.Debate
         public void Draw(Transform2 parentTransform)
         {
             UI.DrawCentered("Backdrops/stage", Sizes.Backdrop);
-            _planet.Draw(new Transform2(new Vector2(320, 330)));
+            _planet.Draw(new Transform2(new Vector2(320, 310)));
             _opponent.Draw(new Transform2(new Vector2(950, 320)));
             World.Draw("Props/podium-l", new Rectangle(460, 500, 150, 300));
             World.Draw("Props/podium-r", new Rectangle(940, 500, 150, 300));

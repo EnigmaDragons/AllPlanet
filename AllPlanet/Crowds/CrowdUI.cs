@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.Xna.Framework;
 using MonoDragons.Core.Audio;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.EventSystem;
@@ -9,7 +10,8 @@ namespace AllPlanet.Crowds
 {
     public class CrowdUI : IVisualAutomaton
     {
-        private string Sound => "crowd-" + _exp;
+        private string Sound => "crowd-" + _exp.ToString().ToLower();
+        private string Image => "Crowd/crowd-" + _exp.ToString().ToLower();
         private CrowdExpression _exp = CrowdExpression.NoComment;
 
         public CrowdUI()
@@ -25,8 +27,7 @@ namespace AllPlanet.Crowds
 
         private void PlaySound()
         {
-            if (!_exp.Equals(CrowdExpression.NoComment))
-                Audio.PlaySound(Sound);
+            Audio.PlaySound(Sound);
         }
 
         public void Update(TimeSpan delta)
@@ -35,7 +36,8 @@ namespace AllPlanet.Crowds
 
         public void Draw(Transform2 parentTransform)
         {
-            UI.DrawCentered("backdrops/auditorium", Sizes.Backdrop);
+            UI.DrawCentered(Image, new Vector2(1600, 900));
+            UI.DrawCenteredWithOffset("Crowd/staticcrowd", new Vector2(1600, 1018), new Vector2(0, 300));
         }
     }
 }
