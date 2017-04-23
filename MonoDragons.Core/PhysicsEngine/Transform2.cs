@@ -53,6 +53,16 @@ namespace MonoDragons.Core.PhysicsEngine
             return new Rectangle((Location * Scale).ToPoint(), (Size * Scale).ToPoint());
         }
 
+        public Transform2 WithPadding(int x, int y)
+        {
+            return WithPadding(new Size2(x, y));
+        }
+
+        public Transform2 WithPadding(Size2 paddingAmount)
+        {
+            return new Transform2(Location + paddingAmount.ToVector(), Rotation, Size - (paddingAmount * 2), Scale);
+        }
+
         public override string ToString()
         {
             return $"{Location} {Rotation} {Scale}";
