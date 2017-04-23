@@ -32,7 +32,7 @@ namespace AllPlanet.Debate
             Audio.PlaySound("crowd-clapping-short");
 #else
             _remainingTransitionMillis = 8500;
-            Audio.Play("crowd-clapping-long");
+            Audio.PlaySound("crowd-clapping-long");
 #endif
         }
 
