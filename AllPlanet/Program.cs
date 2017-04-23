@@ -37,7 +37,7 @@ namespace AllPlanet
                 { "Debate", () => new DebateScene() },
                 { "Speech", () => new SpeechUITest() },
                 { "Learned", () => new ArgumentLearnedUITest() },
-                { "Test", () => new TestScene() }
+                { "Test", () => new TestScene() },
             });
         }
     }

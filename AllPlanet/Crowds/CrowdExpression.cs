@@ -5,5 +5,6 @@
         NoComment = 0,
         Boo = 1,
         Cheer = 2,
+        Sympathy = 3,
     }
 }
