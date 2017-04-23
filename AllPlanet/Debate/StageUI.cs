@@ -12,7 +12,7 @@ namespace AllPlanet.Debate
     {
         //private ColoredCone cone = new ColoredCone() { Angle = new Rotation2(30), Color = new Color(150, 150, 150, 150),
             //Transform = new Transform2(new Vector2(), new Rotation2(30), new Size2(1000, 1000), 1) };
-        private readonly IVisualAutomaton _opponent = new Scientist3();
+        private readonly IVisualAutomaton _opponent = new BusinessMan();
         private readonly IVisualAutomaton _planet = new PlanetChar();
 
         public void Update(TimeSpan delta)
