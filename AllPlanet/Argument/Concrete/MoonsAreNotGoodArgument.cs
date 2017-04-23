@@ -35,11 +35,21 @@ namespace AllPlanet.Argument.Concrete
                 new RefuteOption(ArgumentType.Reframe, "emerson rebutal", -1, 
                     new PlanetResponds("It has so many moons and astroids to protect it from outer comets and astroids.", PlanetExpression.Challenging),
                     new OpponentResponds("I doubt it gets bombarded by comets very often.", OpponentExpression.Bored),
-                    new CrowdResponds(CrowdExpression.Boo))),
+                    new CrowdResponds(CrowdExpression.Boo)),
+                new RefuteOption(ArgumentType.Refuse, "emerson rebutal", 0, 
+                    new PlanetResponds("It doesn't have moon and astroids.", PlanetExpression.Challenging),
+                    new OpponentResponds("You are wrong.", OpponentExpression.Bored),
+                    new CrowdResponds(CrowdExpression.Boo),
+                    new PlanetResponds("*How could I have been so stupid*", PlanetExpression.Worried))),
             new Statement("Given how small you are a meteor shower would surely kill you.", OpponentExpression.Challenging, GenericDiscreditResponse.Create("moons are not good"),
                 new RefuteOption(ArgumentType.AppealToEmotion, "emerson rebutal", -2,
                     new PlanetResponds("Arn't you guys, basically trying to do the same?", PlanetExpression.Worried),
                     new OpponentResponds("We are merely acedemics who wish to know the truth.", OpponentExpression.Proud),
-                    new CrowdResponds(CrowdExpression.NoComment))));
+                    new CrowdResponds(CrowdExpression.NoComment)),
+                new RefuteOption(ArgumentType.Refuse, "emerson rebutal", +2, 
+                    new PlanetResponds("I could easily survive meteor showers.", PlanetExpression.Proud),
+                    new OpponentResponds("Not if the meteors are the size of you.", OpponentExpression.Challenging),
+                    new PlanetResponds("Please! I'm fast enough I could dodge a meteor that size.", PlanetExpression.Challenging),
+                    new CrowdResponds(CrowdExpression.Cheer))));
     }
 }
