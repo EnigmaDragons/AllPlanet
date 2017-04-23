@@ -1,5 +1,5 @@
 ﻿
-namespace AllPlanet.Debate
+namespace AllPlanet.Moderator
 {
     public enum ModeratorExpression
     {

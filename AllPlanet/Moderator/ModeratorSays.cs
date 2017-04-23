@@ -1,5 +1,7 @@
 ﻿
-namespace AllPlanet.Debate
+using AllPlanet.Debate;
+
+namespace AllPlanet.Moderator
 {
     public class ModeratorSays
     {
