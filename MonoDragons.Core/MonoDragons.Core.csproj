@@ -43,8 +43,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Audio\Audio.cs" />
-    <Compile Include="Audio\MusicPlayer.cs" />
-    <Compile Include="Audio\SoundPlayer.cs" />
+    <Compile Include="Audio\AudioPlaybackEngine.cs" />
+    <Compile Include="Audio\DisposingFileReader.cs" />
+    <Compile Include="Audio\LoopingFileReader.cs" />
+    <Compile Include="Audio\DampeningSampleProvider.cs" />
     <Compile Include="Common\EnumerableExtensions.cs" />
     <Compile Include="Common\ISubscription.cs" />
     <Compile Include="Common\ISubject.cs" />
