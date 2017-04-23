@@ -1,7 +1,8 @@
-﻿using AllPlanet.Crowds;
+﻿using AllPlanet.Argument;
+using AllPlanet.Crowds;
 using AllPlanet.Moderator;
 
-namespace AllPlanet.Argument.Concrete
+namespace AllPlanet.Transitions.Concrete
 {
     public static class Opening
     {

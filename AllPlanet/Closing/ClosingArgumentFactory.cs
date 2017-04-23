@@ -1,7 +1,7 @@
-﻿using AllPlanet.Argument.Concrete;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using AllPlanet.Closing.Concrete;
 
-namespace AllPlanet.Argument
+namespace AllPlanet.Closing
 {
     public class ClosingArgumentFactory
     {

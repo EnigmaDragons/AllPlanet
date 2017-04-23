@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using AllPlanet.Argument;
 using AllPlanet.Crowds;
 using AllPlanet.Opponent;
 using AllPlanet.Planet;
 
-namespace AllPlanet.Argument.Concrete
+namespace AllPlanet.Closing.Concrete
 {
     public static class ClosingArgument1
     {

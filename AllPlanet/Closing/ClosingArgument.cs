@@ -1,8 +1,9 @@
-﻿using MonoDragons.Core.Engine;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using AllPlanet.Argument;
+using MonoDragons.Core.Engine;
 
-namespace AllPlanet.Argument
+namespace AllPlanet.Closing
 {
     public class ClosingArgument
     {

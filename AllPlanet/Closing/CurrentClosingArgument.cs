@@ -1,7 +1,8 @@
-﻿using MonoDragons.Core.Engine;
+﻿using AllPlanet.Argument;
+using MonoDragons.Core.Engine;
 using MonoDragons.Core.EventSystem;
 
-namespace AllPlanet.Argument
+namespace AllPlanet.Closing
 {
     public class CurrentClosingArgument
     {

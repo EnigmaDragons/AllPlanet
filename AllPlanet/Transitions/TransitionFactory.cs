@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
-using AllPlanet.Argument.Concrete;
+using AllPlanet.Transitions.Concrete;
 
-namespace AllPlanet.Argument
+namespace AllPlanet.Transitions
 {
     public class TransitionFactory
     {
         private static Dictionary<string, Transition> _transitions = new Dictionary<string, Transition>
         {
-            { Opening.Transition.Name, LavaArgument.Transition },
+            { Opening.Transition.Name, Opening.Transition },
         };
 
         public static Transition Create(string name)

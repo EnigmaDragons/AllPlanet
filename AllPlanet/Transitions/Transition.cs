@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace AllPlanet.Argument
+namespace AllPlanet.Transitions
 {
     public class Transition
     {

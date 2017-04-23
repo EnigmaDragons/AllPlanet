@@ -1,10 +1,11 @@
-﻿using MonoDragons.Core.Engine;
-using MonoDragons.Core.EventSystem;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using AllPlanet.Argument;
+using MonoDragons.Core.Engine;
+using MonoDragons.Core.EventSystem;
 
-namespace AllPlanet.Argument
+namespace AllPlanet.Closing
 {
     public class ClosingChoice
     {
