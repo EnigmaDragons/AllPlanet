@@ -8,7 +8,8 @@ namespace AllPlanet.Argument
 {
     public class ClosingChoice
     {
-        public List<string> OptionDescriptions => _options.Select((o) => o.Description).ToList();
+        public List<string> OptionNames => _options.Select((o) => o.Name).ToList();
+        public List<string> AvailableOptionDescriptions => _options.Where((o) => o.Unlocked).Select((o) => o.Description).ToList();
         private List<ClosingOption> _options { get; }
         private List<object> _responses { get; }
         private ClosingOption _chosenOption;
@@ -18,6 +19,16 @@ namespace AllPlanet.Argument
         {
             _options = options.ToList();
             _responses = openingResponses.ToList();
+        }
+
+        public void Unlock(string name)
+        {
+            _options.Find((o) => o.Name == name).Unlocked = true;
+        }
+
+        public void Lock(string name)
+        {
+            _options.Find((o) => o.Name == name).Unlocked = false;
         }
 
         public void Enact(string optionDescription, Action callback)

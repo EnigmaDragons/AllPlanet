@@ -21,6 +21,16 @@ namespace AllPlanet.Argument
             CurrentChoice = _choices.ElementAt(0);
         }
 
+        public void Unlock(string optionName)
+        {
+            _choices.Find((c) => c.OptionNames.Exists((o) => o == optionName)).Unlock(optionName);
+        }
+
+        public void Lock(string optionName)
+        {
+            _choices.Find((c) => c.OptionNames.Exists((o) => o == optionName)).Lock(optionName);
+        }
+
         public void Start()
         {
             World.Publish(new ModeChanged(Mode.ClosingArgument));

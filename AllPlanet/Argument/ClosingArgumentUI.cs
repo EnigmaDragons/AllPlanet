@@ -29,7 +29,7 @@ namespace AllPlanet.Argument
             if (_active)
             {
                 var i = 0;
-                _currentArgument.Get().CurrentChoice.OptionDescriptions.ForEach(x =>
+                _currentArgument.Get().CurrentChoice.AvailableOptionDescriptions.ForEach(x =>
                 {
                     var opt = Buttons.CreateOption(x.ToString(),
                         new Transform2(new Vector2(650, 250 + (i * 90)), new Size2(300, 80)),
@@ -51,7 +51,7 @@ namespace AllPlanet.Argument
             _optionButtons.ForEach(x => Branch.Remove(x));
             _optionButtons.Clear();
             var i = 0;
-            _currentArgument.Get().CurrentChoice.OptionDescriptions.ForEach(x =>
+            _currentArgument.Get().CurrentChoice.AvailableOptionDescriptions.ForEach(x =>
             {
                 var opt = Buttons.CreateOption(x.ToString(),
                     new Transform2(new Vector2(650, 250 + (i * 90)), new Size2(300, 80)),

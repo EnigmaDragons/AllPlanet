@@ -2,6 +2,7 @@
 using System.Linq;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.EventSystem;
+using System;
 
 namespace AllPlanet.Argument
 {
@@ -9,13 +10,22 @@ namespace AllPlanet.Argument
     {
         public ArgumentType Type { get; }
 
+        private readonly string _concludingArgument;
+        private readonly string _closingLock;
+        private readonly string _closingUnlock;
         private readonly string _nextArgumentName;
         private readonly List<object> _responses;
         private readonly int _score;
 
-        public RefuteOption(ArgumentType arguementType, string nextArgumentName, int score, params object[] responses)
+        public RefuteOption(ArgumentType argumentType, string nextArgumentName, int score, params object[] responses)
+            : this("", "", "", argumentType, nextArgumentName, score, responses) { }
+        public RefuteOption(string concludingArgumentName, string closingUnlock, string closingLock, ArgumentType argumentType, string nextArgumentName, int score,
+            params object[] responses)
         {
-            Type = arguementType;
+            _concludingArgument = concludingArgumentName;
+            _closingLock = closingLock;
+            _closingUnlock = closingUnlock;
+            Type = argumentType;
             _nextArgumentName = nextArgumentName;
             _responses = responses.ToList();
             _score = score;
@@ -23,6 +33,16 @@ namespace AllPlanet.Argument
 
         public void Choose()
         {
+            if (_closingUnlock != "")
+            {
+                var argument = ClosingArgumentFactory.Create(_concludingArgument);
+                argument.Unlock(_closingUnlock);
+            }
+            if (_closingLock != "")
+            {
+                var argument = ClosingArgumentFactory.Create(_concludingArgument);
+                argument.Lock(_closingUnlock);
+            }
             World.Publish(new Score(_score));
             World.Subscribe(EventSubscription.Create<AdvanceArgument>(x => Continue(), this));
             World.Publish(new ModeChanged(Mode.Presentation));

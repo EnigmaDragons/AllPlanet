@@ -9,13 +9,18 @@ namespace AllPlanet.Argument
 {
     public class ClosingOption
     {
+        public string Name { get; }
         public string Description { get; }
+        public bool Unlocked { get; set; }
         private readonly int _points;
         private List<object> _responses { get; }
         private Action _callback;
 
-        public ClosingOption(string description, int points, params object[] responses)
+        public ClosingOption(string description, int points, params object[] responses) : this("", true, description, points, responses) { }
+        public ClosingOption(string name, bool unlocked, string description, int points, params object[] responses)
         {
+            Unlocked = unlocked;
+            Name = name;
             Description = description;
             _points = points;
             _responses = responses.ToList();
