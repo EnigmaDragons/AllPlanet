@@ -6,6 +6,7 @@ using MonoDragons.Core.Engine;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
 using Microsoft.Xna.Framework;
+using MonoDragons.Core.Inputs;
 
 namespace AllPlanet.Scenes
 {
@@ -22,8 +23,15 @@ namespace AllPlanet.Scenes
             _clickUi = new ClickUI();
             _clickUi.Add(_debate.Branch);
             _clickUi.Add(_player.Branch);
-            _clickUi.Add(new SimpleClickable(new Rectangle(new Point(0, 0), new Point(1600, 900)), () => World.Publish(new AdvanceRequested())));
+            _clickUi.Add(new SimpleClickable(new Rectangle(new Point(0, 0), new Point(1600, 900)), RequestAdvance));
+            Input.On(Control.A, RequestAdvance);
+
             World.Publish(new PresentationStarted());
+        }
+
+        private void RequestAdvance()
+        {
+            World.Publish(new AdvanceRequested());
         }
 
         public void Update(TimeSpan delta)
