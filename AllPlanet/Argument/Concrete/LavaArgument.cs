@@ -7,9 +7,9 @@ using AllPlanet.Player;
 
 namespace AllPlanet.Argument
 {
-    public class LavaArgument
+    public static class LavaArgument
     {
-        public ArgumentPoint Argument { get; } = new ArgumentPoint(new List<object>
+        public static ArgumentPoint Argument { get; } = new ArgumentPoint(new List<object>
             {
                 new PlanetResponds("*I will defend my existance as a planet*", PlanetExpression.Thinking),
                 new OpponentResponds("You are not a planet, you are a popsicle.", OpponentExpression.Challenging),

@@ -7,11 +7,11 @@ namespace AllPlanet.Argument
     {
         private static Dictionary<string, ArgumentPoint> _arguments = new Dictionary<string, ArgumentPoint>
         {
-            { new LavaArgument().Argument.Name, new LavaArgument().Argument },
+            { LavaArgument.Argument.Name, LavaArgument.Argument },
             { new PopsicleArgument().Argument.Name, new PopsicleArgument().Argument },
             { new NoMoonArgument().Argument.Name, new NoMoonArgument().Argument },
             { new MoonsAreNotGoodArgument().Argument.Name, new MoonsAreNotGoodArgument().Argument },
-            { "next", new LavaArgument().Argument },
+            { "next", LavaArgument.Argument },
         };
 
         public static ArgumentPoint Create(string name)

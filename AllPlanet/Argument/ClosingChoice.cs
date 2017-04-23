@@ -8,7 +8,7 @@ namespace AllPlanet.Argument
 {
     public class ClosingChoice
     {
-        public List<string> OptionDescriptions { get; }
+        public List<string> OptionDescriptions => _options.Select((o) => o.Description).ToList();
         private List<ClosingOption> _options { get; }
         private List<object> _responses { get; }
         private Action _callback;
@@ -24,7 +24,6 @@ namespace AllPlanet.Argument
             _callback = callback;
             var option = _options.Find(c => c.Description == optionDescription);
             option.Enact(() => { World.Subscribe(EventSubscription.Create<AdvanceArgument>(x => Continue(), this)); Continue(); } );
-            World.Publish(new ModeChanged(Mode.Presentation));
             Continue();
         }
 

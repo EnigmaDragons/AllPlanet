@@ -16,17 +16,20 @@ namespace AllPlanet.Debate
         private readonly DebateIntroduction _intro;
         private readonly DebateMicrophone _mic;
         private readonly RefutationUI _refutation;
+        private readonly ClosingArgumentUI _close;
         private readonly StageUI _stageUi;
         private readonly CrowdUI _crowdUi;
         private int _remainingTransitionMillis;
         private bool _shouldShowCrowd;
         private bool _readyForTransition;
         private bool _readyToAdvance;
+        private Mode _mode = Mode.Presentation;
 
         public ClickUIBranch Branch { get; }
 
         public DebatePresentation()
         {
+            _close = new ClosingArgumentUI(new CurrentClosingArgument());
             _intro = new DebateIntroduction();
             _refutation = new RefutationUI(new CurrentPoint());
             _mic = new DebateMicrophone();
@@ -36,6 +39,20 @@ namespace AllPlanet.Debate
             Branch.Add(_refutation.Branch);
             World.Subscribe(EventSubscription.Create<CrowdResponds>(CrowdSays, this));
             World.Subscribe(EventSubscription.Create<AdvanceRequested>(x => _readyToAdvance = _readyForTransition, this));
+            World.Subscribe(EventSubscription.Create<ModeChanged>((e) => ModeChange(e), this));
+        }
+
+        private void ModeChange(ModeChanged e)
+        {
+            if(_mode != Mode.ClosingArgument && e.Mode == Mode.ClosingArgument)
+            {
+                Branch.Add(_close.Branch);
+            }
+            else if (_mode == Mode.ClosingArgument && e.Mode != Mode.ClosingArgument)
+            {
+                Branch.Remove(_close.Branch);
+            }
+            _mode = e.Mode;
         }
 
         private void CrowdSays(CrowdResponds obj)
@@ -61,8 +78,15 @@ namespace AllPlanet.Debate
             }
 
             _intro.Update(delta);
-            _mic.Update(delta);
-            _refutation.Update(delta);
+            if (_mode != Mode.ClosingArgument)
+            {
+                _mic.Update(delta);
+                _refutation.Update(delta);
+            }
+            else
+            {
+                _close.Update(delta);
+            }
             _crowdUi.Update(delta);
             _stageUi.Update(delta);
         }
@@ -74,8 +98,15 @@ namespace AllPlanet.Debate
             else
             {
                 _stageUi.Draw(Transform2.Zero);
-                _mic.Draw(Transform2.Zero);
-                _refutation.Draw(Transform2.Zero);
+                if (_mode != Mode.ClosingArgument)
+                {
+                    _mic.Draw(Transform2.Zero);
+                    _refutation.Draw(Transform2.Zero);
+                }
+                else
+                {
+                    _close.Draw(Transform2.Zero);
+                }
                 _intro.Draw(Transform2.Zero);
             }
         }

@@ -1,5 +1,6 @@
 ﻿using MonoDragons.Core.Engine;
 using MonoDragons.Core.EventSystem;
+using System.Collections.Generic;
 
 namespace AllPlanet.Argument
 {
@@ -20,8 +21,15 @@ namespace AllPlanet.Argument
 
         private void Segue(Segue obj)
         {
-            _currentPoint = ArgumentPointFactory.Create(obj.ArgumentName);
-            _currentPoint.Start();
+            try
+            {
+                _currentPoint = ArgumentPointFactory.Create(obj.ArgumentName);
+                _currentPoint.Start();
+            }
+            catch (KeyNotFoundException)
+            {
+                _currentPoint = ArgumentPoint.None;
+            }
         }
     }
 }

@@ -6,6 +6,7 @@
         Navigation,
         Debate,
         Refute,
+        Closing,
         Interact,
         Learn
     }

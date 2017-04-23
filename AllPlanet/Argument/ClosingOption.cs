@@ -26,7 +26,6 @@ namespace AllPlanet.Argument
             _callback = callback;
             World.Publish(new Score(_points));
             World.Subscribe(EventSubscription.Create<AdvanceArgument>(x => Continue(), this));
-            World.Publish(new ModeChanged(Mode.Presentation));
             Continue();
         }
 

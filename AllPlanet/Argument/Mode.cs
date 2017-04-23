@@ -3,6 +3,7 @@
     public enum Mode
     {
         Presentation,
-        Refutation
+        Refutation,
+        ClosingArgument
     }
 }
