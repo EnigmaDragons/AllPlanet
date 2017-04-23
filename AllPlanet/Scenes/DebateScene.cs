@@ -36,6 +36,7 @@ namespace AllPlanet.Scenes
 
         public void Update(TimeSpan delta)
         {
+            _player.Update(delta);
             _debate.Update(delta);
             _clickUi.Update(delta);
         }

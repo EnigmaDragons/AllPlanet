@@ -1,4 +1,6 @@
 ﻿using AllPlanet.Argument;
+using System;
+using System.Linq;
 
 namespace AllPlanet.Player
 {
@@ -9,7 +11,7 @@ namespace AllPlanet.Player
 
         public ArgumentLearned(ArgumentType type, string desc)
         {
-            Name = type.ToString();
+            Name = string.Join("", type.ToString().Select((c) => char.IsUpper(c) ? " " + c: "" + c)).Remove(0, 1);
             Desc = desc;
         }
     }
