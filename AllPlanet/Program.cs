@@ -40,6 +40,7 @@ namespace AllPlanet
                 { "Speech", () => new SpeechUITest() },
                 { "Learned", () => new ArgumentLearnedUITest() },
                 { "Test", () => new TestScene() },
+                { "Intro", () => new Intro() },
             });
         }
     }
