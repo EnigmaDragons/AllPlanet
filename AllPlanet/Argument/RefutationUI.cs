@@ -100,7 +100,7 @@ namespace AllPlanet.Argument
                 _currentStatement.Options.ForEach(x =>
                 {
                     var opt = Buttons.CreateOption(x.ToString(),
-                        new Transform2(new Vector2(650, 250 + (i * 50)), new Size2(300, 95)),
+                        new Transform2(new Vector2(650, 250 + (i * 90)), new Size2(300, 80)),
                         () =>
                         {
                             _currentStatement.Refute(x);
