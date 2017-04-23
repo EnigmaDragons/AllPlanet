@@ -27,13 +27,8 @@ namespace AllPlanet.Argument
             Branch.Add(_nextButton);
             Branch.Add(_backButton);
 
-            Input.OnDirection(d =>
-            {
-                if (d.HDir == HorizontalDirection.Left && HasBack)
-                    Back();
-                else if (d.HDir == HorizontalDirection.Right && HasNext)
-                    Next();
-            });
+            Input.On(Control.Right, () => { Next(); });
+            Input.On(Control.Left, () => { Back(); });
         }
 
         public void Draw(Transform2 parentTransform)

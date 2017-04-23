@@ -67,6 +67,7 @@
     <Compile Include="Debate\Side.cs" />
     <Compile Include="Debate\StageUI.cs" />
     <Compile Include="Opponent\OpponentExpression.cs" />
+    <Compile Include="Player\ArgumentLearnedFactory.cs" />
     <Compile Include="Player\ArgumentLearnedUI.cs" />
     <Compile Include="Planet\PlanetExpression.cs" />
     <Compile Include="Planet\PlanetResponds.cs" />
