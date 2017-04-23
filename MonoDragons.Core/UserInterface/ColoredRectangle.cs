@@ -12,15 +12,28 @@ namespace MonoDragons.Core.UserInterface
     {
         private Texture2D _background;
 
-        public Color Color { get; set; } = Color.Orange;
-        public Transform2 Transform { get; set; } = new Transform2(new Size2(400, 100));
+        private Color color;
+        public Color Color { get { return color; } set { color = value; GenerateTexture(); } }
+        private Transform2 transform;
+        public Transform2 Transform { get { return transform; } set { transform = value; GenerateTexture(); } }
+
+        public ColoredRectangle()
+        {
+            color = Color.Orange;
+            transform = new Transform2(new Size2(400, 100));
+            _background = new RectangleTexture(transform.ToRectangle(), Color).Create();
+        }
 
         public void Draw(Transform2 parentTransform)
         {
             var position = parentTransform + Transform;
-            Resources.Dispose(_background);
-            _background = new RectangleTexture(position.ToRectangle(), Color).Create();
             World.Draw(_background, position.ToRectangle());
+        }
+
+        private void GenerateTexture()
+        {
+            Resources.Dispose(_background);
+            _background = new RectangleTexture(transform.ToRectangle(), Color).Create();
         }
 
         public void Dispose()
