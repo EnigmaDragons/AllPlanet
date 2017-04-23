@@ -7,7 +7,7 @@ namespace AllPlanet.Argument.Concrete
     {
         public static RefuteOption Create(string argumentName)
         {
-            return new RefuteOption(ArgumentType.Discredit, argumentName, new OpponentResponds("Those both make sense to me.", OpponentExpression.Bored), new CrowdResponds(CrowdExpression.NoComment));
+            return new RefuteOption(ArgumentType.Discredit, argumentName, -2, new OpponentResponds("Those both make sense to me.", OpponentExpression.Bored), new CrowdResponds(CrowdExpression.NoComment));
         }
     }
 }
