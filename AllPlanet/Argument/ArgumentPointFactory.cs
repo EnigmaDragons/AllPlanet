@@ -8,10 +8,9 @@ namespace AllPlanet.Argument
         private static Dictionary<string, ArgumentPoint> _arguments = new Dictionary<string, ArgumentPoint>
         {
             { LavaArgument.Argument.Name, LavaArgument.Argument },
-            { new PopsicleArgument().Argument.Name, new PopsicleArgument().Argument },
-            { new NoMoonArgument().Argument.Name, new NoMoonArgument().Argument },
-            { new MoonsAreNotGoodArgument().Argument.Name, new MoonsAreNotGoodArgument().Argument },
-            { "next", LavaArgument.Argument },
+            { PopsicleArgument.Argument.Name, PopsicleArgument.Argument },
+            { NoMoonArgument.Argument.Name, NoMoonArgument.Argument },
+            { MoonsAreNotGoodArgument.Argument.Name, MoonsAreNotGoodArgument.Argument },
         };
 
         public static ArgumentPoint Create(string name)

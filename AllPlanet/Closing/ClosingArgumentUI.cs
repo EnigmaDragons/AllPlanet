@@ -1,12 +1,12 @@
-﻿using System;
-using MonoDragons.Core.Engine;
-using MonoDragons.Core.PhysicsEngine;
-using System.Collections.Generic;
-using MonoDragons.Core.UserInterface;
-using MonoDragons.Core.EventSystem;
+﻿using System.Collections.Generic;
+using AllPlanet.Argument;
 using Microsoft.Xna.Framework;
+using MonoDragons.Core.Engine;
+using MonoDragons.Core.EventSystem;
+using MonoDragons.Core.PhysicsEngine;
+using MonoDragons.Core.UserInterface;
 
-namespace AllPlanet.Argument
+namespace AllPlanet.Closing
 {
     public class ClosingArgumentUI : IVisual
     {

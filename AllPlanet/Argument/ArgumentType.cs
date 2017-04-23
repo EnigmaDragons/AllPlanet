@@ -4,6 +4,7 @@
     {
         Discredit,
         FakeStatistic,
+        Refuse,
         AgreeAndAmplify,
         AppealToEmotion,
         Reframe

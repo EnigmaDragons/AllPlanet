@@ -36,6 +36,13 @@ namespace AllPlanet.Player
                     "You didn't just learn this, you're just discovering what you already knew.",
                 }
             },
+            {
+                ArgumentType.Refuse, new List<string>
+                {
+                    "Person 1: This is a great argument. Person 2: No it isn't, it's terrible!",
+                    "You're wrong, you didn't just learn this argument!",
+                }
+            },
         };
 
         public static ArgumentLearned Create(ArgumentType type)

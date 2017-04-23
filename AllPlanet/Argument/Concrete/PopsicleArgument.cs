@@ -6,9 +6,9 @@ using AllPlanet.Player;
 
 namespace AllPlanet.Argument.Concrete
 {
-    public class PopsicleArgument
+    public static class PopsicleArgument
     {
-        public ArgumentPoint Argument { get; } = new ArgumentPoint(new List<object>
+        public static ArgumentPoint Argument { get; } = new ArgumentPoint(new List<object>
             {
                 new PlanetResponds("*This is ridiculous, I'm clearly not a popsicle*", PlanetExpression.Thinking),
                 new OpponentResponds("It's simple really, popsicles have ice.", OpponentExpression.Proud),
@@ -20,7 +20,11 @@ namespace AllPlanet.Argument.Concrete
             new Statement("It's simple really, popsicles have ice.", OpponentExpression.Proud, GenericDiscreditResponse.Create("popsicle"),
                 new RefuteOption(ArgumentType.AgreeAndAmplify, "no moon", -1,
                     new PlanetResponds("Your right! It's so simple a 2 year old could understand it!", PlanetExpression.Proud),
-                    new OpponentResponds("Thank you, now would you let me finish!", OpponentExpression.Worried))),
+                    new OpponentResponds("Thank you, now we shall continue on to my next point!", OpponentExpression.Worried)),
+                new RefuteOption(ArgumentType.Refuse, "no moon", -3, 
+                    new PlanetResponds("No they don't!", PlanetExpression.Challenging),
+                    new OpponentResponds("What?! Of course they do!", OpponentExpression.Challenging),
+                    new CrowdResponds(CrowdExpression.Boo))),
             new Statement("Popsicles are small.", OpponentExpression.Challenging, GenericDiscreditResponse.Create("popsicle"), 
                 new RefuteOption(ArgumentType.FakeStatistic, "no moon", -1,
                     new PlanetResponds("Actually 1% of popsicles are made to be large.", PlanetExpression.Challenging),
@@ -37,6 +41,10 @@ namespace AllPlanet.Argument.Concrete
                     new PlanetResponds("I betcha they would sell me in an ice cream truck on accident!", PlanetExpression.Proud),
                     new OpponentResponds("Okay you're not exactly a popsicle--", OpponentExpression.Worried),
                     new CrowdResponds(CrowdExpression.Cheer),
-                    new OpponentResponds("Fine but back to my original argument", OpponentExpression.Worried))));
+                    new OpponentResponds("Fine but back to my original argument", OpponentExpression.Worried)),
+                new RefuteOption(ArgumentType.Refuse, "no moon", -1,
+                    new PlanetResponds("I actually dont have any ice.", PlanetExpression.Challenging),
+                    new OpponentResponds("Yes you do, we have satelite photos of ice on you, on our website.", OpponentExpression.Proud),
+                    new CrowdResponds(CrowdExpression.NoComment))));
     }
 }

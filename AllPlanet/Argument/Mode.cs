@@ -4,6 +4,7 @@
     {
         Presentation,
         Refutation,
-        ClosingArgument
+        ClosingArgument,
+        Transition
     }
 }
