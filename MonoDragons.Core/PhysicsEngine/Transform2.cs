@@ -23,6 +23,9 @@ namespace MonoDragons.Core.PhysicsEngine
         public Transform2(Vector2 location)
             : this(location, Rotation2.Default, Size2.Zero, 1) { }
 
+        public Transform2(Vector2 location, float scale)
+            : this(location, Rotation2.Default, Size2.Zero, scale) { }
+
         public Transform2(Size2 size)
             : this(Vector2.Zero, Rotation2.Default, size, 1) { }
 
