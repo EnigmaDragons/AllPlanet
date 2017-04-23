@@ -52,7 +52,7 @@ namespace AllPlanet.Debate
             Audio.PlaySound("crowd-clapping-short");
 #else
             _remainingTransitionMillis = 8500;
-            Audio.PlaySound("crowd-clapping-long");
+            Audio.Play("crowd-clapping-long");
 #endif
         }
 
@@ -92,6 +92,7 @@ namespace AllPlanet.Debate
                 return;
 
             _finishedIntroductions = true;
+            Audio.PlayMusic("Music/bgm1", 0.5f);
             World.Publish(new Segue("lava"));
         }
 
