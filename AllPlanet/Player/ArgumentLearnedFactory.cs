@@ -43,6 +43,12 @@ namespace AllPlanet.Player
                     "You're wrong, you didn't just learn this argument!",
                 }
             },
+            {
+                ArgumentType.StrawMan, new List<string>
+                {
+                    "Th"
+                }
+            }
         };
 
         public static ArgumentLearned Create(ArgumentType type)

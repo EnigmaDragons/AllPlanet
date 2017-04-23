@@ -7,6 +7,7 @@
         Refuse,
         AgreeAndAmplify,
         AppealToEmotion,
-        Reframe
+        Reframe,
+        StrawMan,
     }
 }

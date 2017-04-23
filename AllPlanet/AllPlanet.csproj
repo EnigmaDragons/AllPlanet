@@ -39,6 +39,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Argument\AdvanceArgument.cs" />
+    <Compile Include="Argument\Concrete\DrEmerson\BornInLondonArgument.cs" />
+    <Compile Include="Argument\Concrete\Opponent2\GravityIsTooWeakArgument.cs" />
+    <Compile Include="Argument\Concrete\Opponent2\TooFarFromSunArgument.cs" />
+    <Compile Include="Argument\Concrete\Opponent2\TooSmallArgument.cs" />
     <Compile Include="Closing\ClosingArgument.cs" />
     <Compile Include="Closing\ClosingArgumentFactory.cs" />
     <Compile Include="Closing\ClosingChoice.cs" />
@@ -60,16 +64,16 @@
     <Compile Include="Opponent\BusinessMan.cs" />
     <Compile Include="Player\ArgumentLearned.cs" />
     <Compile Include="Argument\ArgumentNavUI.cs" />
-    <Compile Include="Argument\Concrete\MoonsAreNotGoodArgument.cs" />
-    <Compile Include="Argument\Concrete\NoMoonArgument.cs" />
+    <Compile Include="Argument\Concrete\DrEmerson\MoonsAreNotGoodArgument.cs" />
+    <Compile Include="Argument\Concrete\DrEmerson\NoMoonArgument.cs" />
     <Compile Include="Argument\Score.cs" />
     <Compile Include="Argument\StatementChanged.cs" />
     <Compile Include="Argument\ArgumentPointFactory.cs" />
     <Compile Include="Argument\RefutationUI.cs" />
     <Compile Include="Argument\ArgumentType.cs" />
-    <Compile Include="Argument\Concrete\PopsicleArgument.cs" />
+    <Compile Include="Argument\Concrete\DrEmerson\PopsicleArgument.cs" />
     <Compile Include="Argument\GenericDiscreditResponse.cs" />
-    <Compile Include="Argument\Concrete\LavaArgument.cs" />
+    <Compile Include="Argument\Concrete\DrEmerson\LavaArgument.cs" />
     <Compile Include="Crowds\Crowd.cs" />
     <Compile Include="Debate\DebateMicrophone.cs" />
     <Compile Include="Debate\PresentationStarted.cs" />
