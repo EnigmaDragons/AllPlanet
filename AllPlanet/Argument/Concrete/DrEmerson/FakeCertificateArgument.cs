@@ -1,0 +1,88 @@
+﻿using System.Collections.Generic;
+using AllPlanet.Crowds;
+using AllPlanet.Opponent;
+using AllPlanet.Planet;
+using AllPlanet.Player;
+
+namespace AllPlanet.Argument.Concrete.DrEmerson
+{
+    public static class FakeCertificateArgument
+    {
+        public static ArgumentPoint Argument { get; } = new ArgumentPoint(new List<object>
+            {
+                new PlanetResponds("*Can he really prove this is my birth certificate?*", PlanetExpression.Thinking),
+                new OpponentResponds("I talked to Dr.Tomas, he helped with your birth.", OpponentExpression.Proud),
+                new OpponentResponds("Dr.Tomas says he fucking hated it and he tries to forget your face by playing doom.", OpponentExpression.Challenging),
+                new OpponentResponds("He comfirmed who you were.", OpponentExpression.Proud),
+                new OpponentResponds("I also looked up how many people in london have ever been called Stilles 33 and it's only you.", OpponentExpression.Challenging),
+                ArgumentLearnedFactory.Create(ArgumentType.Discredit),
+            }, 
+            "fake certificate",
+            new Statement("I talked to Dr.Tomas, he helped with your birth.", OpponentExpression.Proud, GenericDiscreditResponse.Create("fake certificate"),
+                new RefuteOption(ArgumentType.Refuse, "emerson rebutal", -3, 
+                    new PlanetResponds("No, it was definitely a different doctor.", PlanetExpression.Thinking),
+                    new OpponentResponds("But he can confirm it was you.", OpponentExpression.Bored),
+                    new CrowdResponds(CrowdExpression.Boo)),
+                new RefuteOption(ArgumentType.AgreeAndAmplify, "emerson rebutal", -4,
+                    new PlanetResponds("He didn't just helped with the birth, he practically gave the birth.", PlanetExpression.Challenging),
+                    new OpponentResponds("Then he would especially remember your face.", OpponentExpression.Challenging),
+                    new CrowdResponds(CrowdExpression.Boo))),
+            new Statement("Dr.Tomas says he fucking hated it and he tries to forget your face by playing doom.", OpponentExpression.Challenging, 
+                new Dictionary<string, RefuteOption>
+                {
+                    {
+                        "He comfirmed who you were.",
+                        new RefuteOption(ArgumentType.Discredit, "emerson rebutal", +4,
+                            new PlanetResponds("How is it, that Dr.Tomas who has been forgetting my face...", PlanetExpression.Challenging),
+                            new PlanetResponds("Can suddenly confirm who I am? Especially after all these years.", PlanetExpression.Challenging),
+                            new CrowdResponds(CrowdExpression.Cheer),
+                            new OpponentResponds("Well, maybe he didn't forget.", OpponentExpression.Worried))
+                    },
+                },
+                GenericDiscreditResponse.Create("fake certificate"),
+                new RefuteOption(ArgumentType.AppealToEmotion, "emerson rebutal", +1, 
+                    new PlanetResponds("And you pressed this traumatized person for answers.", PlanetExpression.Sad),
+                    new PlanetResponds("How can you be so heartless forcing a man to try and remember something so painful.", PlanetExpression.Sad),
+                    new PlanetResponds("He probably just told you what you wanted to hear, so you would leave him alone.", PlanetExpression.Sad),
+                    new OpponentResponds("No, he was more than willing to cooperate, I Swear.", OpponentExpression.Worried),
+                    new CrowdResponds(CrowdExpression.Cheer)),
+                new RefuteOption(ArgumentType.Refuse, "emerson rebutal", +3, 
+                    new PlanetResponds("That's clearly a lie. Computers hadn't even been invented when I was born.", PlanetExpression.Challenging),
+                    new PlanetResponds("How the hell could he be playing doom without a computer?", PlanetExpression.Challenging),
+                    new OpponentResponds("Doom can run on anything, even a rock!", OpponentExpression.Worried),
+                    new CrowdResponds(CrowdExpression.Cheer))),
+            new Statement("He comfirmed who you were.", OpponentExpression.Proud, 
+                new Dictionary<string, RefuteOption>
+                {
+                    {
+                        "Dr.Tomas says he fucking hated it and he tries to forget your face by playing doom.",
+                        new RefuteOption(ArgumentType.Discredit, "emerson rebutal", +4,
+                            new PlanetResponds("How is it, that Dr.Tomas who has been forgetting my face...", PlanetExpression.Challenging),
+                            new PlanetResponds("Can suddenly confirm who I am? Especially after all these years.", PlanetExpression.Challenging),
+                            new CrowdResponds(CrowdExpression.Cheer),
+                            new OpponentResponds("Well, maybe he didn't forget.", OpponentExpression.Worried))
+                    },
+                },
+                GenericDiscreditResponse.Create("fake certificate"),
+                new RefuteOption(ArgumentType.Reframe, "emerson rebutal", -1,
+                    new PlanetResponds("Then he knows, without a doubt, that I am indeed a planet.", PlanetExpression.Proud),
+                    new OpponentResponds("We don't know his opinion on whether or not you are a planet", OpponentExpression.Worried),
+                    new CrowdResponds(CrowdExpression.NoComment)),
+                new RefuteOption(ArgumentType.FakeStatistic, "emerson rebutal", -3, 
+                    new PlanetResponds("Doctor only remember 11% of their patients.", PlanetExpression.Challenging),
+                    new OpponentResponds("I think you are a special case", OpponentExpression.Bored),
+                    new CrowdResponds(CrowdExpression.Boo))),
+            new Statement("I also looked up how many people in london have ever been called Stilles 33 and it's only you.", OpponentExpression.Challenging, GenericDiscreditResponse.Create("fake certificate"),
+                new RefuteOption(ArgumentType.StrawMan, "emerson rebutal", +1, 
+                    new PlanetResponds("You ran a google search, who are people named Stilles 33, born in london.", PlanetExpression.Challenging),
+                    new PlanetResponds("Let me guess you went in and stared at great big books full of names of people born in london.", PlanetExpression.Challenging),
+                    new OpponentResponds("I'm a scientist, who gets paid to do studies.", OpponentExpression.Proud),
+                    new OpponentResponds("Of course I know how to research.", OpponentExpression.Worried),
+                    new CrowdResponds(CrowdExpression.NoComment)),
+                new RefuteOption(ArgumentType.FakeStatistic, "emerson rebutal", -2,
+                    new PlanetResponds("Did you know that only 34% of people born around the time I was born had their names recorded.", PlanetExpression.Challenging),
+                    new PlanetResponds("So you found one entry, there could have easily been many more.", PlanetExpression.Challenging),
+                    new OpponentResponds("Well even so, Dr.Tomas still proves i'm right.", OpponentExpression.Challenging),
+                    new CrowdResponds(CrowdExpression.Boo))));
+    }
+}

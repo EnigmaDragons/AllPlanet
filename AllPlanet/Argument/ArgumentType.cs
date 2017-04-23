@@ -2,12 +2,12 @@
 {
     public enum ArgumentType
     {
-        Discredit,
         FakeStatistic,
         Refuse,
         AgreeAndAmplify,
         AppealToEmotion,
         Reframe,
         StrawMan,
+        Discredit,
     }
 }

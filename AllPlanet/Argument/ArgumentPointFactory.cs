@@ -12,7 +12,8 @@ namespace AllPlanet.Argument
             { PopsicleArgument.Argument.Name, PopsicleArgument.Argument },
             { NoMoonArgument.Argument.Name, NoMoonArgument.Argument },
             { MoonsAreNotGoodArgument.Argument.Name, MoonsAreNotGoodArgument.Argument },
-            { BornInLondonArgument.Argument.Name, BornInLondonArgument.Argument }
+            { BornInLondonArgument.Argument.Name, BornInLondonArgument.Argument },
+            { FakeCertificateArgument.Argument.Name, FakeCertificateArgument.Argument },
         };
 
         public static ArgumentPoint Create(string name)

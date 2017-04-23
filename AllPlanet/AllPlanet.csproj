@@ -40,6 +40,7 @@
   <ItemGroup>
     <Compile Include="Argument\AdvanceArgument.cs" />
     <Compile Include="Argument\Concrete\DrEmerson\BornInLondonArgument.cs" />
+    <Compile Include="Argument\Concrete\DrEmerson\FakeCertificateArgument.cs" />
     <Compile Include="Argument\Concrete\Opponent2\GravityIsTooWeakArgument.cs" />
     <Compile Include="Argument\Concrete\Opponent2\TooFarFromSunArgument.cs" />
     <Compile Include="Argument\Concrete\Opponent2\TooSmallArgument.cs" />
