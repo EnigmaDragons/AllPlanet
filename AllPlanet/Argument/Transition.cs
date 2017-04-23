@@ -1,12 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AllPlanet.Argument
 {
-    class Transition
+    public class Transition
     {
+        public string Name { get; }
+        private readonly List<object> _transitionaryEvents;
+
+        public Transition(string name, params object[] transitionaryEvents)
+        {
+            Name = name;
+            _transitionaryEvents = transitionaryEvents.ToList();
+        }
     }
 }

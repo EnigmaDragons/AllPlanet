@@ -7,8 +7,7 @@ namespace AllPlanet.Argument
     {
         private static Dictionary<string, ClosingArgument> _arguments = new Dictionary<string, ClosingArgument>
         {
-            { new ClosingArgument1().Argument.Name, new ClosingArgument1().Argument },
-            { "nextClose", new ClosingArgument1().Argument },
+            { ClosingArgument1.Argument.Name, ClosingArgument1.Argument },
         };
 
         public static ClosingArgument Create(string name)

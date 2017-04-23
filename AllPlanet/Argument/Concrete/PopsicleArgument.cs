@@ -6,9 +6,9 @@ using AllPlanet.Player;
 
 namespace AllPlanet.Argument.Concrete
 {
-    public class PopsicleArgument
+    public static class PopsicleArgument
     {
-        public ArgumentPoint Argument { get; } = new ArgumentPoint(new List<object>
+        public static ArgumentPoint Argument { get; } = new ArgumentPoint(new List<object>
             {
                 new PlanetResponds("*This is ridiculous, I'm clearly not a popsicle*", PlanetExpression.Thinking),
                 new OpponentResponds("It's simple really, popsicles have ice.", OpponentExpression.Proud),

@@ -6,9 +6,9 @@ using AllPlanet.Player;
 
 namespace AllPlanet.Argument.Concrete
 {
-    public class MoonsAreNotGoodArgument
+    public static class MoonsAreNotGoodArgument
     {
-        public ArgumentPoint Argument { get; } = new ArgumentPoint(new List<object>
+        public static ArgumentPoint Argument { get; } = new ArgumentPoint(new List<object>
             {
                 new PlanetResponds("*I have never had a moon.*", PlanetExpression.Thinking),
                 new OpponentResponds("Did you know saturn has meteor showers all the time.", OpponentExpression.Challenging),

@@ -44,9 +44,12 @@
     <Compile Include="Argument\ClosingChoice.cs" />
     <Compile Include="Argument\ClosingOption.cs" />
     <Compile Include="Argument\Concrete\ClosingArgument1.cs" />
+    <Compile Include="Argument\Concrete\Opening.cs" />
     <Compile Include="Argument\CurrentPoint.cs" />
     <Compile Include="Argument\Mode.cs" />
     <Compile Include="Argument\ModeChanged.cs" />
+    <Compile Include="Argument\Transition.cs" />
+    <Compile Include="Argument\TransitionFactory.cs" />
     <Compile Include="ClickBranchPriority.cs" />
     <Compile Include="Argument\ClosingArgumentUI.cs" />
     <Compile Include="Argument\CurrentClosingArgument.cs" />

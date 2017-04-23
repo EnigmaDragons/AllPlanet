@@ -6,9 +6,9 @@ using AllPlanet.Player;
 
 namespace AllPlanet.Argument.Concrete
 {
-    public class NoMoonArgument
+    public static class NoMoonArgument
     {
-        public ArgumentPoint Argument { get; } = new ArgumentPoint(new List<object>
+        public static ArgumentPoint Argument { get; } = new ArgumentPoint(new List<object>
             {
                 new PlanetResponds("*I wonder what argument is coming next*", PlanetExpression.Thinking),
                 new OpponentResponds("At night when you look up in the sky there is a light.", OpponentExpression.Proud),
