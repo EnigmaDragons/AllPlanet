@@ -32,7 +32,7 @@ namespace AllPlanet.Debate
                 return;
             
             UI.DrawCenteredWithOffset(Image, new Vector2(800, 200), new Vector2(0, -300));
-            UI.DrawTextCentered(_currentContent, new Rectangle(470, 0, 680, 300), Color.Black);
+            UI.DrawTextCentered(_currentContent, new Rectangle(480, -10, 660, 300), Color.Black);
         }
 
         public void Show(string message, Side side)

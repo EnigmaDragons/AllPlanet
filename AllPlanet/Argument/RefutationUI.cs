@@ -6,6 +6,7 @@ using MonoDragons.Core.EventSystem;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
 using MonoDragons.Core.Inputs;
+using MonoDragons.Core.Text;
 
 namespace AllPlanet.Argument
 {
@@ -99,7 +100,7 @@ namespace AllPlanet.Argument
                 var i = 0;
                 _currentStatement.Options.ForEach(x =>
                 {
-                    var opt = Buttons.CreateOption(x.ToString(),
+                    var opt = Buttons.CreateOption(x.WithSpaces(),
                         new Transform2(new Vector2(650, 250 + (i * 90)), new Size2(300, 80)),
                         () =>
                         {

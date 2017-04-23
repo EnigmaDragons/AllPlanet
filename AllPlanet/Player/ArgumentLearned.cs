@@ -1,6 +1,5 @@
 ﻿using AllPlanet.Argument;
-using System;
-using System.Linq;
+using MonoDragons.Core.Text;
 
 namespace AllPlanet.Player
 {
@@ -11,7 +10,7 @@ namespace AllPlanet.Player
 
         public ArgumentLearned(ArgumentType type, string desc)
         {
-            Name = string.Join("", type.ToString().Select((c) => char.IsUpper(c) ? " " + c: "" + c)).Remove(0, 1);
+            Name = type.WithSpaces();
             Desc = desc;
         }
     }

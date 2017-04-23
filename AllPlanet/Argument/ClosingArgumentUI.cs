@@ -8,10 +8,10 @@ using Microsoft.Xna.Framework;
 
 namespace AllPlanet.Argument
 {
-    public class ClosingArgumentUI : IVisualAutomaton
+    public class ClosingArgumentUI : IVisual
     {
         private readonly CurrentClosingArgument _currentArgument;
-        private readonly List<TextButton> _optionButtons = new List<TextButton>();
+        private readonly List<ImageTextButton> _optionButtons = new List<ImageTextButton>();
 
         private bool _active = false;
 
@@ -26,36 +26,30 @@ namespace AllPlanet.Argument
         private void ChangeMode(ModeChanged obj)
         {
             _active = obj.Mode == Mode.ClosingArgument;
-            if (_active)
-            {
-                var i = 0;
-                _currentArgument.Get().CurrentChoice.AvailableOptionDescriptions.ForEach(x =>
-                {
-                    var opt = Buttons.CreateOption(x.ToString(),
-                        new Transform2(new Vector2(500, 200 + (i * 140)), new Size2(600, 120)),
-                        () => { _currentArgument.Get().Choose(x); ChangeOptions(); });
-                    _optionButtons.Add(opt);
-                    Branch.Add(opt);
-                    i++;
-                });
-            }
-            else
-            {
-                _optionButtons.ForEach(x => Branch.Remove(x));
-                _optionButtons.Clear();
-            }
+            UpdateOptions();
         }
 
-        public void ChangeOptions()
+        private void UpdateOptions()
+        {
+            ClearOptions();
+            if (_active)
+                MakeNewButtons();
+        }
+
+        private void ClearOptions()
         {
             _optionButtons.ForEach(x => Branch.Remove(x));
             _optionButtons.Clear();
+        }
+
+        private void MakeNewButtons()
+        {
             var i = 0;
             _currentArgument.Get().CurrentChoice.AvailableOptionDescriptions.ForEach(x =>
             {
-                var opt = Buttons.CreateOption(x.ToString(),
+                var opt = Buttons.CreateClosingArgument(x.ToString(),
                     new Transform2(new Vector2(500, 200 + (i * 140)), new Size2(600, 120)),
-                    () => { _currentArgument.Get().Choose(x); ChangeOptions(); });
+                        () => { _currentArgument.Get().Choose(x); UpdateOptions(); });
                 _optionButtons.Add(opt);
                 Branch.Add(opt);
                 i++;
@@ -66,10 +60,6 @@ namespace AllPlanet.Argument
         {
             World.Darken();
             _optionButtons.ForEach(x => x.Draw(parentTransform));
-        }
-
-        public void Update(TimeSpan delta)
-        {
         }
     }
 }

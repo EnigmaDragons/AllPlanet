@@ -94,7 +94,6 @@
     <Compile Include="Argument\Segue.cs" />
     <Compile Include="Argument\Statement.cs" />
     <Compile Include="Argument\ArgumentPoint.cs" />
-    <Compile Include="Scenes\ArgumentLearnedUITest.cs" />
     <Compile Include="Scenes\Intro.cs" />
     <Compile Include="Scenes\DebateScene.cs" />
     <Compile Include="Scenes\SpeechUITest.cs" />

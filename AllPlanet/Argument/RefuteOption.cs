@@ -2,7 +2,6 @@
 using System.Linq;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.EventSystem;
-using System;
 
 namespace AllPlanet.Argument
 {

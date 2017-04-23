@@ -39,19 +39,15 @@ namespace AllPlanet.Debate
             Branch.Add(_refutation.Branch);
             World.Subscribe(EventSubscription.Create<CrowdResponds>(CrowdSays, this));
             World.Subscribe(EventSubscription.Create<AdvanceRequested>(x => _readyToAdvance = _readyForTransition, this));
-            World.Subscribe(EventSubscription.Create<ModeChanged>((e) => ModeChange(e), this));
+            World.Subscribe(EventSubscription.Create<ModeChanged>(ModeChange, this));
         }
 
         private void ModeChange(ModeChanged e)
         {
             if(_mode != Mode.ClosingArgument && e.Mode == Mode.ClosingArgument)
-            {
                 Branch.Add(_close.Branch);
-            }
             else if (_mode == Mode.ClosingArgument && e.Mode != Mode.ClosingArgument)
-            {
                 Branch.Remove(_close.Branch);
-            }
             _mode = e.Mode;
         }
 
@@ -83,10 +79,7 @@ namespace AllPlanet.Debate
                 _mic.Update(delta);
                 _refutation.Update(delta);
             }
-            else
-            {
-                _close.Update(delta);
-            }
+
             _crowdUi.Update(delta);
             _stageUi.Update(delta);
         }

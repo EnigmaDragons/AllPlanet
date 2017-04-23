@@ -14,12 +14,8 @@ namespace AllPlanet.Opponent
 
         public Scientist3()
         {
-            World.SubscribeForScene(EventSubscription.Create<StatementChanged>(StatementChanged, this));
-        }
-
-        private void StatementChanged(StatementChanged obj)
-        {
-            _exp = obj.Statement.Expression;
+            World.SubscribeForScene(EventSubscription.Create<StatementChanged>(x => _exp = x.Statement.Expression, this));
+            World.SubscribeForScene(EventSubscription.Create<OpponentResponds>(x => _exp = x.Expression, this));
         }
 
         public void Update(TimeSpan delta)

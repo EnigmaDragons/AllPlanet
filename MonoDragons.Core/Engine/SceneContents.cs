@@ -7,7 +7,7 @@ namespace MonoDragons.Core.Engine
 {
     public class SceneContents : IDisposable
     {
-        private readonly List<IDisposable> _diposables = new List<IDisposable>();
+        private readonly HashSet<IDisposable> _diposables = new HashSet<IDisposable>();
         private readonly ContentManager _contentManager;
 
         public int ContentCount => _diposables.Count;

@@ -5,11 +5,13 @@ using MonoDragons.Core.Audio;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.Memory;
 using MonoDragons.Core.PhysicsEngine;
+using MonoDragons.Core.UserInterface;
 
 namespace AllPlanet.Scenes
 {
     public sealed class Intro : IScene
     {
+        private int _sceneMillis;
         private string _space1 = "Backdrops/space1";
         private Timer _timer;
 
@@ -19,18 +21,20 @@ namespace AllPlanet.Scenes
         {
             PreloadToAvoidFrameStutter();
             _timer = new Timer(Next, 32);
-            _t = new Transform2(new Vector2(0, 0), new Rotation2(0), new Size2(2560, 1600), 5.0f);
+            _t = new Transform2(new Vector2(0, 0), new Rotation2(0), new Size2(2560, 1600), 2.0f);
             Audio.PlayMusic("Music/seriousspace");
         }
 
         public void Update(TimeSpan delta)
         {
             _timer.Update(delta);
+            _sceneMillis += delta.Milliseconds;
         }
 
         public void Draw()
         {
             World.Draw(_space1, _t);
+            UI.DrawText($"X:{_t.Location.X}, Y:{_t.Location.Y}, {_sceneMillis / 100}", new Vector2(1350, 0), Color.Yellow);
         }
 
         private void PreloadToAvoidFrameStutter()
