@@ -11,19 +11,20 @@ namespace AllPlanet.Argument
         public List<string> OptionDescriptions => _options.Select((o) => o.Description).ToList();
         private List<ClosingOption> _options { get; }
         private List<object> _responses { get; }
+        private ClosingOption _chosenOption;
         private Action _callback;
 
-        public ClosingChoice(object[] responses, params ClosingOption[] options)
+        public ClosingChoice(object[] openingResponses, params ClosingOption[] options)
         {
             _options = options.ToList();
-            _responses = responses.ToList();
+            _responses = openingResponses.ToList();
         }
 
         public void Enact(string optionDescription, Action callback)
         {
             _callback = callback;
-            var option = _options.Find(c => c.Description == optionDescription);
-            option.Enact(() => { World.Subscribe(EventSubscription.Create<AdvanceArgument>(x => Continue(), this)); Continue(); } );
+            _chosenOption = _options.Find(c => c.Description == optionDescription);
+            World.Subscribe(EventSubscription.Create<AdvanceArgument>(x => Continue(), this));
             Continue();
         }
 
@@ -32,7 +33,7 @@ namespace AllPlanet.Argument
             if (_responses.Count == 0)
             {
                 World.Unsubscribe(this);
-                _callback();
+                _chosenOption.Enact(() => _callback());
             }
             else
             {

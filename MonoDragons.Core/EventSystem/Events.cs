@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MonoDragons.Core.Engine;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -17,7 +18,8 @@ namespace MonoDragons.Core.EventSystem
             var eventType = payload.GetType();
             if (_eventActions.ContainsKey(eventType))
                 foreach (var action in _eventActions[eventType].ToList())
-                    ((Action<object>)action)(payload);
+                    try { ((Action<object>)action)(payload); }
+                    catch (Exception ex) { Debug.WriteLine("Exception unhandled in events:" + ex.ToString()); Hack.TheGame.Exit(); }
         }
 
         public void Subscribe(EventSubscription subscription)

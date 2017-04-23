@@ -26,7 +26,7 @@ namespace AllPlanet.Argument
                 _currentArgument = ClosingArgumentFactory.Create(obj.ArgumentName);
                 _currentArgument.Start();
             }
-            catch (KeyNotFoundException)
+            catch
             {
                 _currentArgument = ClosingArgument.None;
             }

@@ -26,7 +26,7 @@ namespace AllPlanet.Argument
                 _currentPoint = ArgumentPointFactory.Create(obj.ArgumentName);
                 _currentPoint.Start();
             }
-            catch (KeyNotFoundException)
+            catch
             {
                 _currentPoint = ArgumentPoint.None;
             }
