@@ -33,8 +33,6 @@ namespace AllPlanet.Scenes
             PreloadToAvoidFrameStutter();
             _timer = new Timer(Next, 32);
             _bgTransform = new Transform2(new Vector2(-50, -400), new Rotation2(0), new Size2(2560, 1600), 1.8f);
-            //_ms = 24000;
-            //_phase = 5;
             Audio.PlayMusic("Music/seriousspace");
         }
 
@@ -117,7 +115,6 @@ namespace AllPlanet.Scenes
 
         private void UpdatePlanetAnim()
         {
-
             if (_phase == 8 && _ms > 32000)
             {
                 _phase++;
