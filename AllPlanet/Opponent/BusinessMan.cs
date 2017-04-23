@@ -18,12 +18,13 @@ namespace AllPlanet.Opponent
         public BusinessMan()
         {
             _offset = new Vector2(35, -15);
-            World.SubscribeForScene(EventSubscription.Create<StatementChanged>(StatementChanged, this));
+            World.SubscribeForScene(EventSubscription.Create<StatementChanged>((e) => StatementChanged(e.Statement.Expression), this));
+            World.SubscribeForScene(EventSubscription.Create<OpponentResponds>((e) => StatementChanged(e.Expression), this));
         }
 
-        private void StatementChanged(StatementChanged obj)
+        private void StatementChanged(OpponentExpression obj)
         {
-            _exp = obj.Statement.Expression;
+            _exp = obj;
         }
 
         public void Update(TimeSpan delta)
