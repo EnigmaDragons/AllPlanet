@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using AllPlanet.Argument;
 using Microsoft.Xna.Framework;
 using MonoDragons.Core.Audio;
@@ -35,15 +36,16 @@ namespace AllPlanet.Debate
 #endif
         }
 
-        private void BeginFirstArgument()
+        private async void BeginFirstArgument()
         {
             if (_finishedIntroductions)
                 return;
 
             _finishedIntroductions = true;
             Audio.PlayMusic("Music/bgm1", 0.5f);
-            World.Publish(new Segue("lava"));
             _moderator.LeaveStage();
+            await Task.Delay(1500);
+            World.Publish(new Segue("lava"));
         }
 
         public void Update(TimeSpan delta)
