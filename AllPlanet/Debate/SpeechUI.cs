@@ -1,6 +1,8 @@
 ﻿using System;
+using AllPlanet.Planet;
 using Microsoft.Xna.Framework;
 using MonoDragons.Core.Engine;
+using MonoDragons.Core.EventSystem;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
 
@@ -9,14 +11,12 @@ namespace AllPlanet.Debate
     public class SpeechUI : IVisualAutomaton
     {
         private const int MillisToCharacter = 30;
-
-        private string _speechbubbleleft = "UI/speechbubble";
-        private string _speechbubbleright = "UI/speechbubble-r";
-
+        
         private string _currentDisplayMessage = "";
         private Side _currentSide = Side.Left;
         private string _currentContent = "";
         private long _totalMessageTime = 0;
+        private string Image => "UI/speechbubble-" + _currentSide.ToString().ToLower();
 
         public void Update(TimeSpan deltaMillis)
         {
@@ -30,9 +30,8 @@ namespace AllPlanet.Debate
         {
             if (_currentDisplayMessage.Equals(""))
                 return;
-
-            var bubble = _currentSide.Equals(Side.Left) ? _speechbubbleleft : _speechbubbleright;
-            UI.DrawCenteredWithOffset(bubble, new Vector2(800, 200), new Vector2(0, -300));
+            
+            UI.DrawCenteredWithOffset(Image, new Vector2(800, 200), new Vector2(0, -300));
             UI.DrawTextCentered(_currentContent, new Rectangle(470, 0, 680, 300), Color.Black);
         }
 

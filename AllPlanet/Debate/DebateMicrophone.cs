@@ -17,6 +17,7 @@ namespace AllPlanet.Debate
             World.Subscribe(EventSubscription.Create<StatementChanged>(ChangeStatement, this));
             World.Subscribe(EventSubscription.Create<PlanetResponds>(x => PlanetSays(x.Statement), this));
             World.Subscribe(EventSubscription.Create<OpponentResponds>(x => OpponentSays(x.Statement), this));
+            World.Subscribe(EventSubscription.Create<ModeratorSays>(x => ModeratorSays(x.Statement), this));
         }
 
         public void Update(TimeSpan delta)
@@ -37,6 +38,11 @@ namespace AllPlanet.Debate
         public void OpponentSays(string message)
         {
             _speech.Show(message, Side.Right);
+        }
+
+        public void ModeratorSays(string message)
+        {
+            _speech.Show(message, Side.Center);
         }
 
         private void ChangeStatement(StatementChanged obj)

@@ -1,7 +1,6 @@
 ﻿using System;
 using AllPlanet.Argument;
 using AllPlanet.Crowds;
-using MonoDragons.Core.Audio;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.EventSystem;
 using MonoDragons.Core.PhysicsEngine;
@@ -14,44 +13,29 @@ namespace AllPlanet.Debate
     {
         private const int _transitionMillis = 3000;
 
+        private readonly DebateIntroduction _intro;
         private readonly DebateMicrophone _mic;
         private readonly RefutationUI _refutation;
         private readonly StageUI _stageUi;
         private readonly CrowdUI _crowdUi;
-        private readonly StageCurtain _curtain;
         private int _remainingTransitionMillis;
         private bool _shouldShowCrowd;
         private bool _readyForTransition;
         private bool _readyToAdvance;
-        private bool _finishedIntroductions;
 
         public ClickUIBranch Branch { get; }
 
         public DebatePresentation()
         {
+            _intro = new DebateIntroduction();
             _refutation = new RefutationUI(new CurrentPoint());
-            _curtain = new StageCurtain();
             _mic = new DebateMicrophone();
             _stageUi = new StageUI();
             _crowdUi = new CrowdUI();
             Branch = new ClickUIBranch("DebatePresentation", (int)ClickBranchPriority.Debate);
             Branch.Add(_refutation.Branch);
-            World.Subscribe(EventSubscription.Create<PresentationStarted>(StartPresentation, this));
             World.Subscribe(EventSubscription.Create<CrowdResponds>(CrowdSays, this));
             World.Subscribe(EventSubscription.Create<AdvanceRequested>(x => _readyToAdvance = _readyForTransition, this));
-        }
-
-        private void StartPresentation(PresentationStarted obj)
-        {
-            _curtain.Raise();
-            _readyForTransition = false;
-#if DEBUG
-            _remainingTransitionMillis = 3500;
-            Audio.PlaySound("crowd-clapping-short");
-#else
-            _remainingTransitionMillis = 8500;
-            Audio.Play("crowd-clapping-long");
-#endif
         }
 
         private void CrowdSays(CrowdResponds obj)
@@ -66,7 +50,6 @@ namespace AllPlanet.Debate
                 _remainingTransitionMillis -= (int)delta.TotalMilliseconds;
             if (_remainingTransitionMillis <= 0)
             {
-                BeginFirstArgument();
                 _shouldShowCrowd = false;
                 _readyForTransition = true;
             }
@@ -77,21 +60,11 @@ namespace AllPlanet.Debate
                 World.Publish(new AdvanceArgument());
             }
 
-            _curtain.Update(delta);
+            _intro.Update(delta);
             _mic.Update(delta);
             _refutation.Update(delta);
             _crowdUi.Update(delta);
             _stageUi.Update(delta);
-        }
-
-        private void BeginFirstArgument()
-        {
-            if (_finishedIntroductions)
-                return;
-
-            _finishedIntroductions = true;
-            Audio.PlayMusic("Music/bgm1", 0.5f);
-            World.Publish(new Segue("lava"));
         }
 
         public void Draw(Transform2 parentTransform)
@@ -103,7 +76,7 @@ namespace AllPlanet.Debate
                 _stageUi.Draw(Transform2.Zero);
                 _mic.Draw(Transform2.Zero);
                 _refutation.Draw(Transform2.Zero);
-                _curtain.Draw(Transform2.Zero);
+                _intro.Draw(Transform2.Zero);
             }
         }
     }

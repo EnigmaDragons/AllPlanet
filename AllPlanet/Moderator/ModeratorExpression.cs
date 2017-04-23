@@ -1,10 +1,11 @@
 ﻿
 namespace AllPlanet.Debate
 {
-    public enum Side
+    public enum ModeratorExpression
     {
+        Mic,
+        Wink,
         Left,
         Right,
-        Center,
     }
 }
