@@ -14,7 +14,7 @@ namespace AllPlanet.Argument.Concrete
                 new OpponentResponds("It's simple really, popsicles have ice.", OpponentExpression.Proud),
                 new OpponentResponds("Popsicles are small.", OpponentExpression.Challenging),
                 new OpponentResponds("You both have ice, and are small", OpponentExpression.Proud),
-                new ArgumentLearned(ArgumentType.AgreeAndAmplify, "This argument does just solve some situations. It can solve your plumbing, get you a date, and save the world!"),
+                ArgumentLearnedFactory.Create(ArgumentType.AgreeAndAmplify),
             }, 
             "popsicle", 
             new Statement("It's simple really, popsicles have ice.", OpponentExpression.Proud, GenericDiscreditResponse.Create("popsicle"),
