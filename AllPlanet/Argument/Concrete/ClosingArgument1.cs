@@ -60,7 +60,10 @@ namespace AllPlanet.Argument.Concrete
                     new CrowdResponds(CrowdExpression.Boo),
                     new OpponentResponds("-", OpponentExpression.Worried)),
                 new ClosingOption("Make the audience out to be heroes", 0, 
-                    new PlanetResponds("jijiofjoijadfes", PlanetExpression.Challenging))),
+                    new PlanetResponds("Today is a momentious occasion!", PlanetExpression.Proud),
+                    new PlanetResponds("The day all of you members of the auidence saved a planet from utter destruction.", PlanetExpression.Proud),
+                    new PlanetResponds("You will be remembered, people will thank you for what you have done here today.", PlanetExpression.Proud),
+                    new CrowdResponds(CrowdExpression.Cheer))),
             new ClosingChoice(
                 new ClosingOption("", 0),
                 new ClosingOption("", 0),
