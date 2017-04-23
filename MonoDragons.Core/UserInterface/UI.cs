@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoDragons.Core.Memory;
+using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.Text;
 
 namespace MonoDragons.Core.UserInterface
@@ -30,6 +31,11 @@ namespace MonoDragons.Core.UserInterface
         public static void DrawCentered(string imageName, Vector2 widthHeight)
         {
             DrawCenteredWithOffset(imageName, widthHeight, Vector2.Zero);
+        }
+        
+        public static void DrawCentered(string imageName, Transform2 transform)
+        {
+            DrawCenteredWithOffset(imageName, transform.ToRectangle().Size.ToVector2(), transform.Location);
         }
 
         public static void DrawCenteredWithOffset(string imageName, Vector2 offSet)
