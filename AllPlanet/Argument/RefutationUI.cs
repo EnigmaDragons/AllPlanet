@@ -5,6 +5,7 @@ using MonoDragons.Core.Engine;
 using MonoDragons.Core.EventSystem;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
+using MonoDragons.Core.Inputs;
 
 namespace AllPlanet.Argument
 {
@@ -30,7 +31,9 @@ namespace AllPlanet.Argument
         {
             _navUi = new ArgumentNavUI(point);
             _refuteButton = Buttons.CreateRefute(new Transform2(new Vector2(650, 650), new Size2(300, 95)), Refute, () => CanClickRefute);
+            Input.On(Control.A, Refute);
             _cancelButton = Buttons.CreateCancel(new Transform2(new Vector2(650, 650), new Size2(300, 95)), Cancel, () => CanClickCancel);
+            Input.On(Control.B, Cancel);
             _interactBranch = new ClickUIBranch("Interact", (int)ClickBranchPriority.Interact);
             _interactBranch.Add(_refuteButton);
             Branch = new ClickUIBranch("RefutationUI", (int)ClickBranchPriority.Refute);
@@ -52,11 +55,13 @@ namespace AllPlanet.Argument
 
         private void Cancel()
         {
+            if (!CanClickCancel) return;
             ResetRefuting();
         }
 
         private void Refute()
         {
+            if (!CanClickRefute) return;
             _isRefuting = true;
             _interactBranch.Remove(_refuteButton);
             Branch.Remove(_navUi.Branch);
@@ -96,7 +101,8 @@ namespace AllPlanet.Argument
                 {
                     var opt = Buttons.CreateOption(x.ToString(),
                         new Transform2(new Vector2(650, 250 + (i * 50)), new Size2(300, 95)),
-                        () => {
+                        () =>
+                        {
                             _currentStatement.Refute(x);
                             ResetRefuting();
                         });
