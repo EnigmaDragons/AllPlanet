@@ -59,14 +59,17 @@ namespace AllPlanet.Argument.Concrete
                     new PlanetResponds("First it's claiming planet's arn't real, then it's going to be claiming you guys arn't real scientists.", PlanetExpression.Challenging),
                     new CrowdResponds(CrowdExpression.Boo),
                     new OpponentResponds("-", OpponentExpression.Worried)),
-                new ClosingOption("Make the audience out to be heroes", 0, 
+                new ClosingOption("Make the audience out to be heroes", 1, 
                     new PlanetResponds("Today is a momentious occasion!", PlanetExpression.Proud),
                     new PlanetResponds("The day all of you members of the auidence saved a planet from utter destruction.", PlanetExpression.Proud),
                     new PlanetResponds("You will be remembered, people will thank you for what you have done here today.", PlanetExpression.Proud),
                     new CrowdResponds(CrowdExpression.Cheer))),
             new ClosingChoice(
-                new ClosingOption("", 0),
-                new ClosingOption("", 0),
-                new ClosingOption("", 0)));
+                new ClosingOption("Insult the audience if they don't think you're right.", -2,
+                    new PlanetResponds("At this point only idiots will still not believe I'm a planet!", PlanetExpression.Proud)),
+                new ClosingOption("Super Confident Finish", 2, 
+                    new PlanetResponds("There is no doubt I'm a planet, it's more debatable whether Saturn is a planet!", PlanetExpression.Proud)),
+                new ClosingOption("Tell them how science has got your back", 1,
+                    new PlanetResponds("The science is irrefutable, Emerson's theory has been tested and proven false.", PlanetExpression.Thinking))));
     }
 }
