@@ -6,6 +6,7 @@ using MonoDragons.Core.Engine;
 using MonoDragons.Core.EventSystem;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
+using MonoDragons.Core.Inputs;
 
 namespace AllPlanet.Player
 {
@@ -19,20 +20,28 @@ namespace AllPlanet.Player
         private readonly Label _desc;
 
         private bool Dismissed { get; set; }
-        
+
         public ClickUIBranch Branch { get; }
 
         public ArgumentLearnedUI()
         {
             Branch = new ClickUIBranch("Learn", (int)ClickBranchPriority.Learn);
             _title = new Label { BackgroundColor = Color.Transparent, Transform = new Transform2(new Vector2(250, 200), new Size2(1100, 100)), Text = "New Argument Learned!" };
-            _name = new Label { BackgroundColor = Color.Transparent, Transform = new Transform2(new Vector2(250, 200 + 75), new Size2(1100, 100)), Text = "File a bug ticket if you see this."};
+            _name = new Label { BackgroundColor = Color.Transparent, Transform = new Transform2(new Vector2(250, 200 + 75), new Size2(1100, 100)), Text = "File a bug ticket if you see this." };
             _desc = new Label { BackgroundColor = Color.Transparent, Transform = new Transform2(new Vector2(250, 200 + 150), new Size2(1100, 100)) };
-            _confirm = new ImageButton("UI/checkmark", "UI/checkmark", "UI/checkmark", 
-                new Transform2(new Vector2(1300, 400), new Size2(64, 64)), () => Dismissed = true, () => !Dismissed);
+            _confirm = new ImageButton("UI/checkmark", "UI/checkmark", "UI/checkmark",
+                new Transform2(new Vector2(1300, 400), new Size2(64, 64)), Dismiss, () => !Dismissed);
+            Input.On(Control.X, Dismiss);
             Branch.Add(_confirm);
             Dismissed = true;
             World.Subscribe(EventSubscription.Create<ArgumentLearned>(LearnArgument, this));
+        }
+
+        private void Dismiss()
+        {
+            if (Dismissed) return;
+            Dismissed = true;
+            World.Publish(new AdvanceArgument());
         }
 
         private void LearnArgument(ArgumentLearned obj)
@@ -51,8 +60,7 @@ namespace AllPlanet.Player
 
         public void Draw(Transform2 parentTransform)
         {
-            if (Dismissed)
-                return;
+            if (Dismissed) return;
 
             World.Darken();
             UI.DrawCenteredWithOffset(_backdrop, new Vector2(1200, 300), new Vector2(0, -110));

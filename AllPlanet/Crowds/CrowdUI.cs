@@ -27,8 +27,7 @@ namespace AllPlanet.Crowds
 
         private void PlaySound()
         {
-            if (!_exp.Equals(CrowdExpression.NoComment))
-                Audio.PlaySound(Sound);
+            Audio.PlaySound(Sound);
         }
 
         public void Update(TimeSpan delta)

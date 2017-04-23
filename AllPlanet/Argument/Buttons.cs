@@ -43,5 +43,11 @@ namespace AllPlanet.Argument
         {
             return new TextButton(transform.ToRectangle(), option, text, Color.BlanchedAlmond, Color.BurlyWood, Color.Cyan);
         }
+
+        public static ImageTextButton CreateClosingArgument(string text, Transform2 transform, Action option)
+        {
+            return new ImageTextButton(text, "UI/closingarg-button-default", "UI/closingarg-button-hover",
+                "UI/closingarg-button-pressed", transform, option);
+        }
     }
 }
