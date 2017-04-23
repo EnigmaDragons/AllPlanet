@@ -15,7 +15,7 @@ namespace AllPlanet
         [STAThread]
         static void Main()
         {
-            using (var game = new MainGame("YouWin", new ScreenSettings(1600, 900, false), CreateSceneFactory(), CreateKeyboardController()))
+            using (var game = new MainGame("YouLose", new ScreenSettings(1600, 900, false), CreateSceneFactory(), CreateKeyboardController()))
                 game.Run();
         }
 

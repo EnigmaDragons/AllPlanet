@@ -1,12 +1,10 @@
 ﻿using System.Collections.Generic;
-using System.Linq.Expressions;
-using AllPlanet.Argument.Concrete;
 using AllPlanet.Crowds;
 using AllPlanet.Opponent;
 using AllPlanet.Planet;
 using AllPlanet.Player;
 
-namespace AllPlanet.Argument
+namespace AllPlanet.Argument.Concrete.DrEmerson
 {
     public static class LavaArgument
     {
