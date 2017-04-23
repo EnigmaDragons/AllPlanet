@@ -7,7 +7,7 @@ namespace MonoDragons.Core.Audio
     {
         private List<WaveOut> _allSounds = new List<WaveOut>();
 
-        public void PlaySound(string sound, float volume)
+        public void Play(string sound, float volume)
         {
             var waveOut = new WaveOut();
             waveOut.Init(new AudioFileReader("Content/Sounds/" + sound + ".mp3"));

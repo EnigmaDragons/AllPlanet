@@ -18,12 +18,17 @@ namespace MonoDragons.Core.Audio
 
         public static void PlaySound(string soundName, float volume)
         {
-            _soundPlayer.PlaySound(soundName, volume);
+            _soundPlayer.Play(soundName, volume);
         }
 
         public static void PlayMusic(string songName)
         {
-            _musicPlayer.PlaySong(songName);
+            _musicPlayer.Play(songName);
+        }
+
+        public static void PlayMusic(string songName, float volume)
+        {
+            _musicPlayer.Play(songName, volume);
         }
     }
 }

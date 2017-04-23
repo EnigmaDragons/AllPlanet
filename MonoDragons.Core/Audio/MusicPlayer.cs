@@ -6,12 +6,18 @@ namespace MonoDragons.Core.Audio
     {
         private WaveOut _waveOut;
 
-        public void PlaySong(string songName)
+        public void Play(string songName)
+        {
+            Play(songName, 1.0f);
+        }
+
+        public void Play(string songName, float volume)
         {
             DisposeLastWaveOut();
             _waveOut = new WaveOut();
             _waveOut.Init(new AudioFileReader("Content/" + songName + ".mp3"));
             _waveOut.Play();
+            _waveOut.Volume = volume;
             _waveOut.PlaybackStopped += LoopSong;
         }
 
