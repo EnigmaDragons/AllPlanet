@@ -34,7 +34,7 @@ namespace AllPlanet.Argument.Concrete.DrEmerson
                     new PlanetResponds("Being a scientist is an honorable title.", PlanetExpression.Challenging),
                     new PlanetResponds("But the way you throw around loose facts, and made up accusations. You don't deserve your title.", PlanetExpression.Challenging),
                     new OpponentResponds("My facts are not made up! I Shall prove I'm a legitimate scientist.", OpponentExpression.Worried),
-                    new CrowdResponds(CrowdExpression.Cheer))),
+                    new CrowdResponds(CrowdExpression.Boo))),
             new Statement("You have been involved in smuggling illegal weapons to warmongers.", OpponentExpression.Challenging,
                new RefuteOption(ArgumentType.Reframe, "emerson rebutal", +4,
                     new PlanetResponds("That's not quite true. I was smuggling those weapons to rebels.", PlanetExpression.Challenging),
@@ -51,7 +51,7 @@ namespace AllPlanet.Argument.Concrete.DrEmerson
                    new PlanetResponds("Excuse me, it appears 2 other planet's in this solor system alone have been involved in smuggling illegal weapons.", PlanetExpression.Challenging),
                    new PlanetResponds("Are you claiming they also are not planets?", PlanetExpression.Challenging),
                    new OpponentResponds("I didn't know this!", OpponentExpression.Worried),
-                   new CrowdResponds(CrowdExpression.Cheer))),
+                   new CrowdResponds(CrowdExpression.Boo))),
             new Statement("We caught and punished those smugglers, but we never judged you for your involvement in holding onto those weapons.", OpponentExpression.Challenging,
                 new RefuteOption(ArgumentType.AppealToEmotion, "emerson rebutal", -2,
                     new PlanetResponds("I was forced into it. My family was threatened.", PlanetExpression.Sad),
@@ -62,8 +62,8 @@ namespace AllPlanet.Argument.Concrete.DrEmerson
                     new PlanetResponds("Those smugglers would never have been caught if it weren't for me.", PlanetExpression.Proud),
                     new PlanetResponds("I worked with law enforcment to catch them, I staged as a convenient smuggling planet.", PlanetExpression.Proud),
                     new PlanetResponds("We caught them red-handed.", PlanetExpression.Proud),
-                    new OpponentResponds("I didn't know.", OpponentExpression.Worried),
-                    new CrowdResponds(CrowdExpression.Cheer)),
+                    new CrowdResponds(CrowdExpression.Cheer),
+                    new OpponentResponds("I didn't know.", OpponentExpression.Worried)),
                 new RefuteOption(ArgumentType.AdHominem, "legit scientist", 0, 
                     new PlanetResponds("I don't think we have judged you, for your terrible science.", PlanetExpression.Challenging),
                     new PlanetResponds("When did we hire monkeys to do our science? Am I Right?", PlanetExpression.Challenging),
@@ -78,6 +78,6 @@ namespace AllPlanet.Argument.Concrete.DrEmerson
                     new PlanetResponds("Oh, look Timmy just littere on the floor, he's a lawbreaking entity.", PlanetExpression.Challenging),
                     new PlanetResponds("Welp let's not let poor Timmy tarnish what  human is. Sorry Timmy you are no longer a human.", PlanetExpression.Proud),
                     new OpponentResponds("Littering is not even close to...", OpponentExpression.Worried),
-                    new CrowdResponds(CrowdExpression.Cheer))));
+                    new CrowdResponds(CrowdExpression.Boo))));
     }
 }
