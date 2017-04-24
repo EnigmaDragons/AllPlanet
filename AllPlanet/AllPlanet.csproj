@@ -54,6 +54,9 @@
     <Compile Include="Closing\Concrete\EmersonRebutalClosing.cs" />
     <Compile Include="Moderator\ModeratorEnters.cs" />
     <Compile Include="Moderator\ModeratorLeaves.cs" />
+    <Compile Include="Opponent\ICharacter.cs" />
+    <Compile Include="Opponent\OppenentEnters.cs" />
+    <Compile Include="Opponent\OppenentLeaves.cs" />
     <Compile Include="Scenes\Credits.cs" />
     <Compile Include="Scenes\DebateAward.cs" />
     <Compile Include="Scenes\MainMenu.cs" />

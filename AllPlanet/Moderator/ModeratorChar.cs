@@ -4,6 +4,7 @@ using MonoDragons.Core.Engine;
 using MonoDragons.Core.EventSystem;
 using MonoDragons.Core.PhysicsEngine;
 using Microsoft.Xna.Framework;
+using AllPlanet.Argument;
 
 namespace AllPlanet.Debate
 {
@@ -44,11 +45,15 @@ namespace AllPlanet.Debate
                 _xOffset += 10;
             if (_isEntering && _xOffset > -1)
             {
+                World.Publish(new AdvanceArgument());
                 _isEntering = false;
                 _xOffset = 0;
             }
-            if (_xOffset > 1600)
+            if (_isLeaving && _xOffset + _transform.Location.X > 1610)
+            {
+                World.Publish(new AdvanceArgument());
                 _isLeaving = false;
+            }
         }
 
         public void Draw(Transform2 parentTransform)

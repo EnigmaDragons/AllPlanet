@@ -8,6 +8,8 @@ using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
 using AllPlanet.Player;
 using AllPlanet.Transitions;
+using AllPlanet.Moderator;
+using AllPlanet.Opponent;
 
 namespace AllPlanet.Debate
 {
@@ -24,8 +26,9 @@ namespace AllPlanet.Debate
         private readonly CurrentTransition _transition;
         private int _remainingTransitionMillis;
         private bool _shouldShowCrowd;
-        private bool _readyForTransition;
+        private bool _readyForTransition = true;
         private bool _readyToAdvance;
+        private bool _waitingForEntranceOrExit = false;
         private Mode _mode = Mode.Presentation;
 
         public ClickUIBranch Branch { get; }
@@ -42,8 +45,19 @@ namespace AllPlanet.Debate
             Branch = new ClickUIBranch("DebatePresentation", (int)ClickBranchPriority.Debate);
             Branch.Add(_refutation.Branch);
             World.Subscribe(EventSubscription.Create<CrowdResponds>(CrowdSays, this));
-            World.Subscribe(EventSubscription.Create<AdvanceRequested>(x => _readyToAdvance = _readyForTransition, this));
+            World.Subscribe(EventSubscription.Create<AdvanceRequested>((e) => AdvanceRequested(), this));
             World.Subscribe(EventSubscription.Create<ModeChanged>(ModeChange, this));
+            World.Subscribe(EventSubscription.Create<AdvanceArgument>((e) => _waitingForEntranceOrExit = false, this));
+            World.Subscribe(EventSubscription.Create<ModeratorEnters>((e) => _waitingForEntranceOrExit = true, this));
+            World.Subscribe(EventSubscription.Create<ModeratorLeaves>((e) => _waitingForEntranceOrExit = true, this));
+            World.Subscribe(EventSubscription.Create<OpponentEnters>((e) => _waitingForEntranceOrExit = true, this));
+            World.Subscribe(EventSubscription.Create<OpponentLeaves>((e) => _waitingForEntranceOrExit = true, this));
+        }
+
+        private void AdvanceRequested()
+        {
+            if(!_waitingForEntranceOrExit)
+                _readyToAdvance = _readyForTransition;
         }
 
         private void ModeChange(ModeChanged e)
@@ -65,11 +79,14 @@ namespace AllPlanet.Debate
         public void Update(TimeSpan delta)
         {
             if (_remainingTransitionMillis > 0)
-                _remainingTransitionMillis -= (int)delta.TotalMilliseconds;
-            if (_remainingTransitionMillis <= 0)
             {
-                _shouldShowCrowd = false;
-                _readyForTransition = true;
+                _remainingTransitionMillis -= (int)delta.TotalMilliseconds;
+                if (_remainingTransitionMillis <= 0)
+                {
+                    _shouldShowCrowd = false;
+                    _readyForTransition = true;
+                    World.Publish(new AdvanceArgument());
+                }
             }
 
             if (_readyToAdvance)
