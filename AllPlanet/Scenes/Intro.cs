@@ -6,6 +6,7 @@ using MonoDragons.Core.Engine;
 using MonoDragons.Core.Memory;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
+using MonoDragons.Core.Inputs;
 
 namespace AllPlanet.Scenes
 {
@@ -16,6 +17,7 @@ namespace AllPlanet.Scenes
         private const string _space3 = "Backdrops/space3";
         private const string _planet = "Characters/planet-neutral";
 
+        private ClickUI _clickUI;
         private int _ms;
         private string _image = _space1;
         private Label _label;
@@ -32,6 +34,9 @@ namespace AllPlanet.Scenes
 
         public void Init()
         {
+            _clickUI = new ClickUI();
+            _clickUI.Add(new SimpleClickable(new Rectangle(new Point(0, 0), new Point(1600, 900)), () => World.NavigateToScene("MainMenu")));
+            Input.On(Control.A, () => World.NavigateToScene("MainMenu"));
             PreloadToAvoidFrameStutter();
             _timer = new Timer(Next, 32);
             _bgTransform = new Transform2(new Vector2(-50, -400), new Rotation2(0), new Size2(2560, 1600), 1.8f);
@@ -46,6 +51,7 @@ namespace AllPlanet.Scenes
 
         public void Update(TimeSpan delta)
         {
+            _clickUI.Update(delta);
             _timer.Update(delta);
             _ms += delta.Milliseconds;
             _opacity += (int)delta.TotalMilliseconds / 3;
