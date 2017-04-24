@@ -53,7 +53,7 @@
     <Compile Include="Closing\ClosingArgumentFactory.cs" />
     <Compile Include="Closing\ClosingChoice.cs" />
     <Compile Include="Closing\ClosingOption.cs" />
-    <Compile Include="Closing\Concrete\EmersonRebutalClosing.cs" />
+    <Compile Include="Closing\Concrete\EmersonRebuttalClosing.cs" />
     <Compile Include="Closing\EndOfArgument.cs" />
     <Compile Include="Moderator\ModeratorEnters.cs" />
     <Compile Include="Moderator\ModeratorLeaves.cs" />
