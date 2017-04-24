@@ -52,6 +52,7 @@
     <Compile Include="Closing\ClosingChoice.cs" />
     <Compile Include="Closing\ClosingOption.cs" />
     <Compile Include="Closing\Concrete\EmersonRebutalClosing.cs" />
+    <Compile Include="Closing\EndOfArgument.cs" />
     <Compile Include="Moderator\ModeratorEnters.cs" />
     <Compile Include="Moderator\ModeratorLeaves.cs" />
     <Compile Include="Opponent\ChangeOpponents.cs" />
@@ -69,6 +70,8 @@
     <Compile Include="Argument\CurrentPoint.cs" />
     <Compile Include="Argument\Mode.cs" />
     <Compile Include="Argument\ModeChanged.cs" />
+    <Compile Include="Transitions\Concrete\PreClosingArgumentWithEmerson.cs" />
+    <Compile Include="Transitions\Concrete\ToSecondArgument.cs" />
     <Compile Include="Transitions\CurrentTransition.cs" />
     <Compile Include="Transitions\Transition.cs" />
     <Compile Include="Transitions\TransitionFactory.cs" />
