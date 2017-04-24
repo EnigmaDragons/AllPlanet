@@ -3,18 +3,25 @@ using Microsoft.Xna.Framework;
 using MonoDragons.Core.Audio;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.UserInterface;
+using AllPlanet.Argument;
+using MonoDragons.Core.PhysicsEngine;
 
 namespace AllPlanet.Scenes
 {
     public sealed class Credits : IScene
     {
+        private ClickUI _clickUi;
+
         public void Init()
         {
+            _clickUi = new ClickUI();
+            _clickUi.Add(new ScreenClickable(() => World.NavigateToScene("MainMenu")));
             Audio.PlayMusicOnce("Music/credits");
         }
 
         public void Update(TimeSpan delta)
         {
+            _clickUi.Update(delta);
         }
 
         public void Draw()

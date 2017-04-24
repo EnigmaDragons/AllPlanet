@@ -42,7 +42,7 @@ namespace AllPlanet.Closing
 
         public void Start()
         {
-            World.SubscribeForScene(EventSubscription.Create<NavigateToScene>((n) => World.NavigateToScene(n.Scene), this));
+            World.Subscribe(EventSubscription.Create<NavigateToScene>((n) => World.NavigateToScene(n.Scene), this));
             World.Publish(new ModeChanged(Mode.ClosingArgument));
         }
 

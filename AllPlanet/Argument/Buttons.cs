@@ -12,6 +12,21 @@ namespace AllPlanet.Argument
             return new ImageTextButton("Start", "UI/startbutton-default", "UI/startbutton-hover", "UI/startbutton-pressed", transform, action);
         }
 
+        public static ImageTextButton CreateReplayIntro(Transform2 transform, Action action)
+        {
+            return new ImageTextButton("Replay Intro", "UI/startbutton-default", "UI/startbutton-hover", "UI/startbutton-pressed", transform, action);
+        }
+
+        public static ImageTextButton CreateContinue(Transform2 transform, Action action)
+        {
+            return new ImageTextButton("Continue", "UI/startbutton-default", "UI/startbutton-hover", "UI/startbutton-pressed", transform, action);
+        }
+
+        public static ImageTextButton CreateMainMenu(Transform2 transform, Action action)
+        {
+            return new ImageTextButton("Main Menu", "UI/startbutton-default", "UI/startbutton-hover", "UI/startbutton-pressed", transform, action);
+        }
+
         public static ImageTextButton CreateTextButton(string text, Transform2 transform, Action action)
         {
             return new ImageTextButton(text, "UI/plainbutton-default", "UI/plainbutton-hover", "UI/plainbutton-pressed", transform, action);
