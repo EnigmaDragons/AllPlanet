@@ -11,11 +11,12 @@ namespace AllPlanet.Transitions
         public static Transition None = new Transition("None", Mode.Presentation);
 
         public string Name { get; }
-        private readonly Mode mode;
+        private readonly Mode _mode;
         private readonly List<object> _transitionaryEvents;
 
         public Transition(string name, Mode mode, params object[] transitionaryEvents)
         {
+            _mode = mode;
             Name = name;
             _transitionaryEvents = transitionaryEvents.ToList();
         }
@@ -23,7 +24,7 @@ namespace AllPlanet.Transitions
         public void Start()
         {
             World.Subscribe(EventSubscription.Create<AdvanceArgument>(x => Continue(), this));
-            World.Publish(new ModeChanged(mode));
+            World.Publish(new ModeChanged(_mode));
             Continue();
         }
 
@@ -35,8 +36,9 @@ namespace AllPlanet.Transitions
             }
             else
             {
-                World.Publish(_transitionaryEvents[0]);
+                var e = _transitionaryEvents[0];
                 _transitionaryEvents.RemoveAt(0);
+                World.Publish(e);
             }
         }
     }

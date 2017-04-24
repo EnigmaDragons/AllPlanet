@@ -1,6 +1,6 @@
 ﻿namespace AllPlanet.Opponent
 {
-    internal class OpponentEnters
+    public class OpponentEnters
     {
     }
 }
