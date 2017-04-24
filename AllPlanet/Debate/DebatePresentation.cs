@@ -58,6 +58,7 @@ namespace AllPlanet.Debate
         private void CrowdSays(CrowdResponds obj)
         {
             _shouldShowCrowd = true;
+            _readyForTransition = false;
             _remainingTransitionMillis = _transitionMillis;
         }
 

@@ -15,7 +15,7 @@ namespace AllPlanet
         [STAThread]
         static void Main()
         {
-            using (var game = new MainGame("Debate", new ScreenSettings(1600, 900, false), CreateSceneFactory(), CreateKeyboardController()))
+            using (var game = new MainGame("Intro", new ScreenSettings(1600, 900, false), CreateSceneFactory(), CreateKeyboardController()))
                 game.Run();
         }
 
@@ -24,10 +24,10 @@ namespace AllPlanet
             return new KeyboardController(new Map<Keys, Control>
             {
                 { Keys.Enter, Control.Start },
-                { Keys.A, Control.A },
-                { Keys.B, Control.B },
-                { Keys.X, Control.X },
-                { Keys.Y, Control.Y },
+                { Keys.Z, Control.A },
+                { Keys.X, Control.B },
+                { Keys.C, Control.X },
+                { Keys.V, Control.Y },
             });
         }
 
