@@ -56,7 +56,7 @@ namespace AllPlanet.Argument.Concrete
                     new PlanetResponds("I am 150 million kilometers away from the belt!", PlanetExpression.Challenging),
                     new PlanetResponds("How could a \"scientist\" like yourself be so far off?", PlanetExpression.Challenging),
                     new PlanetResponds("You are a disgrace to true scientists.", PlanetExpression.Challenging),
-                    new OpponentResponds("Just because you have left your orbit to join us on this stage, is not your normal state.", OpponentExpression.Bored),
+                    new OpponentResponds("You're lying to these esteemed acedemics.", OpponentExpression.Bored),
                     new CrowdResponds(CrowdExpression.NoComment)),
                 new RefuteOption(ArgumentType.Reframe, "quinton rebuttal", 9,
                     new PlanetResponds("While I am a planet, you are right.", PlanetExpression.Challenging),
