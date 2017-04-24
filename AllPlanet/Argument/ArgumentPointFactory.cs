@@ -16,6 +16,11 @@ namespace AllPlanet.Argument
             { FakeCertificateArgument.Argument.Name, FakeCertificateArgument.Argument },
         };
 
+        public static bool Exists(string name)
+        {
+            return _arguments.ContainsKey(name);
+        }
+
         public static ArgumentPoint Create(string name)
         {
             return _arguments[name];

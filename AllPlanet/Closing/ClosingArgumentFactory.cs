@@ -10,6 +10,11 @@ namespace AllPlanet.Closing
             { ClosingArgument1.Argument.Name, ClosingArgument1.Argument },
         };
 
+        public static bool Exists(string name)
+        {
+            return _arguments.ContainsKey(name);
+        }
+
         public static ClosingArgument Create(string name)
         {
             return _arguments[name];

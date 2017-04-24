@@ -7,6 +7,7 @@ using MonoDragons.Core.EventSystem;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
 using AllPlanet.Player;
+using AllPlanet.Transitions;
 
 namespace AllPlanet.Debate
 {
@@ -20,6 +21,7 @@ namespace AllPlanet.Debate
         private readonly ClosingArgumentUI _close;
         private readonly StageUI _stageUi;
         private readonly CrowdUI _crowdUi;
+        private readonly CurrentTransition _transition;
         private int _remainingTransitionMillis;
         private bool _shouldShowCrowd;
         private bool _readyForTransition;
@@ -30,6 +32,7 @@ namespace AllPlanet.Debate
 
         public DebatePresentation()
         {
+            _transition = new CurrentTransition();
             _close = new ClosingArgumentUI(new CurrentClosingArgument());
             _intro = new DebateIntroduction();
             _refutation = new RefutationUI(new CurrentPoint());
