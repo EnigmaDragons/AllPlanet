@@ -18,6 +18,8 @@ namespace AllPlanet.Scenes
 
         private int _ms;
         private string _image = _space1;
+        private Label _label;
+        private int _opacity;
         private Timer _timer;
 
         private Transform2 _bgTransform;
@@ -34,17 +36,27 @@ namespace AllPlanet.Scenes
             _timer = new Timer(Next, 32);
             _bgTransform = new Transform2(new Vector2(-50, -400), new Rotation2(0), new Size2(2560, 1600), 1.8f);
             Audio.PlayMusic("Music/seriousspace");
+            _label = new Label
+            {
+                BackgroundColor = Color.Transparent,
+                TextColor = Color.FromNonPremultiplied(255, 255, 255, 0),
+                Transform = new Transform2(new Vector2(100, 800), new Size2(1400, 100))
+            };
         }
 
         public void Update(TimeSpan delta)
         {
             _timer.Update(delta);
             _ms += delta.Milliseconds;
+            _opacity += (int)delta.TotalMilliseconds / 3;
+            _opacity = Math.Min(255, _opacity);
+            _label.TextColor = Color.FromNonPremultiplied(255, 255, 255, _opacity);
         }
 
         public void Draw()
         {
             World.Draw(_image, _bgTransform);
+            _label.Draw(Transform2.Zero);
             UI.DrawText($"X:{_bgTransform.Location.X}, Y:{_bgTransform.Location.Y}, {_ms / 100}", new Vector2(1250, 0), Color.Yellow);
             UI.DrawText($"ms: {_ms}", new Vector2(1250, 50), Color.Yellow);
             if (_shouldDrawPlanet)
@@ -66,6 +78,8 @@ namespace AllPlanet.Scenes
             {
                 _phase++;
                 _velocity = new Transform2(new Vector2(-0.5f, -2.4f));
+                _opacity = 0;
+                _label.Text = "Space, the vast and unfathomable. It's reaches are without limit, the mysteries it holds unknowable...";
             }
 
             if (_phase == 2 && _ms > 8000)
@@ -80,6 +94,8 @@ namespace AllPlanet.Scenes
                 _image = _space2;
                 _bgTransform = new Transform2(new Vector2(-0, -0), new Rotation2(0), new Size2(1920, 1080), 1.4f);
                 _velocity = new Transform2(new Vector2(-3, -1));
+                _opacity = 0;
+                _label.Text = "Within this vast expanse, there lies many galaxies, with a billion stars, surrounded by numerious planets...";
             }
 
             if (_phase == 4 && _ms > 20000)
@@ -95,6 +111,8 @@ namespace AllPlanet.Scenes
                 _image = _space3;
                 _bgTransform = new Transform2(new Vector2(-0, -0), new Rotation2(0), new Size2(2560, 1600), 0.6f);
                 _velocity = new Transform2(new Vector2(-3.5f, -2f), 1.003f);
+                _opacity = 0;
+                _label.Text = "Scientists grasp at understanding what makes up this universe. How do stars form, What is a planet...";
             }
 
             if (_phase == 6 && _ms > 30000)
@@ -121,6 +139,9 @@ namespace AllPlanet.Scenes
                 _shouldDrawPlanet = true;
                 _shouldZoomPlanet = true;
                 Audio.PlayMusic("Music/planetentrance");
+                _opacity = 0;
+                _label.Transform = new Transform2(new Vector2(100, 600), new Size2(1400, 100));
+                _label.Text = "AND THEY HAVE DECLARED HE IS NOT ONE!";
             }
 
             if (_phase == 9 && _ms > 34000)
