@@ -17,6 +17,11 @@ namespace AllPlanet.Argument.Concrete
                 new OpponentResponds("You are so small, you can't possibly be considered a planet!", OpponentExpression.Proud),
                 new CrowdResponds(CrowdExpression.NoComment),
             },
-            "too small",);
+            "too small",
+            new Statement("Because that way everyone can get a good look at how small you are.", OpponentExpression.Challenging),
+            new Statement("Did you know there are moons floating around bigger then you.", OpponentExpression.Challenging),
+            new Statement("Even some comets are bigger than you.", OpponentExpression.Challenging),
+            new Statement("You are so small, you can't possibly be considered a planet!", OpponentExpression.Proud)
+            );
     }
 }

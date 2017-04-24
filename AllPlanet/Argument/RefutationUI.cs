@@ -16,6 +16,7 @@ namespace AllPlanet.Argument
         private readonly ArgumentNavUI _navUi;
         private readonly ClickUIBranch _interactBranch;
         private readonly ImageButton _quoteButton;
+        private readonly TextButton _discreditButton;
         private readonly ImageButton _refuteButton;
         private readonly ImageButton _cancelButton;
         private readonly List<ImageTextButton> _optionButtons = new List<ImageTextButton>();
@@ -34,8 +35,8 @@ namespace AllPlanet.Argument
         private bool _isQuoting = false;
         private bool _isRefuting;
         private bool _isRefutingChanged;
-        private bool CanClickRefute => _active && !_isRefuting;
-        private bool CanClickCancel => _active && _isRefuting;
+        private bool CanClickRefute => _active && !_isRefuting && !_isQuoting;
+        private bool CanClickCancel => _active && (_isRefuting || _isQuoting);
         private bool CanClickQuote => CanClickRefute && _isDiscreditUnlocked;
 
         public ClickUIBranch Branch { get; }
@@ -51,6 +52,8 @@ namespace AllPlanet.Argument
             ControlHandler.BindOnPress(5, Control.Up, () => { if(_isRefuting) ChangeHighlightOptionUp(); return _active; });
             ControlHandler.BindOnPress(5, Control.Down, () => { if(_isRefuting) ChangeHighlightOptionDown(); return _active; });
             _quoteButton = Buttons.CreateQuoteButton(new Transform2(new Vector2(640, 600), new Size2(320, 100)), Quote, () => CanClickQuote);
+            _discreditButton = new TextButton(new Transform2(new Vector2(640, 600), new Size2(320, 100)).ToRectangle(), Discredit, "Discredit",
+                Color.Red, Color.Orange, Color.Yellow, () => _isQuoting);
             _interactBranch = new ClickUIBranch("Interact", (int)ClickBranchPriority.Interact);
             _quoteButton.IsEnabled = false;
             _interactBranch.Add(_refuteButton);
@@ -62,6 +65,12 @@ namespace AllPlanet.Argument
             World.Subscribe(EventSubscription.Create<StatementChanged>(ChangeStatement, this));
             //World.Subscribe(EventSubscription.Create<ArgumentLearned>(
                 //(a) => { if (a.Name == "Discredit") { _isDiscreditUnlocked = true; _quoteButton.IsEnabled = true; } }, this));
+        }
+
+        private void Discredit()
+        {
+            _quotedStatement.Discredit(_currentStatement.Message);
+            ResetRefuting();
         }
 
         private void RefuteCurrentlyHighlightedOption()
@@ -120,6 +129,10 @@ namespace AllPlanet.Argument
         {
             if (!CanClickQuote) return;
             _isQuoting = true;
+            _interactBranch.Add(_discreditButton);
+            _interactBranch.Remove(_refuteButton);
+            _interactBranch.Remove(_quoteButton);
+            _interactBranch.Add(_cancelButton);
             _quotedStatement = _currentStatement;
         }
 
@@ -154,6 +167,7 @@ namespace AllPlanet.Argument
             else
                 _navUi.Draw(parentTransform);
 
+            _discreditButton.Draw(parentTransform);
             _cancelButton.Draw(parentTransform);
             _refuteButton.Draw(parentTransform);
             _quoteButton.Draw(parentTransform);
@@ -204,6 +218,7 @@ namespace AllPlanet.Argument
             _currentlyHighlightedOptionAsFloat = -1;
             _isQuoting = false;
             _isRefuting = false;
+            _interactBranch.Remove(_discreditButton);
             _interactBranch.Add(_refuteButton);
             _interactBranch.Add(_quoteButton);
             Branch.Add(_navUi.Branch);

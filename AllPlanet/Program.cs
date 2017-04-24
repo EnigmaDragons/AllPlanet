@@ -28,6 +28,7 @@ namespace AllPlanet
                 { Keys.X, Control.B },
                 { Keys.C, Control.X },
                 { Keys.V, Control.Y },
+                { Keys.Space, Control.A }
             });
         }
 
