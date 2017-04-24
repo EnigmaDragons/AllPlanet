@@ -35,7 +35,7 @@ namespace AllPlanet.Argument
 
         public static ImageButton CreateNext(Transform2 transform, Action nextAction, Func<bool> visibleCondition)
         {
-            return new ImageButton("UI/next-button", "UI/next-button", "UI/next-button",
+            return new ImageButton("UI/nextbutton-default", "UI/nextbutton-hover", "UI/nextbutton-pressed",
                 transform,
                 nextAction, 
                 visibleCondition);
@@ -43,7 +43,7 @@ namespace AllPlanet.Argument
 
         public static ImageButton CreateBack(Transform2 transform, Action backAction, Func<bool> visibleCondition)
         {
-            return new ImageButton("UI/back-button", "UI/back-button", "UI/back-button",
+            return new ImageButton("UI/backbutton-default", "UI/backbutton-hover", "UI/backbutton-pressed",
                 transform,
                 backAction,
                 visibleCondition);
