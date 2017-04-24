@@ -11,11 +11,11 @@ namespace AllPlanet.Player
             {
                 ArgumentType.FakeStatistic, new List<string>
                 {
-                    "76% of all winning arguments use fake statistics",
+                    "76% of all winning arguments use fake statistics.",
                     "At least 23% of fake statistics are right. Or more.",
-                    "1 out of 100 people have learned this argument",
+                    "Only 1 out of 100 people have learned this argument",
                     "94% of academic orators utilize statistics, because statistics are convincing!",
-                    "60.45% of audiences find statistics with at least 2 decimal places more compelling than one with whole numbers"
+                    "60.45% of audiences find statistics with at least 2 decimal places more compelling than ones with whole numbers"
                 }
             },
             {
@@ -57,7 +57,7 @@ namespace AllPlanet.Player
             {
                 ArgumentType.Illegitimize, new List<string>
                 {
-                    "Need help with these lol"
+                    "Actually, this is not a legitimate argument",
                 }
             },
             {
@@ -73,12 +73,17 @@ namespace AllPlanet.Player
                 ArgumentType.AdHominem, new List<string>
                 {
                     "Your argument's wrong because you have sold drugs to kids!",
+                    "You are a murderer. You are wrong.",
+                    "You are a liar. You are lying.",
+                    "You have been wrong before. You are wrong."
                 }
             },
             {
                 ArgumentType.AppealToAuthority, new List<string>
                 {
-                    "This argument is good the Socrates used it!",
+                    "This argument is good. Socrates used it.",
+                    "Experts say that this argument is infallible.",
+                    "Simon says this argument is the best argument."
                 }
             },
         };
