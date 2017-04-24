@@ -68,7 +68,7 @@ namespace MonoDragons.Core.Engine
             _spriteBatch.Draw(texture, rectPosition, Color.White);
         }
 
-        public static void Draw(Texture2D texture, Rectangle rectPosition, Rotation2 rotation)
+        public static void DrawRotatedFromCenter(Texture2D texture, Rectangle rectPosition, Rotation2 rotation)
         {
             Resources.Put(texture.GetHashCode().ToString(), texture);
             _spriteBatch.Draw(texture, null, rectPosition, null, new Vector2(rectPosition.Width / 2, rectPosition.Height / 2),
@@ -114,6 +114,14 @@ namespace MonoDragons.Core.Engine
         public static void Draw(string name, Transform2 transform)
         {
             Draw(name, transform.ToRectangle());
+        }
+
+        public static void DrawRotatedFromCenter(string name, Transform2 transform)
+        {
+            var resource = Resources.Load<Texture2D>(name);
+            var x = transform.Rotation.Value;
+            _spriteBatch.Draw(resource, null, transform.ToRectangle(), null, new Vector2(resource.Width / 2, resource.Height / 2),
+                transform.Rotation.Value * .017453292519f, new Vector2(1, 1));
         }
 
         public static void Draw(Texture2D texture, Transform2 transform)
