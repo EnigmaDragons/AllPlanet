@@ -27,6 +27,7 @@ namespace AllPlanet.Debate
 
         public void EnterStage()
         {
+            _xOffset = -(int)Math.Ceiling(_transform.Location.X + _transform.Size.Width);
             _isEntering = true;
             _exp = ModeratorExpression.Mic;
         }
