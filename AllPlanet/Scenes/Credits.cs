@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
+using MonoDragons.Core.Audio;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.UserInterface;
 
@@ -9,6 +10,7 @@ namespace AllPlanet.Scenes
     {
         public void Init()
         {
+            Audio.PlayMusicOnce("Music/credits");
         }
 
         public void Update(TimeSpan delta)

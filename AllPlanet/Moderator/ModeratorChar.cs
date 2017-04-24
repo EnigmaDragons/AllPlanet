@@ -45,12 +45,14 @@ namespace AllPlanet.Debate
                 _xOffset += 10;
             if (_isEntering && _xOffset > -1)
             {
+                World.Publish(new ArgumentEnded());
                 World.Publish(new AdvanceArgument());
                 _isEntering = false;
                 _xOffset = 0;
             }
             if (_isLeaving && _xOffset + _transform.Location.X > 1610)
             {
+                World.Publish(new ArgumentStarted());
                 World.Publish(new AdvanceArgument());
                 _isLeaving = false;
             }
