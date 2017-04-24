@@ -22,6 +22,8 @@ namespace AllPlanet.Debate
             _moderator = new ModeratorChar(new Transform2(new Vector2(625, 390), new Size2(330, 450)));
             _curtain = new StageCurtain();
             World.Subscribe(EventSubscription.Create<PresentationStarted>(StartPresentation, this));
+            World.Subscribe(EventSubscription.Create<ArgumentStarted>(e => Audio.PlayMusic("Music/bgm1", 0.5f), this));
+            World.Subscribe(EventSubscription.Create<ArgumentEnded>(e => Audio.PlayMusic("Music/bgm1", 0), this));
         }
 
         private void StartPresentation(PresentationStarted obj)
@@ -42,7 +44,6 @@ namespace AllPlanet.Debate
                 return;
 
             _finishedIntroductions = true;
-            Audio.PlayMusic("Music/bgm1", 0.5f);
             World.Publish(new Segue("opening"));
         }
 

@@ -10,6 +10,7 @@ using AllPlanet.Player;
 using AllPlanet.Transitions;
 using AllPlanet.Moderator;
 using AllPlanet.Opponent;
+using MonoDragons.Core.Audio;
 
 namespace AllPlanet.Debate
 {

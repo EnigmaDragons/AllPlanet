@@ -39,6 +39,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Argument\AdvanceArgument.cs" />
+    <Compile Include="Argument\ArgumentEnded.cs" />
+    <Compile Include="Argument\ArgumentStarted.cs" />
     <Compile Include="Argument\Concrete\DrEmerson\BornInLondonArgument.cs" />
     <Compile Include="Argument\Concrete\DrEmerson\FakeCertificateArgument.cs" />
     <Compile Include="Argument\Concrete\DrEmerson\IllegalSmugglerArgument.cs" />
@@ -238,6 +240,9 @@
     <Content Include="Content\Crowd\staticcrowd.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Music\credits.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Music\mainmenu.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -338,13 +343,13 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\UI\quotebutton-default.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\UI\quotebutton-hover.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\UI\quotebutton-pressed.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\UI\refutebutton-default.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
