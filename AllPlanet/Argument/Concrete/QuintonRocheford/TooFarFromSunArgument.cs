@@ -15,7 +15,11 @@ namespace AllPlanet.Argument.Concrete
                 new OpponentResponds("You are far enough away from the sun, you are in this belt.", OpponentExpression.Proud),
                 new OpponentResponds("Therefore you should not be considered a planet", OpponentExpression.Challenging),
             }, 
-            "too far from sun"
+            "too far from sun",
+            new Statement("There is a place known as the Kuiper belt. This is the outer ring of our solar system.", OpponentExpression.Challenging),
+            new Statement("This place has many larger ice bodies that are not considered planets.", OpponentExpression.Proud),
+            new Statement("You are far enough away from the sun, you are in this belt.", OpponentExpression.Proud),
+            new Statement("Therefore you should not be considered a planet", OpponentExpression.Challenging)
             );
     }
 }
