@@ -7,8 +7,9 @@
         AgreeAndAmplify,
         AppealToEmotion,
         Reframe,
-        StrawMan,
+        Illegitimize,
         Discredit,
         AdHominem,
+        AppealToAuthority,
     }
 }

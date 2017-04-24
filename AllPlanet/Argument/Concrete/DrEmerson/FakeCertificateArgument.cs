@@ -73,7 +73,7 @@ namespace AllPlanet.Argument.Concrete.DrEmerson
                     new OpponentResponds("I think you are a special case", OpponentExpression.Bored),
                     new CrowdResponds(CrowdExpression.Boo))),
             new Statement("I also looked up how many people in london have ever been called Stilles 33 and it's only you.", OpponentExpression.Challenging, GenericDiscreditResponse.Create("fake certificate"),
-                new RefuteOption(ArgumentType.StrawMan, "emerson rebutal", +1, 
+                new RefuteOption(ArgumentType.Illegitimize, "emerson rebutal", +1, 
                     new PlanetResponds("You ran a google search, who are people named Stilles 33, born in london.", PlanetExpression.Challenging),
                     new PlanetResponds("Let me guess you went in and stared at great big books full of names of people born in london.", PlanetExpression.Challenging),
                     new OpponentResponds("I'm a scientist, who gets paid to do studies.", OpponentExpression.Proud),
