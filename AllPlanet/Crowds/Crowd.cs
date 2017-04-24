@@ -22,6 +22,7 @@ namespace AllPlanet.Crowds
                 obj.Argument.Vote(true);
             else
                 obj.Argument.Vote(false);
+            _score = 0;
         }
     }
 }
