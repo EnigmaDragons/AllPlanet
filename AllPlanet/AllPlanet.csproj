@@ -42,6 +42,7 @@
     <Compile Include="Argument\Concrete\DrEmerson\BornInLondonArgument.cs" />
     <Compile Include="Argument\Concrete\DrEmerson\FakeCertificateArgument.cs" />
     <Compile Include="Argument\Concrete\DrEmerson\IllegalSmugglerArgument.cs" />
+    <Compile Include="Argument\Concrete\DrEmerson\LegitScientistArgument.cs" />
     <Compile Include="Argument\Concrete\Opponent2\ExpertsSayArgument.cs" />
     <Compile Include="Argument\Concrete\Opponent2\GravityIsTooWeakArgument.cs" />
     <Compile Include="Argument\Concrete\Opponent2\TooFarFromSunArgument.cs" />

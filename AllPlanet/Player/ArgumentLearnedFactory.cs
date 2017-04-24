@@ -44,7 +44,7 @@ namespace AllPlanet.Player
                 }
             },
             {
-                ArgumentType.StrawMan, new List<string>
+                ArgumentType.Illegitimize, new List<string>
                 {
                     "Need help with these lol"
                 }
@@ -54,6 +54,18 @@ namespace AllPlanet.Player
                 {
                     "There was a contradiction in that argument somewhere.",
                     "This next statement is true. The previous statement is false.",
+                }
+            },
+            {
+                ArgumentType.AdHominem, new List<string>
+                {
+                    "Your argument's wrong because you have sold drugs to kids!",
+                }
+            },
+            {
+                ArgumentType.AppealToAuthority, new List<string>
+                {
+                    "This argument is good the Socrates used it!",
                 }
             },
         };
