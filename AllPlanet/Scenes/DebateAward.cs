@@ -19,6 +19,7 @@ namespace AllPlanet.Scenes
             _continue = Buttons.CreateContinue(new Transform2(new Vector2(1300, 750), new Size2(200, 60)), () => World.NavigateToScene("Credits"));
             _clickUi.Add(_continue);
             Audio.PlaySound("crowd-clapping-long");
+            Audio.PlayMusicOnce("Music/victory");
         }
 
         public void Update(TimeSpan delta)
