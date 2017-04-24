@@ -44,7 +44,7 @@ namespace AllPlanet.Debate
                 return;
 
             _finishedIntroductions = true;
-            World.Publish(new Segue("legit scientist"));
+            World.Publish(new Segue("opening"));
         }
 
         public void Update(TimeSpan delta)
