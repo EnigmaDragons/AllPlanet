@@ -12,7 +12,7 @@ namespace AllPlanet.Transitions.Concrete
             new CrowdResponds(CrowdExpression.NoComment),
             new ModeratorSays(ModeratorExpression.Mic, "Alright we have tallied up your votes."),
             new ModeratorSays(ModeratorExpression.Mic, "And it's..."),
-            new ModeratorSays(ModeratorExpression.Right, "Dr.Emerson!"),
+            new ModeratorSays(ModeratorExpression.Right, "Dr. Emerson!"),
             new ModeratorSays(ModeratorExpression.Left, "I'm afraid Stilles 33 you are no longer a planet."),
             new NavigateToScene("YouLose"));
     }

@@ -68,7 +68,7 @@ namespace AllPlanet.Argument.Concrete.DrEmerson
                     new OpponentResponds("Raymond has constantly been slandering my name, he should not be trusted.", OpponentExpression.Worried),
                     new CrowdResponds(CrowdExpression.NoComment)),
                 new RefuteOption(ArgumentType.AgreeAndAmplify, "emerson rebutal", +2, 
-                    new PlanetResponds("You heard it here first. No one can dispute the great and powerful Dr.Emerson!", PlanetExpression.Challenging),
+                    new PlanetResponds("You heard it here first. No one can dispute the great and powerful Dr. Emerson!", PlanetExpression.Challenging),
                     new PlanetResponds("He is the scientist to end all scientists, there can be no shortcomings in any of his theories.", PlanetExpression.Challenging),
                     new OpponentResponds("I just said you can't argue my legitimacy!", OpponentExpression.Worried),
                     new CrowdResponds(CrowdExpression.Boo))));

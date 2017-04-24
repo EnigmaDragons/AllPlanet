@@ -11,14 +11,14 @@ namespace AllPlanet.Argument.Concrete.DrEmerson
         public static ArgumentPoint Argument { get; } = new ArgumentPoint(new List<object>
             {
                 new PlanetResponds("*Can he really prove this is my birth certificate?*", PlanetExpression.Thinking),
-                new OpponentResponds("I talked to Dr.Tomas, he helped with your birth.", OpponentExpression.Proud),
-                new OpponentResponds("Dr.Tomas says he fucking hated it! He tries to forget your face by playing Doom.", OpponentExpression.Challenging),
+                new OpponentResponds("I talked to Dr. Tomas, he helped with your birth.", OpponentExpression.Proud),
+                new OpponentResponds("Dr. Tomas says he fucking hated it! He tries to forget your face by playing Doom.", OpponentExpression.Challenging),
                 new OpponentResponds("He comfirmed who you were.", OpponentExpression.Proud),
                 new OpponentResponds("I also looked up how many people in London have ever been called Stilles 33, and it's only you.", OpponentExpression.Challenging),
                 ArgumentLearnedFactory.Create(ArgumentType.Discredit),
             }, 
             "fake certificate",
-            new Statement("I talked to Dr.Tomas, he helped with your birth.", OpponentExpression.Proud,
+            new Statement("I talked to Dr. Tomas, he helped with your birth.", OpponentExpression.Proud,
                 new RefuteOption(ArgumentType.Refuse, "illegal smuggling", -3, 
                     new PlanetResponds("No, it was definitely a different doctor.", PlanetExpression.Thinking),
                     new OpponentResponds("But he can confirm it was you.", OpponentExpression.Bored),
@@ -27,9 +27,9 @@ namespace AllPlanet.Argument.Concrete.DrEmerson
                     new PlanetResponds("He didn't just help with the birth, he practically gave the birth.", PlanetExpression.Challenging),
                     new OpponentResponds("Then he would especially remember your face.", OpponentExpression.Challenging),
                     new CrowdResponds(CrowdExpression.Boo))),
-            new Statement("Dr.Tomas says he fucking hated it! He tries to forget your face by playing Doom.", OpponentExpression.Challenging, 
+            new Statement("Dr. Tomas says he fucking hated it! He tries to forget your face by playing Doom.", OpponentExpression.Challenging, 
                 new RefuteOption(ArgumentType.Discredit, "illegal smuggling", +4,
-                    new PlanetResponds("How is it, that Dr.Tomas who has been forgetting my face...", PlanetExpression.Challenging),
+                    new PlanetResponds("How is it, that Dr. Tomas who has been forgetting my face...", PlanetExpression.Challenging),
                     new PlanetResponds("Can suddenly confirm who I am? Especially after all these years.", PlanetExpression.Challenging),
                     new CrowdResponds(CrowdExpression.Cheer),
                     new OpponentResponds("Well, maybe he didn't forget.", OpponentExpression.Worried)),
@@ -46,7 +46,7 @@ namespace AllPlanet.Argument.Concrete.DrEmerson
                     new CrowdResponds(CrowdExpression.Cheer))),
             new Statement("He comfirmed who you were.", OpponentExpression.Proud, 
                 new RefuteOption(ArgumentType.Discredit, "illegal smuggling", +4,
-                    new PlanetResponds("How is it, that Dr.Tomas who has been forgetting my face...", PlanetExpression.Challenging),
+                    new PlanetResponds("How is it, that Dr. Tomas who has been forgetting my face...", PlanetExpression.Challenging),
                     new PlanetResponds("Can suddenly confirm who I am? Especially after all these years.", PlanetExpression.Challenging),
                     new CrowdResponds(CrowdExpression.Cheer),
                     new OpponentResponds("Well, maybe he didn't forget.", OpponentExpression.Worried)),
@@ -70,7 +70,7 @@ namespace AllPlanet.Argument.Concrete.DrEmerson
                 new RefuteOption(ArgumentType.FakeStatistic, "illegal smuggling", -2,
                     new PlanetResponds("Did you know that only 34% of people born around the time I was born had their names recorded?", PlanetExpression.Challenging),
                     new PlanetResponds("You stopped your hunt early. There could have easily been many more.", PlanetExpression.Challenging),
-                    new OpponentResponds("Well even so, Dr.Tomas still proves I'm right.", OpponentExpression.Challenging),
+                    new OpponentResponds("Well even so, Dr. Tomas still proves I'm right.", OpponentExpression.Challenging),
                     new CrowdResponds(CrowdExpression.Boo))));
     }
 }
