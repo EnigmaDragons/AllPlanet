@@ -43,7 +43,7 @@ namespace AllPlanet.Debate
 
             _finishedIntroductions = true;
             Audio.PlayMusic("Music/bgm1", 0.5f);
-            World.Publish(new Segue("opening"));
+            World.Publish(new Segue("lava"));
         }
 
         public void Update(TimeSpan delta)
