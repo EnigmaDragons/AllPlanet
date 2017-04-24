@@ -17,6 +17,7 @@ namespace AllPlanet.Argument.Concrete
                 new OpponentResponds("You are so small, you can't possibly be considered a planet!", OpponentExpression.Proud),
                 new CrowdResponds(CrowdExpression.NoComment),
             },
-            "too small");
+            "too small",
+            );
     }
 }

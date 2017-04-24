@@ -25,6 +25,7 @@ namespace AllPlanet.Transitions.Concrete
             new CrowdResponds(CrowdExpression.Cheer),
             new ModeratorSays(ModeratorExpression.Mic, "Let me tell you about..."),
             new OpponentResponds("LET US START ALL READY! I DON'T LIKE WASTING TIME!", OpponentExpression.Proud),
-            new ModeratorLeaves());
+            new ModeratorLeaves(),
+            new Segue("gravity is too weak"));
     }
 }
