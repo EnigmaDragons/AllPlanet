@@ -14,7 +14,6 @@ namespace AllPlanet.Transitions.Concrete
             new ModeratorSays(ModeratorExpression.Left, "Up here on your left we have Stilles 33, the tiniest planet!"),
             new CrowdResponds(CrowdExpression.Cheer),
             new ModeratorSays(ModeratorExpression.Wink, "But you know what they say, it's not all about size."),
-            new CrowdResponds(CrowdExpression.NoComment), //change to laughing if we get it
             new ModeratorSays(ModeratorExpression.Right, "And on your right we have Dr.Emerson."),
             new ModeratorSays(ModeratorExpression.Mic, "He's got a PhD in Astronomy..."),
             new ModeratorSays(ModeratorExpression.Mic, "a M.S. in Science..."),
