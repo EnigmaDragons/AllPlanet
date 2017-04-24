@@ -1,5 +1,7 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using MonoDragons.Core.Engine;
+using MonoDragons.Core.EventSystem;
 using MonoDragons.Core.Inputs;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
@@ -12,6 +14,7 @@ namespace AllPlanet.Argument
         private readonly ImageButton _nextButton;
 
         private readonly CurrentPoint _currentPoint;
+        private bool _isEnabled = false;
 
         public ClickUIBranch Branch { get; }
 
@@ -21,11 +24,16 @@ namespace AllPlanet.Argument
             Branch = new ClickUIBranch("Nav", (int)ClickBranchPriority.Navigation);
             _backButton = Buttons.CreateBack(new Transform2(new Vector2(536, 738), new Size2(64, 64)), Back, HasBack);
             _nextButton = Buttons.CreateNext(new Transform2(new Vector2(1000, 738), new Size2(64, 64)), Next, HasNext);
+            World.Subscribe(EventSubscription.Create<ModeChanged>(ChangeMode, this));
             Branch.Add(_backButton);
             Branch.Add(_nextButton);
+            ControlHandler.BindOnPress(5, Control.Right, () => { if (_isEnabled) Next(); return _isEnabled; });
+            ControlHandler.BindOnPress(5, Control.Left, () => { if (_isEnabled) Back(); return _isEnabled; });
+        }
 
-            Input.On(Control.Right, Next);
-            Input.On(Control.Left, Back);
+        private void ChangeMode(ModeChanged obj)
+        {
+            _isEnabled = obj.Mode == Mode.Refutation;
         }
 
         public void Draw(Transform2 parentTransform)

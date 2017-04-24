@@ -7,6 +7,7 @@ using MonoDragons.Core.Engine;
 using MonoDragons.Core.Memory;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
+using MonoDragons.Core.Inputs;
 
 namespace AllPlanet.Scenes
 {
@@ -37,6 +38,8 @@ namespace AllPlanet.Scenes
             _clickUi.Add(_replayIntro);
             _clickUi.Add(new SimpleClickable(new Rectangle(1400, 820, 180, 60), () => World.NavigateToScene("Credits")));
             _animTimer = new Timer(Next, 16);
+            Input.On(Control.A, Start);
+            Input.On(Control.B, () => World.NavigateToScene("Intro"));
         }
 
         private void Start()

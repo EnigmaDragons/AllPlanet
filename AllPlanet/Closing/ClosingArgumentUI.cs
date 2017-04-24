@@ -5,6 +5,8 @@ using MonoDragons.Core.Engine;
 using MonoDragons.Core.EventSystem;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
+using MonoDragons.Core.Inputs;
+using System;
 
 namespace AllPlanet.Closing
 {
@@ -12,6 +14,14 @@ namespace AllPlanet.Closing
     {
         private readonly CurrentClosingArgument _currentArgument;
         private readonly List<ImageTextButton> _optionButtons = new List<ImageTextButton>();
+        private readonly ColoredRectangle _choosingOptionButtonBorder = new ColoredRectangle()
+            { Transform = new Transform2(new Size2(1062, 132)), Color = Color.Green };
+        private Transform2 _currentlyHighlightedOption = new Transform2(new Vector2(269, 2000));
+        private float _currentlyHighlightedOptionAsFloat
+        {
+            get { return _currentlyHighlightedOption.Location.Y == 2000 ? -1 : (_currentlyHighlightedOption.Location.Y - 194) / 140; }
+            set { _currentlyHighlightedOption.Location = value == -1 ? new Vector2(269, 2000) : new Vector2(269, 194 + 140 * value); }
+        }
 
         private bool _active = false;
 
@@ -19,8 +29,38 @@ namespace AllPlanet.Closing
 
         public ClosingArgumentUI(CurrentClosingArgument argument)
         {
+            ControlHandler.BindOnPress(2, Control.A, () => { if (_active) { ChooseCurrentlyHighlightedOption(); return true; } return false; });
+            ControlHandler.BindOnPress(2, Control.Up, () => { if (_active) ChangeHighlightOptionUp(); return _active; });
+            ControlHandler.BindOnPress(2, Control.Down, () => { if (_active) ChangeHighlightOptionDown(); return _active; });
             _currentArgument = argument;
             World.Subscribe(EventSubscription.Create<ModeChanged>(ChangeMode, this));
+        }
+
+        private void ChooseCurrentlyHighlightedOption()
+        {
+            if (_currentlyHighlightedOptionAsFloat != -1)
+                _optionButtons[(int)_currentlyHighlightedOptionAsFloat].OnReleased();
+        }
+
+        private void ChangeHighlightOptionUp()
+        {
+            if (_currentlyHighlightedOptionAsFloat == -1)
+                _currentlyHighlightedOptionAsFloat = 0;
+            else if (_currentlyHighlightedOptionAsFloat > 0)
+                _currentlyHighlightedOptionAsFloat--;
+        }
+
+        private void ChangeHighlightOptionDown()
+        {
+            if (_currentlyHighlightedOptionAsFloat == -1)
+            {
+                if (_optionButtons.Count > 1)
+                    _currentlyHighlightedOptionAsFloat = 1;
+                else
+                    _currentlyHighlightedOptionAsFloat = 0;
+            }
+            else if (_currentlyHighlightedOptionAsFloat + 1 < _optionButtons.Count)
+                _currentlyHighlightedOptionAsFloat++;
         }
 
         private void ChangeMode(ModeChanged obj)
@@ -49,7 +89,7 @@ namespace AllPlanet.Closing
             {
                 var opt = Buttons.CreateClosingArgument(x.ToString(),
                     new Transform2(new Vector2(275, 200 + (i * 140)), new Size2(1050, 120)),
-                        () => { _currentArgument.Get().Choose(x); UpdateOptions(); });
+                        () => { _currentArgument.Get().Choose(x); UpdateOptions(); _currentlyHighlightedOptionAsFloat = -1; });
                 _optionButtons.Add(opt);
                 Branch.Add(opt);
                 i++;
@@ -59,6 +99,7 @@ namespace AllPlanet.Closing
         public void Draw(Transform2 parentTransform)
         {
             World.Darken();
+            _choosingOptionButtonBorder.Draw(_currentlyHighlightedOption + parentTransform);
             _optionButtons.ForEach(x => x.Draw(parentTransform));
         }
     }

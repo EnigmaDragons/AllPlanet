@@ -22,7 +22,7 @@ namespace AllPlanet.Player
         private readonly SimpleClickable _backgroundDisable;
         private readonly TimeSpan _delay = TimeSpan.FromSeconds(3.4);
 
-        private TimeSpan _waited = TimeSpan.Zero;
+        private TimeSpan _waited = TimeSpan.FromSeconds(3.5);
         private bool Dismissed { get; set; }
 
         public ClickUIBranch Branch { get; }
@@ -35,7 +35,8 @@ namespace AllPlanet.Player
             _desc = new Label { BackgroundColor = Color.Transparent, Transform = new Transform2(new Vector2(250, 200 + 150), new Size2(1100, 100)) };
             _confirm = new ImageButton("UI/checkmark", "UI/checkmark", "UI/checkmark",
                 new Transform2(new Vector2(1300, 400), new Size2(64, 64)), Dismiss, () => !Dismissed && _waited >= _delay);
-            Input.On(Control.X, Dismiss);
+            _confirm.IsEnabled = false;
+            ControlHandler.BindOnPress(10, Control.A, () => { if (_confirm.IsEnabled) { Dismiss(); return true; } return !Dismissed; });
             _backgroundDisable = new SimpleClickable(new Rectangle(new Point(0, 0), new Point(1600, 900)), () => { }) { IsEnabled = false };
             Branch.Add(_confirm);
             Branch.Add(_backgroundDisable);
@@ -46,6 +47,7 @@ namespace AllPlanet.Player
         private void Dismiss()
         {
             if (Dismissed) return;
+            _confirm.IsEnabled = false;
             Dismissed = true;
             _backgroundDisable.IsEnabled = false;
             World.Publish(new AdvanceArgument());
@@ -63,12 +65,15 @@ namespace AllPlanet.Player
             _desc.Text = obj.Desc;
             Dismissed = false;
             _waited = TimeSpan.Zero;
+            _confirm.IsEnabled = false;
             _backgroundDisable.IsEnabled = true;
             Audio.PlaySound("argument-learned");
         }
 
         public void Update(TimeSpan delta)
         {
+            if (_waited < _delay && _waited + delta > _delay)
+                _confirm.IsEnabled = true;
             _waited += delta;
         }
 

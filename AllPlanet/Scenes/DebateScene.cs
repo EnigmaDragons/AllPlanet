@@ -20,6 +20,8 @@ namespace AllPlanet.Scenes
 
         public void Init()
         {
+            ControlHandler.Initialize(Control.A, Control.B, Control.X, Control.Y, Control.Up, Control.Down, Control.Right, Control.Left);
+            ControlHandler.BindOnPress(0, Control.A, () => { RequestAdvance(); return true; });
             _player = new ArgumentLearnedUI();
             _debate = new DebatePresentation();
             _clickUi = new ClickUI();
@@ -27,7 +29,6 @@ namespace AllPlanet.Scenes
             _clickUi.Add(_debate.Branch);
             _clickUi.Add(_player.Branch);
             _clickUi.Add(new SimpleClickable(new Rectangle(new Point(0, 0), new Point(1600, 900)), RequestAdvance));
-            Input.On(Control.A, RequestAdvance);
             Audio.PlayMusic("Music/planetentrance", 0f); // Hack to mute the last music track
             World.Publish(new PresentationStarted());
         }

@@ -5,6 +5,7 @@ using MonoDragons.Core.Engine;
 using MonoDragons.Core.UserInterface;
 using AllPlanet.Argument;
 using MonoDragons.Core.PhysicsEngine;
+using MonoDragons.Core.Inputs;
 
 namespace AllPlanet.Scenes
 {
@@ -50,8 +51,11 @@ namespace AllPlanet.Scenes
             }
             if (_phase == 5)
                 _planetAlive = false;
-            if (_phase == 10)
+            if (_phase == 6)
+            {
                 _continue.IsEnabled = true;
+                Input.On(Control.A, () => World.NavigateToScene("Credits"));
+            }
         }
 
         public void Update(TimeSpan delta)

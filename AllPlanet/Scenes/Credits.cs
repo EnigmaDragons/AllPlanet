@@ -5,6 +5,7 @@ using MonoDragons.Core.Engine;
 using MonoDragons.Core.UserInterface;
 using AllPlanet.Argument;
 using MonoDragons.Core.PhysicsEngine;
+using MonoDragons.Core.Inputs;
 
 namespace AllPlanet.Scenes
 {
@@ -16,6 +17,7 @@ namespace AllPlanet.Scenes
         {
             _clickUi = new ClickUI();
             _clickUi.Add(new ScreenClickable(() => World.NavigateToScene("MainMenu")));
+            Input.On(Control.A, () => World.NavigateToScene("MainMenu"));
             Audio.PlayMusicOnce("Music/credits");
         }
 

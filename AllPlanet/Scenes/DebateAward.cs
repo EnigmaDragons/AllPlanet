@@ -5,6 +5,7 @@ using MonoDragons.Core.Engine;
 using MonoDragons.Core.UserInterface;
 using AllPlanet.Argument;
 using MonoDragons.Core.PhysicsEngine;
+using MonoDragons.Core.Inputs;
 
 namespace AllPlanet.Scenes
 {
@@ -18,6 +19,7 @@ namespace AllPlanet.Scenes
             _clickUi = new ClickUI();
             _continue = Buttons.CreateContinue(new Transform2(new Vector2(1290, 790), new Size2(200, 60)), () => World.NavigateToScene("Credits"));
             _clickUi.Add(_continue);
+            Input.On(Control.A, () => World.NavigateToScene("Credits"));
             Audio.PlaySound("crowd-clapping-long");
             Audio.PlayMusicOnce("Music/victory");
         }

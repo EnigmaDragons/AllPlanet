@@ -19,6 +19,12 @@ namespace AllPlanet.Argument
         private readonly ImageButton _refuteButton;
         private readonly ImageButton _cancelButton;
         private readonly List<ImageTextButton> _optionButtons = new List<ImageTextButton>();
+        private readonly ColoredRectangle _choosingOptionButtonBorder = new ColoredRectangle()
+            { Transform = new Transform2(new Size2(306, 86)), Color = Color.Orange };
+        private Transform2 _currentlyHighlightedOption = new Transform2(new Vector2(647, 2000));
+        private float _currentlyHighlightedOptionAsFloat {
+            get { return _currentlyHighlightedOption.Location.Y == 2000 ? -1 : (_currentlyHighlightedOption.Location.Y - 247) / 90; }
+            set { _currentlyHighlightedOption.Location = value == -1 ? new Vector2(647, 2000) : new Vector2(647, 247 + 90 * value); } }
 
         private Statement _currentStatement;
         private Statement _quotedStatement;
@@ -38,9 +44,12 @@ namespace AllPlanet.Argument
         {
             _navUi = new ArgumentNavUI(point);
             _refuteButton = Buttons.CreateRefute(new Transform2(new Vector2(640, 720), new Size2(320, 100)), Refute, () => CanClickRefute);
-            Input.On(Control.A, Refute);
+            ControlHandler.BindOnPress(5, Control.A, () => { if(_active) Refute(); return _active; });
             _cancelButton = Buttons.CreateCancel(new Transform2(new Vector2(640, 720), new Size2(320, 100)), Cancel, () => CanClickCancel);
-            Input.On(Control.B, Cancel);
+            ControlHandler.BindOnPress(5, Control.B, () => { if(_active) Cancel(); return _active; });
+            ControlHandler.BindOnPress(5, Control.A, () => { if (_isRefuting) { RefuteCurrentlyHighlightedOption(); return true;  } return false; });
+            ControlHandler.BindOnPress(5, Control.Up, () => { if(_isRefuting) ChangeHighlightOptionUp(); return _active; });
+            ControlHandler.BindOnPress(5, Control.Down, () => { if(_isRefuting) ChangeHighlightOptionDown(); return _active; });
             _quoteButton = Buttons.CreateQuoteButton(new Transform2(new Vector2(640, 600), new Size2(320, 100)), Quote, () => CanClickQuote);
             _interactBranch = new ClickUIBranch("Interact", (int)ClickBranchPriority.Interact);
             _quoteButton.IsEnabled = false;
@@ -53,6 +62,33 @@ namespace AllPlanet.Argument
             World.Subscribe(EventSubscription.Create<StatementChanged>(ChangeStatement, this));
             //World.Subscribe(EventSubscription.Create<ArgumentLearned>(
                 //(a) => { if (a.Name == "Discredit") { _isDiscreditUnlocked = true; _quoteButton.IsEnabled = true; } }, this));
+        }
+
+        private void RefuteCurrentlyHighlightedOption()
+        {
+            if (_currentlyHighlightedOptionAsFloat != -1)
+                _optionButtons[(int)_currentlyHighlightedOptionAsFloat].OnReleased();
+        }
+
+        private void ChangeHighlightOptionUp()
+        {
+            if (_currentlyHighlightedOptionAsFloat == -1)
+                _currentlyHighlightedOptionAsFloat = 0;
+            else if(_currentlyHighlightedOptionAsFloat > 0)
+                _currentlyHighlightedOptionAsFloat--;
+        }
+
+        private void ChangeHighlightOptionDown()
+        {
+            if (_currentlyHighlightedOptionAsFloat == -1)
+            {
+                if(_optionButtons.Count > 1)
+                    _currentlyHighlightedOptionAsFloat = 1;
+                else
+                    _currentlyHighlightedOptionAsFloat = 0;
+            }
+            else if (_currentlyHighlightedOptionAsFloat + 1 < _optionButtons.Count)
+                _currentlyHighlightedOptionAsFloat++;
         }
 
         private void ChangeMode(ModeChanged obj)
@@ -112,6 +148,7 @@ namespace AllPlanet.Argument
             if (_isRefuting)
             {
                 World.Darken();
+                _choosingOptionButtonBorder.Draw(parentTransform + _currentlyHighlightedOption);
                 _optionButtons.ForEach(x => x.Draw(parentTransform));
             }
             else
@@ -164,6 +201,7 @@ namespace AllPlanet.Argument
 
         private void ResetRefuting()
         {
+            _currentlyHighlightedOptionAsFloat = -1;
             _isQuoting = false;
             _isRefuting = false;
             _interactBranch.Add(_refuteButton);

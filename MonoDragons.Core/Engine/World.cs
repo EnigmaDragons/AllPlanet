@@ -10,6 +10,7 @@ using MonoDragons.Core.Memory;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.Text;
 using MonoDragons.Core.UserInterface;
+using MonoDragons.Core.Inputs;
 
 namespace MonoDragons.Core.Engine
 {
@@ -43,6 +44,7 @@ namespace MonoDragons.Core.Engine
 
         public static void NavigateToScene(string sceneName)
         {
+            Input.ClearBindings();
             Resources.Unload();
             _navigation.NavigateTo(sceneName);
         }
