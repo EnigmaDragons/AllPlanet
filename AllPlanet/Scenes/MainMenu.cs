@@ -28,7 +28,7 @@ namespace AllPlanet.Scenes
         public void Init()
         {
             Preload();
-            Audio.PlayMusic("Music/mainmenu");
+            Audio.PlayMusic("Music/mainmenu", 0.7f);
             _start = Buttons.CreateStart(new Transform2(new Vector2(700, 740), new Size2(200, 60)), Start);
             _clickUi = new ClickUI();
             _clickUi.Add(_start);
