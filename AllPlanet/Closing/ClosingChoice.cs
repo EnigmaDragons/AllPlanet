@@ -35,7 +35,7 @@ namespace AllPlanet.Closing
         public void Enact(string optionDescription, Action callback)
         {
             _callback = callback;
-            _chosenOption = _options.Find(c => c.Description == optionDescription);
+            _chosenOption = _options.Find(c => c.Description == optionDescription && c.Unlocked);
             World.Subscribe(EventSubscription.Create<AdvanceArgument>(x => Continue(), this));
             Continue();
         }
@@ -49,8 +49,9 @@ namespace AllPlanet.Closing
             }
             else
             {
-                World.Publish(_responses[0]);
+                var r = _responses[0];
                 _responses.RemoveAt(0);
+                World.Publish(r);
             }
         }
     }

@@ -45,20 +45,35 @@ namespace AllPlanet.Debate
 
         public void PlanetSays(string message)
         {
-            _speech.Show(message, Side.Left);
-            _someoneIsSpeaking = true;
+            if (message != "-")
+            {
+                _speech.Show(message, Side.Left);
+                _someoneIsSpeaking = true;
+            }
+            else
+                World.Publish(new AdvanceArgument());
         }
 
         public void OpponentSays(string message)
         {
-            _speech.Show(message, Side.Right);
-            _someoneIsSpeaking = true;
+            if (message != "-")
+            {
+                _speech.Show(message, Side.Right);
+                _someoneIsSpeaking = true;
+            }
+            else
+                World.Publish(new AdvanceArgument());
         }
 
         public void ModeratorSays(string message)
         {
-            _speech.Show(message, Side.Center);
-            _someoneIsSpeaking = true;
+            if (message != "-")
+            {
+                _speech.Show(message, Side.Center);
+                _someoneIsSpeaking = true;
+            }
+            else
+                World.Publish(new AdvanceArgument());
         }
 
         private void ChangeStatement(StatementChanged obj)

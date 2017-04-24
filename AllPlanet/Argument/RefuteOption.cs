@@ -41,7 +41,7 @@ namespace AllPlanet.Argument
             if (_closingLock != "")
             {
                 var argument = ClosingArgumentFactory.Create(_concludingArgument);
-                argument.Lock(_closingUnlock);
+                argument.Lock(_closingLock);
             }
             World.Publish(new Score(_score));
             World.Subscribe(EventSubscription.Create<AdvanceArgument>(x => Continue(), this));
@@ -58,8 +58,9 @@ namespace AllPlanet.Argument
             }
             else
             {
-                World.Publish(_responses[0]);
+                var r = _responses[0];
                 _responses.RemoveAt(0);
+                World.Publish(r);
             }
         }
     }

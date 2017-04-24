@@ -44,7 +44,7 @@ namespace AllPlanet.Argument.Concrete.DrEmerson
             new Statement("But you don't have a moon!", OpponentExpression.Challenging, 
                 new RefuteOption(ArgumentType.AppealToEmotion, "born in london", +1,
                     new PlanetResponds("I'm just a lonely planet on a lonely road with no moon to keep me company. Alone!", PlanetExpression.Sad),
-                    new PlanetResponds("Neow these scientists are saying that just because I don't have one, that somehow makes me not a planet.", PlanetExpression.Sad),
+                    new PlanetResponds("Now these scientists are saying that just because I don't have one, that somehow makes me not a planet.", PlanetExpression.Sad),
                     new CrowdResponds(CrowdExpression.Sympathy),
                     new OpponentResponds("Imagine how the real planets must feel being compared to a comet like him.", OpponentExpression.Bored)),
                 new RefuteOption(ArgumentType.FakeStatistic, "born in london", 0,

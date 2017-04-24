@@ -18,7 +18,7 @@ namespace AllPlanet.Crowds
 
         private void Vote(EndOfArgument obj)
         {
-            if (_score > 0)
+            if (_score > 2)
                 obj.Argument.Vote(true);
             else
                 obj.Argument.Vote(false);

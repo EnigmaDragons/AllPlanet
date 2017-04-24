@@ -43,8 +43,9 @@ namespace AllPlanet.Closing
             }
             else
             {
-                World.Publish(_responses[0]);
+                var r = _responses[0];
                 _responses.RemoveAt(0);
+                World.Publish(r);
             }
         }
     }
