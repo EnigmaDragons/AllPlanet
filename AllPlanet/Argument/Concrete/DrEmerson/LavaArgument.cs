@@ -17,6 +17,7 @@ namespace AllPlanet.Argument.Concrete.DrEmerson
                 new OpponentResponds("Popsicles also don't have lava, therefore you are a popsicle.", OpponentExpression.Challenging),
                 ArgumentLearnedFactory.Create(ArgumentType.FakeStatistic),
                 ArgumentLearnedFactory.Create(ArgumentType.Refuse),
+                /*TODO remove*/ //ArgumentLearnedFactory.Create(ArgumentType.Discredit)
             }, 
             "lava",
             new Statement("You are not a planet, you are a popsicle.", OpponentExpression.Challenging, GenericDiscreditResponse.Create("lava argument"),
