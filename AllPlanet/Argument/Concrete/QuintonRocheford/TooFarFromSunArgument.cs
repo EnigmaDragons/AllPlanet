@@ -37,6 +37,16 @@ namespace AllPlanet.Argument.Concrete
                 new RefuteOption(ArgumentType.AgreeAndAmplify, "null", 9,
                     new PlanetResponds("Actually I am so far from your sun I am not even a part of your solar system!", PlanetExpression.Challenging),
                     new PlanetResponds("Your solar system isn't the one I would be considered a planet in anyways!", PlanetExpression.Challenging))),
-            new Statement("Therefore you should not be considered a planet", OpponentExpression.Challenging));
+            new Statement("Therefore you should not be considered a planet", OpponentExpression.Challenging,
+                new RefuteOption(ArgumentType.AdHominem, "null", 9,
+                    new PlanetResponds("You shouldn't be considered a scientist!", PlanetExpression.Challenging),
+                    new PlanetResponds("I am 150 million kilometers away from the belt!", PlanetExpression.Challenging),
+                    new PlanetResponds("How could a \"scientist\" like yourself be so far off?", PlanetExpression.Challenging),
+                    new PlanetResponds("You are a disgrace to true scientists.", PlanetExpression.Challenging)),
+                new RefuteOption(ArgumentType.Reframe, "null", 9,
+                    new PlanetResponds("While I am a planet, you are right.", PlanetExpression.Challenging),
+                    new PlanetResponds("You should consider me as your friend, a close neighbor.", PlanetExpression.Challenging)),
+                new RefuteOption(ArgumentType.AppealToAuthority, "null", 9,
+                    new PlanetResponds("Dr. Malachi James considers me a planet, you should too!", PlanetExpression.Challenging))));
     }
 }
