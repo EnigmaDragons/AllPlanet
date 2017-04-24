@@ -59,13 +59,9 @@ namespace AllPlanet.Argument.Concrete.DrEmerson
                     new OpponentResponds("I think you are a special case.", OpponentExpression.Bored),
                     new CrowdResponds(CrowdExpression.Cheer))),
             new Statement("I also looked up how many people in London have ever been called Stilles 33, and it's only you.", OpponentExpression.Challenging,
-                new RefuteOption(ArgumentType.Illegitimize, "illegal smuggling", -1, 
-                    // TODO Rewrite
-                    new PlanetResponds("You ran a Google search, who are people named Stilles 33, born in London.", PlanetExpression.Challenging),
-                    // TODO Rewrite
-                    new PlanetResponds("Let me guess you went in and stared at great big books full of names of people born in London.", PlanetExpression.Challenging),
-                    new OpponentResponds("I'm a scientist who gets paid to do studies.", OpponentExpression.Proud),
-                    new OpponentResponds("Of course I know how to research.", OpponentExpression.Worried),
+                new RefuteOption(ArgumentType.Refuse, "illegal smuggling", +1, 
+                    new PlanetResponds("Actually, in my time at Oxford University, I met quite a few people with the name Stilles 33.", PlanetExpression.Proud),
+                    new OpponentResponds("That's outrageous! 33 isn't even last name!", OpponentExpression.Challenging),
                     new CrowdResponds(CrowdExpression.NoComment)),
                 new RefuteOption(ArgumentType.FakeStatistic, "illegal smuggling", -2,
                     new PlanetResponds("Did you know that only 34% of people born around the time I was born had their names recorded?", PlanetExpression.Challenging),
