@@ -89,5 +89,10 @@ namespace AllPlanet.Opponent
         {
             World.Draw(Image, parentTransform.Location + _transform.Location + new Vector2(_xOffset, 0));
         }
+
+        public void Dispose()
+        {
+            World.Unsubscribe(this);
+        }
     }
 }

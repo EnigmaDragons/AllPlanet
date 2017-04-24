@@ -1,6 +1,6 @@
 ﻿namespace AllPlanet.Opponent
 {
-    internal class OpponentLeaves
+    public class OpponentLeaves
     {
     }
 }
