@@ -71,12 +71,12 @@ namespace AllPlanet.Closing.Concrete
             new ClosingChoice(new object[] { new PlanetResponds("In conclusion", PlanetExpression.Challenging), },
                 new ClosingOption("I am a fucking planet", +1, 
                     new PlanetResponds("I am a fucking planet.", PlanetExpression.Challenging)),
-                new ClosingOption("I just dropped on by to tell you I'm a planet.", 9, 
+                new ClosingOption("I just dropped on by to tell you I'm a planet.", +3, 
                     new PlanetResponds("Once upon a time, I floated around the edge of this solar system having a grand party with Neptune.", PlanetExpression.Challenging),
                     new PlanetResponds("A couple years ago, however, scientists like Dr. Emerson and Mad Scientist Rocheford starting claiming I was not a planet.", PlanetExpression.Challenging),
                     new PlanetResponds("So I have traveled 4,200 million kilometers to come to earth to argue before you today that I am indeed a planet.", PlanetExpression.Proud),
                     new CrowdResponds(CrowdExpression.Cheer)),
-                new ClosingOption("Dr.Rocheford must be stopped", +2,
+                new ClosingOption("Dr.Rocheford must be stopped", +1,
                     new PlanetResponds("Dr.Rocheford is a menace to society, and must be stopped at all costs!", PlanetExpression.Sad),
                     new PlanetResponds("Declaring that I'm not a planet is just the next step in his evil plan!", PlanetExpression.Sad))));
     }
