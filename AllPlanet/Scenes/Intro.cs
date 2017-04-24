@@ -108,7 +108,7 @@ namespace AllPlanet.Scenes
                 _phase++;
                 _velocity = new Transform2(new Vector2(-0.6f, 0.3f));
             }
-
+            
             _bgTransform = _bgTransform + _velocity;
             UpdatePlanetAnim();
         }
@@ -120,7 +120,7 @@ namespace AllPlanet.Scenes
                 _phase++;
                 _shouldDrawPlanet = true;
                 _shouldZoomPlanet = true;
-                Audio.PlayMusic("Music/planetentrance");
+                Audio.PlayMusicOnce("Music/planetentrance");
             }
 
             if (_phase == 9 && _ms > 34000)
@@ -134,6 +134,11 @@ namespace AllPlanet.Scenes
             {
                 _phase++;
                 _shouldShrinkPlanet = false;
+            }
+
+            if (_phase == 11 && _ms > 43000)
+            {
+                World.NavigateToScene("MainMenu");
             }
 
             if (_shouldZoomPlanet)

@@ -7,6 +7,16 @@ namespace AllPlanet.Argument
 {
     public static class Buttons
     {
+        public static ImageTextButton CreateStart(Transform2 transform, Action action)
+        {
+            return new ImageTextButton("Start", "UI/startbutton-default", "UI/startbutton-hover", "UI/startbutton-pressed", transform, action);
+        }
+
+        public static ImageTextButton CreateTextButton(string text, Transform2 transform, Action action)
+        {
+            return new ImageTextButton(text, "UI/plainbutton-default", "UI/plainbutton-hover", "UI/plainbutton-pressed", transform, action);
+        }
+
         public static ImageButton CreateRefute(Transform2 transform, Action refuteAction, Func<bool> visibleCondition)
         {
             return new ImageButton("UI/refutebutton-default", "UI/refutebutton-hover", "UI/refutebutton-pressed",
