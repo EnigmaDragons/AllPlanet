@@ -10,6 +10,6 @@
         Illegitimize,
         Discredit,
         AdHominem,
-        AppealToAuthority,
+        AppealToAuthority
     }
 }

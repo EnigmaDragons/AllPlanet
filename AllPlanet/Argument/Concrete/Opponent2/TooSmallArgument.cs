@@ -7,7 +7,7 @@ namespace AllPlanet.Argument.Concrete
 {
     public static class TooSmallArgument
     {
-        public static ArgumentPoint Argument { get; } = new ArgumentPoint(new List<object>
+        /*public static ArgumentPoint Argument { get; } = new ArgumentPoint(new List<object>
             {
                 new OpponentResponds("I'm so glad you could join us today.", OpponentExpression.Proud),
                 new PlanetResponds("Thank you.", PlanetExpression.Thinking),
@@ -17,6 +17,7 @@ namespace AllPlanet.Argument.Concrete
                 new OpponentResponds("You are so small, you can't possibly be considered a planet!", OpponentExpression.Proud),
                 new CrowdResponds(CrowdExpression.NoComment),
             },
-            "too small");
+            "too small",
+            );*/
     }
 }

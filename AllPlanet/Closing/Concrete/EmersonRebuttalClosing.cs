@@ -74,7 +74,7 @@ namespace AllPlanet.Closing.Concrete
                     new OpponentResponds("-", OpponentExpression.Worried)),
                 new ClosingOption("unite 2", false, "Unite the audience against the common enemy", +3,
                     new PlanetResponds("Do you see Emerson's grin? He is thinking to himself that he is smarter than all of you.", PlanetExpression.Challenging),
-                    new PlanetResponds("He thinks that he can pull one over this entire community, like he did with the entire scientific community!", PlanetExpression.Challenging),
+                    new PlanetResponds("He thinks that he can pull one over the entire scientific community!", PlanetExpression.Challenging),
                     new PlanetResponds("First he is claiming planets aren't real.", PlanetExpression.Challenging),
                     new PlanetResponds("Next he's going to be claiming that you aren't scientifically literate!", PlanetExpression.Challenging),
                     new CrowdResponds(CrowdExpression.Boo),
