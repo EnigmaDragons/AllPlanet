@@ -40,7 +40,7 @@ namespace AllPlanet.Argument.Concrete.DrEmerson
                     new PlanetResponds("He says that you invented the idea just to grab fame.", PlanetExpression.Challenging),
                     new CrowdResponds(CrowdExpression.NoComment),
                     new OpponentResponds("No, it's real, I have made it I swear!", OpponentExpression.Worried)),
-                new RefuteOption(ArgumentType.Illegitimize, "emerson rebutal", 0, 
+                new RefuteOption(ArgumentType.Illegitimize, "emerson rebutal", +1, 
                     new PlanetResponds("Well I just discovered element 200 Fluffium.", PlanetExpression.Challenging),
                     new PlanetResponds("But don't worry, you can invent 201 Plagium.", PlanetExpression.Challenging),
                     new OpponentResponds("Do you have published papers on your element.", OpponentExpression.Worried),
