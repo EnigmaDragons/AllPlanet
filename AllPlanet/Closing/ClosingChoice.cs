@@ -14,10 +14,20 @@ namespace AllPlanet.Closing
         private List<ClosingOption> _options { get; }
         private List<object> _responses { get; }
         private ClosingOption _chosenOption;
+        private ClosingChoice[][] _addedChoices;
         private Action _callback;
 
         public ClosingChoice(object[] openingResponses, params ClosingOption[] options)
+            : this(null, openingResponses, options)
         {
+            _addedChoices = new ClosingChoice[options.Count()][];
+            for (var i = 0; i < _addedChoices.Length; i++)
+                _addedChoices[i] = new ClosingChoice[0];
+        }
+
+        public ClosingChoice(ClosingChoice[][] addedChoices, object[] openingResponses, params ClosingOption[] options)
+        {
+            _addedChoices = addedChoices;
             _options = options.ToList();
             _responses = openingResponses.ToList();
         }
@@ -32,10 +42,16 @@ namespace AllPlanet.Closing
             _options.Find((o) => o.Name == name).Unlocked = false;
         }
 
-        public void Enact(string optionDescription, Action callback)
+        public ClosingChoice[] Choose(string optionDescription)
+        {
+            _chosenOption = _options.Find(c => c.Description == optionDescription && c.Unlocked);
+            var index = _options.IndexOf(_chosenOption);
+            return _addedChoices[index];
+        }
+
+        public void Enact(Action callback)
         {
             _callback = callback;
-            _chosenOption = _options.Find(c => c.Description == optionDescription && c.Unlocked);
             World.Subscribe(EventSubscription.Create<AdvanceArgument>(x => Continue(), this));
             Continue();
         }

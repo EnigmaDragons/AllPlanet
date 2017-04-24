@@ -48,6 +48,7 @@ namespace AllPlanet.Closing
 
         public void Choose(string optionDescription)
         {
+            _choices.AddRange(_choices[_indexer].Choose(optionDescription));
             _indexer++;
             _chosenOptions.Add(optionDescription);
             if (_choices.Count != _chosenOptions.Count)
@@ -56,7 +57,7 @@ namespace AllPlanet.Closing
             {
                 World.Publish(new ModeChanged(Mode.Presentation));
                 _indexer = 0;
-                _choices[_indexer].Enact(_chosenOptions[_indexer], Continue);
+                _choices[_indexer].Enact(Continue);
             }
         }
 
@@ -64,7 +65,7 @@ namespace AllPlanet.Closing
         {
             _indexer++;
             if(_indexer < _choices.Count)
-                _choices[_indexer].Enact(_chosenOptions[_indexer], Continue);
+                _choices[_indexer].Enact(Continue);
             else
                 World.Publish(new EndOfArgument(this));
         }
