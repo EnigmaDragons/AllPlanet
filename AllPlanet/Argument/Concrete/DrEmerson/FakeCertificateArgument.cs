@@ -59,7 +59,7 @@ namespace AllPlanet.Argument.Concrete.DrEmerson
                     new OpponentResponds("I think you are a special case.", OpponentExpression.Bored),
                     new CrowdResponds(CrowdExpression.Boo))),
             new Statement("I also looked up how many people in London have ever been called Stilles 33, and it's only you.", OpponentExpression.Challenging,
-                new RefuteOption(ArgumentType.Illegitimize, "illegal smuggling", +1, 
+                new RefuteOption(ArgumentType.Illegitimize, "illegal smuggling", -1, 
                     // TODO Rewrite
                     new PlanetResponds("You ran a Google search, who are people named Stilles 33, born in London.", PlanetExpression.Challenging),
                     // TODO Rewrite

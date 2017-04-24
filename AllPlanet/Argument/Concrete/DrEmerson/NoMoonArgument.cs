@@ -32,7 +32,7 @@ namespace AllPlanet.Argument.Concrete.DrEmerson
                     new OpponentResponds("Having no moon, you must not have realized the moon reflects light from the sun.", OpponentExpression.Challenging),
                     new CrowdResponds(CrowdExpression.Sympathy))),
             new Statement("The moon showers light upon us.", OpponentExpression.Challenging, 
-                new RefuteOption(ArgumentType.FakeStatistic, "born in london", -2,
+                new RefuteOption(ArgumentType.FakeStatistic, "born in london", -1,
                     new PlanetResponds("Well for 1 out of every 29 days it doesn't. It's a new moon.", PlanetExpression.Challenging),
                     new OpponentResponds("Still, at least we have a moon!", OpponentExpression.Challenging),
                     new CrowdResponds(CrowdExpression.Boo)),
@@ -66,8 +66,8 @@ namespace AllPlanet.Argument.Concrete.DrEmerson
                     new PlanetResponds("Oh yes. Without a moon I'm hardly even a comet. In fact, I must just be some rubble coming off a meteor because I don't have a moon.", PlanetExpression.Challenging),
                     new OpponentResponds("You will feel like rubble once I'm finished with this argument.", OpponentExpression.Proud),
                     new CrowdResponds(CrowdExpression.Boo)),
-                new RefuteOption(ArgumentType.Refuse, "born in london", 0, 
-                    new PlanetResponds("That's nonsense. I am definitely a true planet.", PlanetExpression.Challenging),
+                new RefuteOption(ArgumentType.Refuse, "born in london", -1, 
+                    new PlanetResponds("That's nonsense! I am definitely a real planet.", PlanetExpression.Challenging),
                     new OpponentResponds("It sounds like you have no real objections. I will carry on.", OpponentExpression.Bored),
                     new CrowdResponds(CrowdExpression.Boo))));
     }

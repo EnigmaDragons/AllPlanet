@@ -13,7 +13,7 @@ namespace AllPlanet.Argument.Concrete.Opponent2
                 new OpponentResponds("Experts defined what a planet is.", OpponentExpression.Challenging),
                 new OpponentResponds("As such they are the ones who judge what belongs in the category of planet.", OpponentExpression.Challenging),
                 new OpponentResponds("All the experts have judged that you are not a planet!", OpponentExpression.Proud),
-            }, 
+            },
             "experts say");
     }
 }

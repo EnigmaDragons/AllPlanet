@@ -23,7 +23,7 @@ namespace AllPlanet.Closing.Concrete
                     new PlanetResponds("Do you know what else has Xanarin, that's right the core of this planet!", PlanetExpression.Challenging),
                     new PlanetResponds("I think this conclusively proves that I am indeed a planet.", PlanetExpression.Proud),
                     new CrowdResponds(CrowdExpression.NoComment)),
-                new ClosingOption("You are made up of everything a planet is made up of", -2,
+                new ClosingOption("You are made up of everything a planet is made up of", +1,
                     new PlanetResponds("A planet is made up of a very large amount of traits and attributes.", PlanetExpression.Thinking),
                     new PlanetResponds("Just like a car, if I was to use 6 wheels instead of 4 would it still be a car?", PlanetExpression.Challenging),
                     new PlanetResponds("Of course it would be!", PlanetExpression.Proud),
