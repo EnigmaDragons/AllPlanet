@@ -5,6 +5,7 @@ using AllPlanet.Planet;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.EventSystem;
 using MonoDragons.Core.PhysicsEngine;
+using AllPlanet.Opponent;
 
 namespace AllPlanet.Debate
 {
@@ -20,7 +21,10 @@ namespace AllPlanet.Debate
             World.Subscribe(EventSubscription.Create<PlanetResponds>(x => PlanetSays(x.Statement), this));
             World.Subscribe(EventSubscription.Create<OpponentResponds>(x => OpponentSays(x.Statement), this));
             World.Subscribe(EventSubscription.Create<ModeratorSays>(x => ModeratorSays(x.Statement), this));
+            World.Subscribe(EventSubscription.Create<ModeratorEnters>(x => Silence(), this));
             World.Subscribe(EventSubscription.Create<ModeratorLeaves>(x => Silence(), this));
+            World.Subscribe(EventSubscription.Create<OpponentEnters>(x => Silence(), this));
+            World.Subscribe(EventSubscription.Create<OpponentLeaves>(x => Silence(), this));
         }
 
         private void Silence()
