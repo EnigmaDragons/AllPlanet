@@ -22,10 +22,10 @@ namespace AllPlanet.Opponent
         {
             _transform = transform + new Vector2(35, -15);
             _xOffset = (int)Math.Ceiling(1610 - _transform.Location.X);
-            World.SubscribeForScene(EventSubscription.Create<StatementChanged>((e) => StatementChanged(e.Statement.Expression), this));
-            World.SubscribeForScene(EventSubscription.Create<OpponentResponds>((e) => StatementChanged(e.Expression), this));
-            World.SubscribeForScene(EventSubscription.Create<OpponentEnters>((e) => EnterStage(), this));
-            World.SubscribeForScene(EventSubscription.Create<OpponentLeaves>((e) => LeaveStage(), this));
+            World.Subscribe(EventSubscription.Create<StatementChanged>((e) => StatementChanged(e.Statement.Expression), this));
+            World.Subscribe(EventSubscription.Create<OpponentResponds>((e) => StatementChanged(e.Expression), this));
+            World.Subscribe(EventSubscription.Create<OpponentEnters>((e) => EnterStage(), this));
+            World.Subscribe(EventSubscription.Create<OpponentLeaves>((e) => LeaveStage(), this));
         }
 
         private void StatementChanged(OpponentExpression obj)

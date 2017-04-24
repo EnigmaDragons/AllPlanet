@@ -15,7 +15,7 @@ namespace AllPlanet.Planet
 
         public PlanetChar()
         {
-            World.SubscribeForScene(EventSubscription.Create<PlanetResponds>(PlanetResponds, this));
+            World.Subscribe(EventSubscription.Create<PlanetResponds>(PlanetResponds, this));
         }
 
         private void PlanetResponds(PlanetResponds obj)

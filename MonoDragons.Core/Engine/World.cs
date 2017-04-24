@@ -83,12 +83,12 @@ namespace MonoDragons.Core.Engine
             _persistentEvents.Publish(payload);
         }
 
-        public static void Subscribe(EventSubscription subscription)
+        public static void SubscribeForever(EventSubscription subscription)
         {
             _persistentEvents.Subscribe(subscription);
         }
 
-        public static void SubscribeForScene(EventSubscription subscription)
+        public static void Subscribe(EventSubscription subscription)
         {
             _events.Subscribe(subscription);
             _eventSubs.Add(subscription);

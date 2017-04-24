@@ -14,6 +14,7 @@ namespace AllPlanet.Scenes
     {
         private ClickUI _clickUi;
         private ImageTextButton _start;
+        private ImageTextButton _replayIntro;
         private Timer _animTimer;
         
         private int _sciX = -180;
@@ -30,8 +31,11 @@ namespace AllPlanet.Scenes
             Preload();
             Audio.PlayMusic("Music/mainmenu", 0.7f);
             _start = Buttons.CreateStart(new Transform2(new Vector2(700, 740), new Size2(200, 60)), Start);
+            _replayIntro = Buttons.CreateReplayIntro(new Transform2(new Vector2(700, 820), new Size2(200, 60)), () => World.NavigateToScene("Intro"));
             _clickUi = new ClickUI();
             _clickUi.Add(_start);
+            _clickUi.Add(_replayIntro);
+            _clickUi.Add(new SimpleClickable(new Rectangle(1400, 820, 180, 60), () => World.NavigateToScene("Credits")));
             _animTimer = new Timer(Next, 16);
         }
 
@@ -71,6 +75,7 @@ namespace AllPlanet.Scenes
             World.Draw("Characters/business-worried", new Vector2(_manX, 520));
             World.Draw("Characters/mc-mic", new Rectangle(_mcX, 600, 297, 405));
             _start.Draw(Transform2.Zero);
+            _replayIntro.Draw(Transform2.Zero);
             World.Draw("Images/Logo/enigmadragons", new Rectangle(1400, 820, 180, 60));
         }
     }
