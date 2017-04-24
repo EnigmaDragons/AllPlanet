@@ -47,7 +47,7 @@ namespace AllPlanet.Closing.Concrete
                     new PlanetResponds("It says in the record here that Waldo was in for drug abuse.", PlanetExpression.Challenging),
                     new PlanetResponds("Can you really trust a drugged up mind to do proper science?", PlanetExpression.Challenging),
                     new OpponentResponds("That's ridiculous! That was ages ago and has no bearing on this debate!", OpponentExpression.Worried)),
-                new ClosingOption("Question the legitimacy of a scientist who gets paid by private corporations", +3, 
+                new ClosingOption("Question the legitimacy of a scientist based on who pays him", +3, 
                     new PlanetResponds("Are you really a scientist?", PlanetExpression.Challenging),
                     new PlanetResponds("It seems to me you only have participated in independent scientific studies.", PlanetExpression.Challenging),
                     new PlanetResponds("As such, you were paid large sums of money, and conveniently found results that benefitted the people paying you.", PlanetExpression.Challenging),
