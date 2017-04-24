@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using AllPlanet.Argument.Concrete;
+using AllPlanet.Argument.Concrete.DrEmerson;
 
 namespace AllPlanet.Argument
 {
@@ -11,6 +12,8 @@ namespace AllPlanet.Argument
             { PopsicleArgument.Argument.Name, PopsicleArgument.Argument },
             { NoMoonArgument.Argument.Name, NoMoonArgument.Argument },
             { MoonsAreNotGoodArgument.Argument.Name, MoonsAreNotGoodArgument.Argument },
+            { BornInLondonArgument.Argument.Name, BornInLondonArgument.Argument },
+            { FakeCertificateArgument.Argument.Name, FakeCertificateArgument.Argument },
         };
 
         public static ArgumentPoint Create(string name)

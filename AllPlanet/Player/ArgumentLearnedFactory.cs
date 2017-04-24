@@ -43,6 +43,19 @@ namespace AllPlanet.Player
                     "You're wrong, you didn't just learn this argument!",
                 }
             },
+            {
+                ArgumentType.StrawMan, new List<string>
+                {
+                    "Need help with these lol"
+                }
+            },
+            {
+                ArgumentType.Discredit, new List<string>
+                {
+                    "There was a contradiction in that argument somewhere.",
+                    "This next statement is true. The previous statement is false.",
+                }
+            },
         };
 
         public static ArgumentLearned Create(ArgumentType type)

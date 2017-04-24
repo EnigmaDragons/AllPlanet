@@ -1,12 +1,10 @@
 ﻿using System.Collections.Generic;
-using System.Linq.Expressions;
-using AllPlanet.Argument.Concrete;
 using AllPlanet.Crowds;
 using AllPlanet.Opponent;
 using AllPlanet.Planet;
 using AllPlanet.Player;
 
-namespace AllPlanet.Argument
+namespace AllPlanet.Argument.Concrete.DrEmerson
 {
     public static class LavaArgument
     {
@@ -27,7 +25,7 @@ namespace AllPlanet.Argument
                     new OpponentResponds("Please! If 22% planets were popsicles, they would have been eaten.", OpponentExpression.Proud), 
                     new CrowdResponds(CrowdExpression.Boo), 
                     new PlanetResponds("*Oops I didn't think of that*", PlanetExpression.Worried)),
-                new RefuteOption(ArgumentType.Refuse, "popsicle", -1, 
+                new RefuteOption(ArgumentType.Refuse, "popsicle", -2, 
                     new PlanetResponds("That's ridiculous I am a planet, and not a popsicle.", PlanetExpression.Challenging),
                     new OpponentResponds("Simply denying the fact that you are a planet, isn't gonna work on this scientific community.", OpponentExpression.Proud),
                     new CrowdResponds(CrowdExpression.Boo),

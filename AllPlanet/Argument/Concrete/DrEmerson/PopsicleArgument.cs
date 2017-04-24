@@ -4,7 +4,7 @@ using AllPlanet.Opponent;
 using AllPlanet.Planet;
 using AllPlanet.Player;
 
-namespace AllPlanet.Argument.Concrete
+namespace AllPlanet.Argument.Concrete.DrEmerson
 {
     public static class PopsicleArgument
     {
