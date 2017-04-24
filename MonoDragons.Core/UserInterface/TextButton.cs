@@ -16,8 +16,12 @@ namespace MonoDragons.Core.UserInterface
         private readonly Color _press;
         private Color _currentColor;
         private readonly Texture2D _rect;
+        private readonly Func<bool> _isVisible;
 
-        public TextButton(Rectangle area, Action onClick, string text, Color defaultColor, Color hover, Color press) : base(area)
+
+        public TextButton(Rectangle area, Action onClick, string text, Color defaultColor, Color hover, Color press)
+            : this(area, onClick, text, defaultColor, hover, press, () => true) { }
+        public TextButton(Rectangle area, Action onClick, string text, Color defaultColor, Color hover, Color press, Func<bool> isvisible) : base(area)
         {
             _onClick = onClick;
             _text = text;
@@ -26,6 +30,7 @@ namespace MonoDragons.Core.UserInterface
             _press = press;
             _currentColor = _defaultColor;
             _rect = new RectangleTexture(Area.Width, Area.Height, _currentColor).Create();
+            _isVisible = isvisible;
         }
 
         public override void OnEntered()
@@ -51,8 +56,11 @@ namespace MonoDragons.Core.UserInterface
 
         public void Draw(Transform2 parentTransform)
         {
-            World.Draw(_rect, parentTransform.Location + Area.Location.ToVector2());
-            UI.DrawTextCentered(_text, new Rectangle(Area.Location + parentTransform.Location.ToPoint(), Area.Size), Color.White);
+            if (_isVisible())
+            {
+                World.Draw(_rect, parentTransform.Location + Area.Location.ToVector2());
+                UI.DrawTextCentered(_text, new Rectangle(Area.Location + parentTransform.Location.ToPoint(), Area.Size), Color.White);
+            }
         }
     }
 }

@@ -17,6 +17,7 @@ namespace AllPlanet.Transitions.Concrete
             new ModeratorSays(ModeratorExpression.Mic, "a M.S. in Science..."), 
             new ModeratorSays(ModeratorExpression.Mic, "and a BA in making arbitrary distictions between things!"),
             new CrowdResponds(CrowdExpression.Cheer),
-            new ModeratorSays(ModeratorExpression.Mic, "You will now decide whether or not Stilles 33 really is a planet."));
+            new ModeratorSays(ModeratorExpression.Mic, "You will now decide whether or not Stilles 33 really is a planet."),
+            new Segue("lava"));
     }
 }
