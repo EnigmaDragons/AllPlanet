@@ -1,8 +1,6 @@
 ﻿using System;
-using AllPlanet.Planet;
 using Microsoft.Xna.Framework;
 using MonoDragons.Core.Engine;
-using MonoDragons.Core.EventSystem;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
 
@@ -16,7 +14,11 @@ namespace AllPlanet.Debate
         private Side _currentSide = Side.Left;
         private string _currentContent = "";
         private long _totalMessageTime = 0;
-        private string Image => "UI/speechbubble-" + _currentSide.ToString().ToLower();
+
+        private string Image => (_isThinking ? _thinking : _saying) + _currentSide.ToString().ToLower();
+        private string _saying = "UI/speechbubble-";
+        private string _thinking = "UI/thoughtbubble-";
+        private bool _isThinking;
 
         public void Update(TimeSpan deltaMillis)
         {
@@ -31,14 +33,18 @@ namespace AllPlanet.Debate
             if (_currentDisplayMessage.Equals(""))
                 return;
             
-            UI.DrawCenteredWithOffset(Image, new Vector2(800, 200), new Vector2(0, -300));
+            if (_isThinking)
+                UI.DrawCenteredWithOffset(Image, new Vector2(800, 240), new Vector2(0, -280));
+            else
+                UI.DrawCenteredWithOffset(Image, new Vector2(800, 200), new Vector2(0, -300));
             UI.DrawTextCentered(_currentContent, new Rectangle(480, -10, 660, 300), Color.Black);
         }
 
         public void Show(string message, Side side)
         {
+            _isThinking = message.StartsWith("*");
             _totalMessageTime = 0;
-            _currentDisplayMessage = message;
+            _currentDisplayMessage = _isThinking ? message.Replace("*", "") : message;
             _currentSide = side;
         }
 
