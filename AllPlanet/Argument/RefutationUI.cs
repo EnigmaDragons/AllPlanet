@@ -37,9 +37,9 @@ namespace AllPlanet.Argument
         public RefutationUI(CurrentPoint point)
         {
             _navUi = new ArgumentNavUI(point);
-            _refuteButton = Buttons.CreateRefute(new Transform2(new Vector2(650, 650), new Size2(300, 95)), Refute, () => CanClickRefute);
+            _refuteButton = Buttons.CreateRefute(new Transform2(new Vector2(640, 750), new Size2(320, 100)), Refute, () => CanClickRefute);
             Input.On(Control.A, Refute);
-            _cancelButton = Buttons.CreateCancel(new Transform2(new Vector2(650, 650), new Size2(300, 95)), Cancel, () => CanClickCancel);
+            _cancelButton = Buttons.CreateCancel(new Transform2(new Vector2(640, 750), new Size2(320, 100)), Cancel, () => CanClickCancel);
             Input.On(Control.B, Cancel);
             _quoteButton = new TextButton(new Rectangle(new Point(650, 750), new Point(300, 95)), Quote, "Quote",
                 Color.BlanchedAlmond, Color.BurlyWood, Color.Cyan, () => CanClickQuote);

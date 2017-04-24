@@ -41,6 +41,8 @@
     <Compile Include="Argument\AdvanceArgument.cs" />
     <Compile Include="Argument\Concrete\DrEmerson\BornInLondonArgument.cs" />
     <Compile Include="Argument\Concrete\DrEmerson\FakeCertificateArgument.cs" />
+    <Compile Include="Argument\Concrete\DrEmerson\IllegalSmugglerArgument.cs" />
+    <Compile Include="Argument\Concrete\Opponent2\ExpertsSayArgument.cs" />
     <Compile Include="Argument\Concrete\Opponent2\GravityIsTooWeakArgument.cs" />
     <Compile Include="Argument\Concrete\Opponent2\TooFarFromSunArgument.cs" />
     <Compile Include="Argument\Concrete\Opponent2\TooSmallArgument.cs" />
@@ -270,7 +272,13 @@
     <Content Include="Content\UI\argument-learned.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\UI\back-button.png">
+    <Content Include="Content\UI\backbutton-default.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\backbutton-hover.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\backbutton-pressed.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\UI\cancelbutton-default.png">
@@ -300,7 +308,13 @@
     <Content Include="Content\UI\gameover.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\UI\next-button.png">
+    <Content Include="Content\UI\nextbutton-default.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\nextbutton-hover.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\UI\nextbutton-pressed.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\UI\plainbutton-default.png">
