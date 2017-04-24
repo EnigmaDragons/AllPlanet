@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using AllPlanet.Opponent;
+using AllPlanet.Argument.Concrete;
 
 namespace AllPlanet.Argument
 {
@@ -15,8 +16,8 @@ namespace AllPlanet.Argument
         public List<ArgumentType> Options => _options.Select(c => c.Type).ToList();
         public bool IsRefutable => Options.Count > 0;
 
-        public Statement(string message, OpponentExpression expression, RefuteOption genericDiscredit, params RefuteOption[] options)
-            : this(message, expression, new Dictionary<string, RefuteOption>(), genericDiscredit, options) {}
+        public Statement(string message, OpponentExpression expression, params RefuteOption[] options)
+            : this(message, expression, new Dictionary<string, RefuteOption>(), GenericDiscreditResponse.Create("Null"), options) {}
 
         public Statement(string message, OpponentExpression expression, 
             Dictionary<string, RefuteOption> discredits, RefuteOption genericDiscredit, params RefuteOption[] options)

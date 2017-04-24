@@ -18,7 +18,7 @@ namespace AllPlanet.Argument.Concrete.DrEmerson
                 ArgumentLearnedFactory.Create(ArgumentType.Discredit),
             }, 
             "fake certificate",
-            new Statement("I talked to Dr.Tomas, he helped with your birth.", OpponentExpression.Proud, GenericDiscreditResponse.Create("fake certificate"),
+            new Statement("I talked to Dr.Tomas, he helped with your birth.", OpponentExpression.Proud,
                 new RefuteOption(ArgumentType.Refuse, "illegal smuggling", -3, 
                     new PlanetResponds("No, it was definitely a different doctor.", PlanetExpression.Thinking),
                     new OpponentResponds("But he can confirm it was you.", OpponentExpression.Bored),
@@ -28,18 +28,11 @@ namespace AllPlanet.Argument.Concrete.DrEmerson
                     new OpponentResponds("Then he would especially remember your face.", OpponentExpression.Challenging),
                     new CrowdResponds(CrowdExpression.Boo))),
             new Statement("Dr.Tomas says he fucking hated it! He tries to forget your face by playing Doom.", OpponentExpression.Challenging, 
-                new Dictionary<string, RefuteOption>
-                {
-                    {
-                        "He comfirmed who you were.",
-                        new RefuteOption(ArgumentType.Discredit, "illegal smuggling", +4,
-                            new PlanetResponds("How is it, that Dr.Tomas who has been forgetting my face...", PlanetExpression.Challenging),
-                            new PlanetResponds("Can suddenly confirm who I am? Especially after all these years.", PlanetExpression.Challenging),
-                            new CrowdResponds(CrowdExpression.Cheer),
-                            new OpponentResponds("Well, maybe he didn't forget.", OpponentExpression.Worried))
-                    },
-                },
-                GenericDiscreditResponse.Create("fake certificate"),
+                new RefuteOption(ArgumentType.Discredit, "illegal smuggling", +4,
+                    new PlanetResponds("How is it, that Dr.Tomas who has been forgetting my face...", PlanetExpression.Challenging),
+                    new PlanetResponds("Can suddenly confirm who I am? Especially after all these years.", PlanetExpression.Challenging),
+                    new CrowdResponds(CrowdExpression.Cheer),
+                    new OpponentResponds("Well, maybe he didn't forget.", OpponentExpression.Worried)),
                 new RefuteOption(ArgumentType.AppealToEmotion, "illegal smuggling", +1, 
                     new PlanetResponds("And you pressed this traumatized person for answers?", PlanetExpression.Sad),
                     new PlanetResponds("How can you be so heartless by forcing a man to try and remember something so painful?", PlanetExpression.Sad),
@@ -52,18 +45,11 @@ namespace AllPlanet.Argument.Concrete.DrEmerson
                     new OpponentResponds("Doom can run on anything, even a rock!", OpponentExpression.Worried),
                     new CrowdResponds(CrowdExpression.Cheer))),
             new Statement("He comfirmed who you were.", OpponentExpression.Proud, 
-                new Dictionary<string, RefuteOption>
-                {
-                    {
-                        "Dr.Tomas says he fucking hated it! He tries to forget your face by playing Doom.",
-                        new RefuteOption(ArgumentType.Discredit, "illegal smuggling", +4,
-                            new PlanetResponds("How is it, that Dr.Tomas who has been forgetting my face...", PlanetExpression.Challenging),
-                            new PlanetResponds("Can suddenly confirm who I am? Especially after all these years.", PlanetExpression.Challenging),
-                            new CrowdResponds(CrowdExpression.Cheer),
-                            new OpponentResponds("Well, maybe he didn't forget.", OpponentExpression.Worried))
-                    },
-                },
-                GenericDiscreditResponse.Create("fake certificate"),
+                new RefuteOption(ArgumentType.Discredit, "illegal smuggling", +4,
+                    new PlanetResponds("How is it, that Dr.Tomas who has been forgetting my face...", PlanetExpression.Challenging),
+                    new PlanetResponds("Can suddenly confirm who I am? Especially after all these years.", PlanetExpression.Challenging),
+                    new CrowdResponds(CrowdExpression.Cheer),
+                    new OpponentResponds("Well, maybe he didn't forget.", OpponentExpression.Worried)),
                 new RefuteOption(ArgumentType.Reframe, "illegal smuggling", -1,
                     new PlanetResponds("Then he knows, without a doubt, that I am indeed a planet.", PlanetExpression.Proud),
                     new OpponentResponds("We don't know his opinion on whether or not you are a planet", OpponentExpression.Worried),
@@ -72,7 +58,7 @@ namespace AllPlanet.Argument.Concrete.DrEmerson
                     new PlanetResponds("Doctors only remember 11% of their patients.", PlanetExpression.Challenging),
                     new OpponentResponds("I think you are a special case.", OpponentExpression.Bored),
                     new CrowdResponds(CrowdExpression.Boo))),
-            new Statement("I also looked up how many people in London have ever been called Stilles 33, and it's only you.", OpponentExpression.Challenging, GenericDiscreditResponse.Create("fake certificate"),
+            new Statement("I also looked up how many people in London have ever been called Stilles 33, and it's only you.", OpponentExpression.Challenging,
                 new RefuteOption(ArgumentType.Illegitimize, "illegal smuggling", +1, 
                     // TODO Rewrite
                     new PlanetResponds("You ran a Google search, who are people named Stilles 33, born in London.", PlanetExpression.Challenging),

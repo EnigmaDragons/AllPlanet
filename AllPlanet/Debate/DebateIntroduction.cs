@@ -38,7 +38,7 @@ namespace AllPlanet.Debate
 #endif
         }
 
-        private async void BeginFirstArgument()
+        private void BeginFirstArgument()
         {
             if (_finishedIntroductions)
                 return;
