@@ -40,7 +40,7 @@ namespace AllPlanet.Scenes
             {
                 BackgroundColor = Color.FromNonPremultiplied(0, 0, 0, 63),
                 TextColor = Color.FromNonPremultiplied(255, 255, 255, 0),
-                Transform = new Transform2(new Vector2(50, 800), new Size2(1500, 100))
+                Transform = new Transform2(new Vector2(0, 800), new Size2(1600, 100))
             };
         }
 
