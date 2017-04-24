@@ -37,7 +37,6 @@ namespace AllPlanet.Argument.Concrete
                 new RefuteOption(ArgumentType.AgreeAndAmplify, "null", 9,
                     new PlanetResponds("Actually I am so far from your sun I am not even a part of your solar system!", PlanetExpression.Challenging),
                     new PlanetResponds("Your solar system isn't the one I would be considered a planet in anyways!", PlanetExpression.Challenging))),
-            new Statement("Therefore you should not be considered a planet", OpponentExpression.Challenging)
-            );
+            new Statement("Therefore you should not be considered a planet", OpponentExpression.Challenging));
     }
 }
