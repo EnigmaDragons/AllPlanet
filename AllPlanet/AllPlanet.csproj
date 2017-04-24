@@ -49,6 +49,7 @@
     <Compile Include="Closing\ClosingChoice.cs" />
     <Compile Include="Closing\ClosingOption.cs" />
     <Compile Include="Closing\Concrete\EmersonRebutalClosing.cs" />
+    <Compile Include="Moderator\ModeratorEnters.cs" />
     <Compile Include="Moderator\ModeratorLeaves.cs" />
     <Compile Include="Scenes\Credits.cs" />
     <Compile Include="Scenes\DebateAward.cs" />

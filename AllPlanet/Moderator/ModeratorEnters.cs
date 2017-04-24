@@ -1,8 +1,8 @@
 ﻿namespace AllPlanet.Moderator
 {
-    public class ModeratorLeaves
+    public class ModeratorEnters
     {
-        public ModeratorLeaves()
+        public ModeratorEnters()
         {
 
         }
