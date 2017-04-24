@@ -79,15 +79,18 @@ namespace MonoDragons.Core.UserInterface
         public void Update(TimeSpan delta)
         {
             var mouse = Mouse.GetState();
-            var newElement = GetElement(mouse.Position);
-            if (newElement != _currentElement)
-                ChangeActiveElement(newElement);
-            else if (MouseIsOutOfGame(mouse))
-                return;
-            else if (WasMouseReleased(mouse))
-                OnReleased();
-            else if (mouse.LeftButton == ButtonState.Pressed)
-                OnPressed();
+            if (Hack.TheGame.IsActive)
+            {
+                var newElement = GetElement(mouse.Position);
+                if (newElement != _currentElement)
+                    ChangeActiveElement(newElement);
+                else if (MouseIsOutOfGame(mouse))
+                    return;
+                else if (WasMouseReleased(mouse))
+                    OnReleased();
+                else if (mouse.LeftButton == ButtonState.Pressed)
+                    OnPressed();
+            }
         }
 
         private bool MouseIsOutOfGame(MouseState mouse)
