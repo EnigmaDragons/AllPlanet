@@ -38,12 +38,12 @@ namespace AllPlanet.Argument.Concrete.DrEmerson
                     new PlanetResponds("How can you be so heartless by forcing a man to try and remember something so painful?", PlanetExpression.Sad),
                     new PlanetResponds("He probably just told you what you wanted to hear, so you would leave him alone.", PlanetExpression.Sad),
                     new OpponentResponds("No, he was more than willing to cooperate, I swear.", OpponentExpression.Worried),
-                    new CrowdResponds(CrowdExpression.Cheer)),
+                    new CrowdResponds(CrowdExpression.Boo)),
                 new RefuteOption(ArgumentType.Refuse, "illegal smuggling", +3, 
                     new PlanetResponds("That's clearly a lie. Computers hadn't even been invented when I was born.", PlanetExpression.Challenging),
                     new PlanetResponds("How the hell could he be playing Doom without a computer?", PlanetExpression.Challenging),
                     new OpponentResponds("Doom can run on anything, even a rock!", OpponentExpression.Worried),
-                    new CrowdResponds(CrowdExpression.Cheer))),
+                    new CrowdResponds(CrowdExpression.Boo))),
             new Statement("He comfirmed who you were.", OpponentExpression.Proud, 
                 new RefuteOption(ArgumentType.Discredit, "illegal smuggling", +4,
                     new PlanetResponds("How is it, that Dr. Tomas who has been forgetting my face...", PlanetExpression.Challenging),
@@ -57,7 +57,7 @@ namespace AllPlanet.Argument.Concrete.DrEmerson
                 new RefuteOption(ArgumentType.FakeStatistic, "illegal smuggling", -3, 
                     new PlanetResponds("Doctors only remember 11% of their patients.", PlanetExpression.Challenging),
                     new OpponentResponds("I think you are a special case.", OpponentExpression.Bored),
-                    new CrowdResponds(CrowdExpression.Boo))),
+                    new CrowdResponds(CrowdExpression.Cheer))),
             new Statement("I also looked up how many people in London have ever been called Stilles 33, and it's only you.", OpponentExpression.Challenging,
                 new RefuteOption(ArgumentType.Refuse, "illegal smuggling", +1, 
                     new PlanetResponds("Actually, in my time at Oxford University, I met quite a few people with the name Stilles 33.", PlanetExpression.Proud),
@@ -67,6 +67,6 @@ namespace AllPlanet.Argument.Concrete.DrEmerson
                     new PlanetResponds("Did you know that only 34% of people born around the time I was born had their names recorded?", PlanetExpression.Challenging),
                     new PlanetResponds("You stopped your hunt early. There could have easily been many more.", PlanetExpression.Challenging),
                     new OpponentResponds("Well even so, Dr. Tomas still proves I'm right.", OpponentExpression.Challenging),
-                    new CrowdResponds(CrowdExpression.Boo))));
+                    new CrowdResponds(CrowdExpression.Cheer))));
     }
 }

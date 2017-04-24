@@ -28,7 +28,7 @@ namespace AllPlanet.Argument.Concrete.DrEmerson
                     new PlanetResponds("It was a waste of his time and money. Or maybe you have heard about the wright brothers.", PlanetExpression.Challenging),
                     new PlanetResponds("Bill gates was successful don't you think. So tell me again how credentials make you a legitimate scientist?", PlanetExpression.Challenging),
                     new OpponentResponds("Ladies and Gentleman, he is attacking our credentials. He thinks all your credentials are bad!", OpponentExpression.Worried),
-                    new CrowdResponds(CrowdExpression.Boo)),
+                    new CrowdResponds(CrowdExpression.Cheer)),
                 new RefuteOption(ArgumentType.Illegitimize, "emerson rebutal", -2, 
                     new PlanetResponds("Oh yeah I bet you got a credential last week!", PlanetExpression.Challenging),
                     new PlanetResponds("Probably paid a guy in india to get it for you.", PlanetExpression.Challenging),

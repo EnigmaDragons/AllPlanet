@@ -35,11 +35,11 @@ namespace AllPlanet.Argument.Concrete.DrEmerson
                 new RefuteOption(ArgumentType.FakeStatistic, "born in london", -1,
                     new PlanetResponds("Well for 1 out of every 29 days it doesn't. It's a new moon.", PlanetExpression.Challenging),
                     new OpponentResponds("Still, at least we have a moon!", OpponentExpression.Challenging),
-                    new CrowdResponds(CrowdExpression.Boo)),
+                    new CrowdResponds(CrowdExpression.Cheer)),
                 new RefuteOption(ArgumentType.Refuse, "born in london", 0, 
                     new PlanetResponds("Well, technically speaking, it doesn't shower light on all of us.", PlanetExpression.Challenging),
                     new OpponentResponds("And, technically, you are being pedantic.", OpponentExpression.Bored),
-                    new CrowdResponds(CrowdExpression.Boo),
+                    new CrowdResponds(CrowdExpression.Cheer),
                     new PlanetResponds("*That turned around quickly*", PlanetExpression.Worried))),
             new Statement("But you don't have a moon!", OpponentExpression.Challenging, 
                 new RefuteOption(ArgumentType.AppealToEmotion, "born in london", +1,
@@ -65,10 +65,10 @@ namespace AllPlanet.Argument.Concrete.DrEmerson
                 new RefuteOption(ArgumentType.AgreeAndAmplify, "born in london", -1,
                     new PlanetResponds("Oh yes. Without a moon I'm hardly even a comet. In fact, I must just be some rubble coming off a meteor because I don't have a moon.", PlanetExpression.Challenging),
                     new OpponentResponds("You will feel like rubble once I'm finished with this argument.", OpponentExpression.Proud),
-                    new CrowdResponds(CrowdExpression.Boo)),
+                    new CrowdResponds(CrowdExpression.Cheer)),
                 new RefuteOption(ArgumentType.Refuse, "born in london", -1, 
                     new PlanetResponds("That's nonsense! I am definitely a real planet.", PlanetExpression.Challenging),
                     new OpponentResponds("It sounds like you have no real objections. I will carry on.", OpponentExpression.Bored),
-                    new CrowdResponds(CrowdExpression.Boo))));
+                    new CrowdResponds(CrowdExpression.Cheer))));
     }
 }
