@@ -8,15 +8,14 @@ namespace AllPlanet.Transitions
 {
     public class Transition
     {
-        public static Transition None = new Transition("None", Mode.Presentation);
+        public static Transition None = new Transition("None");
 
         public string Name { get; }
-        private readonly Mode _mode;
+        private readonly Mode _mode = Mode.Presentation;
         private readonly List<object> _transitionaryEvents;
 
-        public Transition(string name, Mode mode, params object[] transitionaryEvents)
+        public Transition(string name, params object[] transitionaryEvents)
         {
-            _mode = mode;
             Name = name;
             _transitionaryEvents = transitionaryEvents.ToList();
         }
