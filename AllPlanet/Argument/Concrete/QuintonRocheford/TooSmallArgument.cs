@@ -19,7 +19,7 @@ namespace AllPlanet.Argument.Concrete
             },
             "too small",
             new Statement("Because that way everyone can get a good look at how small you are.", OpponentExpression.Challenging,
-                new RefuteOption(ArgumentType.AdHominem, "experts say", +9, 
+                new RefuteOption(ArgumentType.AdHominem, "experts say", +3, 
                     new PlanetResponds("Well I bet the scientific community doesn't know you are a bomb!", PlanetExpression.Challenging),
                     new OpponentResponds("What, what are you talking about.", OpponentExpression.Worried),
                     new PlanetResponds("You are going to explode at the end of this argument arn't you?", PlanetExpression.Challenging)),
