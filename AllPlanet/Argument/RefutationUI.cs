@@ -58,7 +58,16 @@ namespace AllPlanet.Argument
 
         private void ChangeMode(ModeChanged obj)
         {
-            _active = obj.Mode == Mode.Refutation;
+            if(obj.Mode == Mode.Refutation)
+            {
+                Branch.Add(_interactBranch);
+                _active = true;
+            }
+            else
+            {
+                Branch.Remove(_interactBranch);
+                _active = false;
+            }
         }
 
         private void ChangeStatement(StatementChanged obj)
