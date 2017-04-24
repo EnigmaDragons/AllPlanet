@@ -11,6 +11,7 @@ namespace AllPlanet.Scenes
         public void Init()
         {
             Audio.PlaySound("crowd-clapping-long");
+            Audio.PlayMusicOnce("Music/victory");
         }
 
         public void Update(TimeSpan delta)

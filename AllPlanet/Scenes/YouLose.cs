@@ -17,6 +17,7 @@ namespace AllPlanet.Scenes
         public void Init()
         {
             _animTimer = new Timer(Next, 500);
+            Audio.PlayMusicOnce("Music/gameover");
         }
 
         private void Next()
@@ -25,7 +26,7 @@ namespace AllPlanet.Scenes
             if (_phase == 4)
             {
                 _isExploding = true;
-                Audio.PlaySound("explosion");
+                Audio.PlaySound("explosion", 0.7f);
             }
             if (_phase == 5)
                 _planetAlive = false;
