@@ -1,6 +1,7 @@
 ﻿using AllPlanet.Argument;
 using AllPlanet.Crowds;
 using AllPlanet.Moderator;
+using AllPlanet.Opponent;
 
 namespace AllPlanet.Transitions.Concrete
 {

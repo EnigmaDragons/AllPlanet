@@ -19,8 +19,15 @@ namespace AllPlanet.Debate
             { Transform = new Transform2(new Rectangle(0, 0, 1600, 900)), Color = new Color(0, 0, 0, 150) };
 
         private readonly BobbingEffect bobbingEffect = new BobbingEffect(25,  0, 0,  1, 0,  1, 1,  1, 2,  1, 3,  0, 3,  -1, 3,  -1, 2,  -1, 1,  -1, 0);
-        private readonly IVisualAutomaton _opponent = new BusinessMan();
+        private readonly ICharacter _opponent;
         private readonly IVisualAutomaton _planet = new PlanetChar();
+
+        public StageUI()
+        {
+            _opponent = new BusinessMan(new Transform2(new Vector2(950, 320), new Size2(300, 450)));
+            _opponent.EnterStage();
+            _opponent.SkipAnimation();
+        }
 
         public void Update(TimeSpan delta)
         {
@@ -33,7 +40,7 @@ namespace AllPlanet.Debate
             var effect = bobbingEffect.Effect;
             UI.DrawCentered("Backdrops/stage", Sizes.Backdrop);
             _planet.Draw(new Transform2(new Vector2(320, 310) + effect));
-            _opponent.Draw(new Transform2(new Vector2(950, 320) + effect));
+            _opponent.Draw(new Transform2(effect));
             World.Draw("Props/podium-l", new Rectangle(460, 500, 150, 300));
             World.Draw("Props/podium-r", new Rectangle(940, 500, 150, 300));
             //alphaEffect.Draw(parentTransform);

@@ -49,7 +49,7 @@ namespace AllPlanet.Debate
                 _isEntering = false;
                 _xOffset = 0;
             }
-            if (_isLeaving && _xOffset + _transform.Location.X > 1600)
+            if (_isLeaving && _xOffset + _transform.Location.X > 1610)
             {
                 World.Publish(new AdvanceArgument());
                 _isLeaving = false;
