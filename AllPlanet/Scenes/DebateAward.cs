@@ -16,7 +16,7 @@ namespace AllPlanet.Scenes
         public void Init()
         {
             _clickUi = new ClickUI();
-            _continue = Buttons.CreateContinue(new Transform2(new Vector2(1300, 750), new Size2(200, 60)), () => World.NavigateToScene("Credits"));
+            _continue = Buttons.CreateContinue(new Transform2(new Vector2(1290, 790), new Size2(200, 60)), () => World.NavigateToScene("Credits"));
             _clickUi.Add(_continue);
             Audio.PlaySound("crowd-clapping-long");
             Audio.PlayMusicOnce("Music/victory");
