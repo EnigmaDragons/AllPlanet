@@ -25,7 +25,7 @@ namespace AllPlanet.Argument.Concrete.Opponent2
                     new CrowdResponds(CrowdExpression.NoComment)),
                 new RefuteOption(ArgumentType.AppealToEmotion, "too far from sun", 9,
                     new PlanetResponds("For thousands of years I've been a planet.", PlanetExpression.Challenging),
-                    new PlanetResponds("ve always been called a planet.", PlanetExpression.Challenging),
+                    new PlanetResponds("I've always been called a planet.", PlanetExpression.Challenging),
                     new PlanetResponds("And now you experts come along and say I'm not. Now I'm just a lonely clump of dirt in the sky.", PlanetExpression.Challenging),
                     new CrowdResponds(CrowdExpression.Sympathy),
                     new OpponentResponds("You have been mistaken for thousands of years.", OpponentExpression.Bored)),
