@@ -11,14 +11,25 @@ namespace AllPlanet.Debate
     {
         private string Image => "Characters/mc-" + _exp.ToString().ToLower();
         private ModeratorExpression _exp = ModeratorExpression.Mic;
-        private bool _isLeaving;
+        private bool _isEntering = false;
+        private bool _isLeaving = false;
         private Transform2 _transform;
         private int _xOffset;
 
         public ModeratorChar(Transform2 transform)
         {
+            _xOffset = - (int)Math.Ceiling(transform.Location.X + transform.Size.Width);
             _transform = transform;
+            World.Subscribe(EventSubscription.Create<ModeratorEnters>(x => EnterStage(), this));
             World.Subscribe(EventSubscription.Create<ModeratorSays>(x => _exp = x.Expression, this));
+            World.Subscribe(EventSubscription.Create<ModeratorLeaves>(x => LeaveStage(), this));
+        }
+
+        public void EnterStage()
+        {
+            _xOffset = -(int)Math.Ceiling(_transform.Location.X + _transform.Size.Width);
+            _isEntering = true;
+            _exp = ModeratorExpression.Mic;
         }
 
         public void LeaveStage()
@@ -29,8 +40,13 @@ namespace AllPlanet.Debate
 
         public void Update(TimeSpan delta)
         {
-            if (_isLeaving)
+            if (_isEntering || _isLeaving)
                 _xOffset += 10;
+            if (_isEntering && _xOffset > -1)
+            {
+                _isEntering = false;
+                _xOffset = 0;
+            }
             if (_xOffset > 1600)
                 _isLeaving = false;
         }

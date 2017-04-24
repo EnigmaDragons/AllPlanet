@@ -49,9 +49,9 @@ namespace AllPlanet.Argument
                 visibleCondition);
         }
 
-        public static TextButton CreateOption(string text, Transform2 transform, Action option)
+        public static ImageTextButton CreateOption(string text, Transform2 transform, Action option)
         {
-            return new TextButton(transform.ToRectangle(), option, text, Color.BlanchedAlmond, Color.BurlyWood, Color.Cyan);
+            return new ImageTextButton(text, "UI/plainbutton-default", "UI/plainbutton-hover", "UI/plainbutton-pressed", transform, option);
         }
 
         public static ImageTextButton CreateClosingArgument(string text, Transform2 transform, Action option)
