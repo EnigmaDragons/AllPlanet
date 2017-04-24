@@ -8,7 +8,7 @@ namespace AllPlanet.Closing.Concrete
 {
     public static class ClosingArgument1
     {
-        public static ClosingArgument Argument { get; } = new ClosingArgument("emerson closing", TransitionFactory.Create("to second argument"), TransitionFactory.Create("lost to emerson"), 
+        public static ClosingArgument Argument { get; } = new ClosingArgument("emerson rebutal", TransitionFactory.Create("to second argument"), TransitionFactory.Create("lost to emerson"), 
             new ClosingChoice(new object[0],
                 new ClosingOption("Address them as academics", 0, 
                     new PlanetResponds("Fellow academics, I propose to you that I am, in fact, a planet.", PlanetExpression.Challenging)),
