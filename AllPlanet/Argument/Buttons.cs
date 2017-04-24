@@ -54,6 +54,14 @@ namespace AllPlanet.Argument
             return new ImageTextButton(text, "UI/plainbutton-default", "UI/plainbutton-hover", "UI/plainbutton-pressed", transform, option);
         }
 
+        public static ImageButton CreateQuoteButton(Transform2 transform, Action action, Func<bool> visibleCondition)
+        {
+            return new ImageButton("UI/quotebutton-default", "UI/quotebutton-hover", "UI/quotebutton-pressed",
+                transform,
+                action,
+                visibleCondition);
+        }
+
         public static ImageTextButton CreateClosingArgument(string text, Transform2 transform, Action option)
         {
             return new ImageTextButton(text, "UI/closingarg-button-default", "UI/closingarg-button-hover",
