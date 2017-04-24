@@ -61,6 +61,7 @@
     <Compile Include="Scenes\DebateAward.cs" />
     <Compile Include="Scenes\MainMenu.cs" />
     <Compile Include="Scenes\YouLose.cs" />
+    <Compile Include="Transitions\Concrete\LosingToEmerson.cs" />
     <Compile Include="Transitions\Concrete\Opening.cs" />
     <Compile Include="Argument\CurrentPoint.cs" />
     <Compile Include="Argument\Mode.cs" />
