@@ -14,3 +14,4 @@ Defend your existence as a planet!
 - ZavixDragon
 - timeracers
 - nescio
+- Kazamaru
