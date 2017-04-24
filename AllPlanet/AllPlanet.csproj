@@ -69,6 +69,8 @@
     <Compile Include="Argument\CurrentPoint.cs" />
     <Compile Include="Argument\Mode.cs" />
     <Compile Include="Argument\ModeChanged.cs" />
+    <Compile Include="Transitions\Concrete\PreClosingArgumentWithEmerson.cs" />
+    <Compile Include="Transitions\Concrete\ToSecondArgument.cs" />
     <Compile Include="Transitions\CurrentTransition.cs" />
     <Compile Include="Transitions\Transition.cs" />
     <Compile Include="Transitions\TransitionFactory.cs" />

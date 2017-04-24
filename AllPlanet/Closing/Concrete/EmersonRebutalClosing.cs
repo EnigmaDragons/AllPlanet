@@ -7,7 +7,7 @@ namespace AllPlanet.Closing.Concrete
 {
     public static class ClosingArgument1
     {
-        public static ClosingArgument Argument { get; } = new ClosingArgument("emerson rebutal",
+        public static ClosingArgument Argument { get; } = new ClosingArgument("emerson closing",
             new ClosingChoice(new object[0],
                 new ClosingOption("Address them as acedemics", 0, 
                     new PlanetResponds("Fellow academics I propose to you that I am in fact a planet.", PlanetExpression.Challenging)),
