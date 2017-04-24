@@ -22,7 +22,7 @@ namespace MonoDragons.Core.EngimaDragons
                 return;
 
             _transitionComplete = true;
-            World.NavigateToScene("Debate");
+            World.NavigateToScene("Intro");
         }
 
         public async void Update(TimeSpan delta)

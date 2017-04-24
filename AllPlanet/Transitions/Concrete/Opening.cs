@@ -7,6 +7,7 @@ namespace AllPlanet.Transitions.Concrete
     public static class Opening
     {
         public static Transition Transition { get; } = new Transition("opening", 
+            new ModeChanged(Mode.Presentation),
             new ModeratorSays(ModeratorExpression.Mic, "Ladies and Gentleman, My esteemed guests, Acedemics of the world."),
             new ModeratorSays(ModeratorExpression.Left, "Up here on your left we have Stilles 33, the tiniest planet!"),
             new CrowdResponds(CrowdExpression.Cheer),
