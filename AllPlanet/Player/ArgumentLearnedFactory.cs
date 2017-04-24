@@ -55,7 +55,7 @@ namespace AllPlanet.Player
                 }
             },
             {
-                ArgumentType.StrawMan, new List<string>
+                ArgumentType.Illegitimize, new List<string>
                 {
                     "Need help with these lol"
                 }
@@ -67,6 +67,18 @@ namespace AllPlanet.Player
                     "This next statement is true. The previous statement is false.",
                     "The things my opponent says aren't just wrong. They are misguided, too!",
                     "Being a planet doesn't make you an expert at logic, or public speaking.",
+                }
+            },
+            {
+                ArgumentType.AdHominem, new List<string>
+                {
+                    "Your argument's wrong because you have sold drugs to kids!",
+                }
+            },
+            {
+                ArgumentType.AppealToAuthority, new List<string>
+                {
+                    "This argument is good the Socrates used it!",
                 }
             },
         };

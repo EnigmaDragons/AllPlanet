@@ -14,6 +14,8 @@ namespace AllPlanet.Argument
             { MoonsAreNotGoodArgument.Argument.Name, MoonsAreNotGoodArgument.Argument },
             { BornInLondonArgument.Argument.Name, BornInLondonArgument.Argument },
             { FakeCertificateArgument.Argument.Name, FakeCertificateArgument.Argument },
+            { IllegalSmugglerArgument.Argument.Name, IllegalSmugglerArgument.Argument },
+            { LegitScientistArgument.Argument.Name, LegitScientistArgument.Argument },
         };
 
         public static bool Exists(string name)

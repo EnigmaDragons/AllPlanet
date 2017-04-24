@@ -7,19 +7,25 @@ using MonoDragons.Core.PhysicsEngine;
 
 namespace AllPlanet.Opponent
 {
-    public class BusinessMan : IVisualAutomaton
+    public class BusinessMan : ICharacter
     {
         private OpponentExpression _exp = OpponentExpression.Bored;
         private readonly string _imgPre = "Characters/business-";
         private string Image => _imgPre + _exp.ToString().ToLower();
 
-        private readonly Vector2 _offset;
+        private bool _isEntering = false;
+        private bool _isLeaving = false;
+        private Transform2 _transform;
+        private int _xOffset;
 
-        public BusinessMan()
+        public BusinessMan(Transform2 transform)
         {
-            _offset = new Vector2(35, -15);
+            _transform = transform + new Vector2(35, -15);
+            _xOffset = (int)Math.Ceiling(1610 - _transform.Location.X);
             World.SubscribeForScene(EventSubscription.Create<StatementChanged>((e) => StatementChanged(e.Statement.Expression), this));
             World.SubscribeForScene(EventSubscription.Create<OpponentResponds>((e) => StatementChanged(e.Expression), this));
+            World.SubscribeForScene(EventSubscription.Create<OpponentEnters>((e) => EnterStage(), this));
+            World.SubscribeForScene(EventSubscription.Create<OpponentLeaves>((e) => LeaveStage(), this));
         }
 
         private void StatementChanged(OpponentExpression obj)
@@ -27,13 +33,66 @@ namespace AllPlanet.Opponent
             _exp = obj;
         }
 
+        public void SkipAnimation()
+        {
+            if (_isEntering)
+            {
+                _xOffset = 0;
+                _isEntering = false;
+                World.Publish(new AdvanceArgument());
+            }
+            else if(_isLeaving)
+            {
+                _xOffset = (int)Math.Ceiling(1610 - _transform.Location.X);
+                _isLeaving = false;
+                World.Publish(new AdvanceArgument());
+            }
+        }
+
+        public void EnterStage()
+        {
+            _xOffset = (int)Math.Ceiling(1610 - _transform.Location.X);
+            _isEntering = true;
+            _exp = OpponentExpression.Bored;
+        }
+
+        public void LeaveStage()
+        {
+            _isLeaving = true;
+            _exp = OpponentExpression.Worried;
+        }
+
         public void Update(TimeSpan delta)
         {
+            if (_isEntering)
+            {
+                _xOffset -= 7;
+                if(_xOffset < 1)
+                {
+                    World.Publish(new AdvanceArgument());
+                    _isEntering = false;
+                    _xOffset = 0;
+                }
+            }
+            else if (_isLeaving)
+            {
+                _xOffset += 7;
+                if (_xOffset + _transform.Location.X > 1610)
+                {
+                    World.Publish(new AdvanceArgument());
+                    _isLeaving = false;
+                }
+            }
         }
 
         public void Draw(Transform2 parentTransform)
         {
-            World.Draw(Image, parentTransform.Location + _offset);
+            World.Draw(Image, parentTransform.Location + _transform.Location + new Vector2(_xOffset, 0));
+        }
+
+        public void Dispose()
+        {
+            World.Unsubscribe(this);
         }
     }
 }

@@ -9,6 +9,7 @@ using MonoDragons.Core.UserInterface;
 using AllPlanet.Player;
 using AllPlanet.Transitions;
 using AllPlanet.Moderator;
+using AllPlanet.Opponent;
 
 namespace AllPlanet.Debate
 {
@@ -49,6 +50,8 @@ namespace AllPlanet.Debate
             World.Subscribe(EventSubscription.Create<AdvanceArgument>((e) => _waitingForEntranceOrExit = false, this));
             World.Subscribe(EventSubscription.Create<ModeratorEnters>((e) => _waitingForEntranceOrExit = true, this));
             World.Subscribe(EventSubscription.Create<ModeratorLeaves>((e) => _waitingForEntranceOrExit = true, this));
+            World.Subscribe(EventSubscription.Create<OpponentEnters>((e) => _waitingForEntranceOrExit = true, this));
+            World.Subscribe(EventSubscription.Create<OpponentLeaves>((e) => _waitingForEntranceOrExit = true, this));
         }
 
         private void AdvanceRequested()

@@ -42,6 +42,7 @@
     <Compile Include="Argument\Concrete\DrEmerson\BornInLondonArgument.cs" />
     <Compile Include="Argument\Concrete\DrEmerson\FakeCertificateArgument.cs" />
     <Compile Include="Argument\Concrete\DrEmerson\IllegalSmugglerArgument.cs" />
+    <Compile Include="Argument\Concrete\DrEmerson\LegitScientistArgument.cs" />
     <Compile Include="Argument\Concrete\Opponent2\ExpertsSayArgument.cs" />
     <Compile Include="Argument\Concrete\Opponent2\GravityIsTooWeakArgument.cs" />
     <Compile Include="Argument\Concrete\Opponent2\TooFarFromSunArgument.cs" />
@@ -53,6 +54,11 @@
     <Compile Include="Closing\Concrete\EmersonRebutalClosing.cs" />
     <Compile Include="Moderator\ModeratorEnters.cs" />
     <Compile Include="Moderator\ModeratorLeaves.cs" />
+    <Compile Include="Opponent\ChangeOpponents.cs" />
+    <Compile Include="Opponent\CharacterFactory.cs" />
+    <Compile Include="Opponent\ICharacter.cs" />
+    <Compile Include="Opponent\OppenentEnters.cs" />
+    <Compile Include="Opponent\OppenentLeaves.cs" />
     <Compile Include="Scenes\Credits.cs" />
     <Compile Include="Scenes\DebateAward.cs" />
     <Compile Include="Scenes\MainMenu.cs" />
