@@ -1,4 +1,5 @@
 ﻿using System;
+using AllPlanet.Crowds;
 using AllPlanet.Debate;
 using AllPlanet.Player;
 using MonoDragons.Core.Engine;
@@ -15,12 +16,14 @@ namespace AllPlanet.Scenes
         private ClickUI _clickUi;
         private ArgumentLearnedUI _player;
         private DebatePresentation _debate;
+        private Crowd _crowd;
 
         public void Init()
         {
             _player = new ArgumentLearnedUI();
             _debate = new DebatePresentation();
             _clickUi = new ClickUI();
+            _crowd = new Crowd();
             _clickUi.Add(_debate.Branch);
             _clickUi.Add(_player.Branch);
             _clickUi.Add(new SimpleClickable(new Rectangle(new Point(0, 0), new Point(1600, 900)), RequestAdvance));
