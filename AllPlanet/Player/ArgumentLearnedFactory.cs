@@ -14,7 +14,8 @@ namespace AllPlanet.Player
                     "76% of all winning arguments use fake statistics",
                     "At least 23% of fake statistics are right. Or more.",
                     "1 out of 100 people have learned this argument",
-                    "94% of academic orators utilize statistics, because statistics are convincing!"
+                    "94% of academic orators utilize statistics, because statistics are convincing!",
+                    "60.45% of audiences find statistics with at least 2 decimal places more compelling than one with whole numbers"
                 }
             },
             {
