@@ -30,8 +30,8 @@ namespace AllPlanet.Scenes
         {
             Preload();
             Audio.PlayMusic("Music/mainmenu", 0.7f);
-            _start = Buttons.CreateStart(new Transform2(new Vector2(700, 740), new Size2(200, 60)), Start);
-            _replayIntro = Buttons.CreateReplayIntro(new Transform2(new Vector2(700, 820), new Size2(200, 60)), () => World.NavigateToScene("Intro"));
+            _start = Buttons.CreateStart(new Transform2(new Vector2(700, 710), new Size2(200, 60)), Start);
+            _replayIntro = Buttons.CreateReplayIntro(new Transform2(new Vector2(700, 800), new Size2(200, 60)), () => World.NavigateToScene("Intro"));
             _clickUi = new ClickUI();
             _clickUi.Add(_start);
             _clickUi.Add(_replayIntro);

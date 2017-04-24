@@ -130,6 +130,7 @@
     <Compile Include="UserInterface\ImageButton.cs" />
     <Compile Include="UserInterface\NoneClickableUIElement.cs" />
     <Compile Include="UserInterface\OffsetClickableUIElement.cs" />
+    <Compile Include="UserInterface\ScreenClickable.cs" />
     <Compile Include="UserInterface\SimpleClickable.cs" />
     <Compile Include="UserInterface\SingleImageButton.cs" />
     <Compile Include="UserInterface\TextButton.cs" />

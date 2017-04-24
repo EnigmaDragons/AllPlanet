@@ -11,13 +11,11 @@ namespace AllPlanet.Scenes
     public sealed class Credits : IScene
     {
         private ClickUI _clickUi;
-        private ImageTextButton _mainMenu;
 
         public void Init()
         {
             _clickUi = new ClickUI();
-            _mainMenu = Buttons.CreateMainMenu(new Transform2(new Vector2(700, 820), new Size2(200, 60)), () => World.NavigateToScene("MainMenu"));
-            _clickUi.Add(_mainMenu);
+            _clickUi.Add(new ScreenClickable(() => World.NavigateToScene("MainMenu")));
             Audio.PlayMusicOnce("Music/credits");
         }
 
@@ -33,7 +31,6 @@ namespace AllPlanet.Scenes
             UI.DrawCenteredWithOffset("Credits/createdby", new Vector2(900, 37), new Vector2(0, -350));
             UI.DrawCenteredWithOffset("Images/Logo/enigmadragons", new Vector2(600, 150), new Vector2(0, -235));
             UI.DrawCenteredWithOffset("Credits/credits", new Vector2(900, 450), new Vector2(0, 125));
-            _mainMenu.Draw(Transform2.Zero);
         }
     }
 }
