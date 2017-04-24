@@ -13,7 +13,7 @@ namespace AllPlanet.Transitions.Concrete
             new CrowdResponds(CrowdExpression.Cheer),
             new ModeratorSays(ModeratorExpression.Wink, "But you know what they say, it's not all about size."),
             new ModeratorSays(ModeratorExpression.Right, "And on your right we have Dr. Emerson."),
-            new ModeratorSays(ModeratorExpression.Mic, "Dr. Emerson is a active researcher of quantum fluctuation."),
+            new ModeratorSays(ModeratorExpression.Mic, "Dr. Emerson is an active researcher of quantum fluctuation."),
             new ModeratorSays(ModeratorExpression.Right, "He's got a Ph.D. in Astronomy..."),
             new ModeratorSays(ModeratorExpression.Right, "a M.S. in Science..."),
             new ModeratorSays(ModeratorExpression.Right, "and a B.A. in making arbitrary distictions between things!"),
