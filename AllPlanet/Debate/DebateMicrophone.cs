@@ -11,6 +11,7 @@ namespace AllPlanet.Debate
     public class DebateMicrophone : IVisualAutomaton
     {
         private readonly SpeechUI _speech;
+        private bool _someoneIsSpeaking;
 
         public DebateMicrophone()
         {
@@ -19,6 +20,12 @@ namespace AllPlanet.Debate
             World.Subscribe(EventSubscription.Create<PlanetResponds>(x => PlanetSays(x.Statement), this));
             World.Subscribe(EventSubscription.Create<OpponentResponds>(x => OpponentSays(x.Statement), this));
             World.Subscribe(EventSubscription.Create<ModeratorSays>(x => ModeratorSays(x.Statement), this));
+            World.Subscribe(EventSubscription.Create<ModeratorLeaves>(x => Silence(), this));
+        }
+
+        private void Silence()
+        {
+            _someoneIsSpeaking = false;
         }
 
         public void Update(TimeSpan delta)
@@ -28,22 +35,26 @@ namespace AllPlanet.Debate
 
         public void Draw(Transform2 parentTransform)
         {
-            _speech.Draw(parentTransform);
+            if(_someoneIsSpeaking)
+                _speech.Draw(parentTransform);
         }
 
         public void PlanetSays(string message)
         {
             _speech.Show(message, Side.Left);
+            _someoneIsSpeaking = true;
         }
 
         public void OpponentSays(string message)
         {
             _speech.Show(message, Side.Right);
+            _someoneIsSpeaking = true;
         }
 
         public void ModeratorSays(string message)
         {
             _speech.Show(message, Side.Center);
+            _someoneIsSpeaking = true;
         }
 
         private void ChangeStatement(StatementChanged obj)
