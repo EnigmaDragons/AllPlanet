@@ -51,8 +51,8 @@ namespace AllPlanet.Argument
             Branch.Add(_interactBranch);
             World.Subscribe(EventSubscription.Create<ModeChanged>(ChangeMode, this));
             World.Subscribe(EventSubscription.Create<StatementChanged>(ChangeStatement, this));
-            World.Subscribe(EventSubscription.Create<ArgumentLearned>(
-                (a) => { if (a.Name == "Discredit") { _isDiscreditUnlocked = true; _quoteButton.IsEnabled = true; } }, this));
+            //World.Subscribe(EventSubscription.Create<ArgumentLearned>(
+                //(a) => { if (a.Name == "Discredit") { _isDiscreditUnlocked = true; _quoteButton.IsEnabled = true; } }, this));
         }
 
         private void ChangeMode(ModeChanged obj)

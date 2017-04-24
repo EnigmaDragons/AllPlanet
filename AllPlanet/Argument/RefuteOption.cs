@@ -19,8 +19,8 @@ namespace AllPlanet.Argument
 
         public RefuteOption(ArgumentType argumentType, string nextArgumentName, int score, params object[] responses)
             : this("", "", "", argumentType, nextArgumentName, score, responses) { }
-        public RefuteOption(string concludingArgumentName, string closingUnlock, string closingLock, ArgumentType argumentType, string nextArgumentName, int score,
-            params object[] responses)
+        public RefuteOption(string concludingArgumentName, string closingUnlock, string closingLock, ArgumentType argumentType,
+            string nextArgumentName, int score, params object[] responses)
         {
             _concludingArgument = concludingArgumentName;
             _closingLock = closingLock;
