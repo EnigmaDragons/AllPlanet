@@ -60,7 +60,7 @@ namespace AllPlanet.Closing.Concrete
                     new PlanetResponds("And that well groomed beard, do you spend more time on science or grooming yourself?", PlanetExpression.Challenging),
                     new PlanetResponds("And those shoes... very businessy.", PlanetExpression.Thinking),
                     new PlanetResponds("You seem more like a car salesman than a scientist -- trying to sell us your bullshit ideas.", PlanetExpression.Challenging))),
-            new ClosingChoice(new object[] { new PlanetResponds("Ladies and gentlemen"), },
+            new ClosingChoice(new object[] { new PlanetResponds("Ladies and gentlemen", PlanetExpression.Proud), },
                 new ClosingOption("Appeal to your audience's intellect", -2,
                     new PlanetResponds("I know you are a prestigious community, the best of the best.", PlanetExpression.Proud),
                     new PlanetResponds("You do your research and I trust you will judge fairly that I am indeed a planet.", PlanetExpression.Proud),
