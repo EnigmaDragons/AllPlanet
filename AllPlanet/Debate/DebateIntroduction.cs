@@ -45,7 +45,7 @@ namespace AllPlanet.Debate
             Audio.PlayMusic("Music/bgm1", 0.5f);
             _moderator.LeaveStage();
             await Task.Delay(1500);
-            World.Publish(new Segue("lava"));
+            World.Publish(new Segue("opening"));
         }
 
         public void Update(TimeSpan delta)

@@ -21,15 +21,13 @@ namespace AllPlanet.Closing
 
         private void Segue(Segue obj)
         {
-            try
+            if (ClosingArgumentFactory.Exists(obj.ArgumentName))
             {
                 _currentArgument = ClosingArgumentFactory.Create(obj.ArgumentName);
                 _currentArgument.Start();
             }
-            catch
-            {
+            else
                 _currentArgument = ClosingArgument.None;
-            }
         }
     }
 }

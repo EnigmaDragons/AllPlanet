@@ -42,6 +42,7 @@ namespace AllPlanet
                 { "Intro", () => new Intro() },
                 { "YouLose", () => new YouLose() },
                 { "YouWin", () => new DebateAward() },
+                { "MainMenu", () => new MainMenu() },
             });
         }
     }

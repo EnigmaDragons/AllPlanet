@@ -37,7 +37,7 @@ namespace MonoDragons.Core.EngimaDragons
 
         public void Draw()
         {
-            UserInterface.UI.DrawCentered("Images/Logo/enigmadragons");
+            UserInterface.UI.DrawCentered("Images/Logo/enigmadragons-presents");
         }
     }
 }

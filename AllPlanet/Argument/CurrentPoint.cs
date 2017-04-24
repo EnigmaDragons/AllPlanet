@@ -20,15 +20,13 @@ namespace AllPlanet.Argument
 
         private void Segue(Segue obj)
         {
-            try
+            if (ArgumentPointFactory.Exists(obj.ArgumentName))
             {
                 _currentPoint = ArgumentPointFactory.Create(obj.ArgumentName);
                 _currentPoint.Start();
             }
-            catch
-            {
+            else
                 _currentPoint = ArgumentPoint.None;
-            }
         }
     }
 }

@@ -38,9 +38,9 @@ namespace AllPlanet.Scenes
             Audio.PlayMusic("Music/seriousspace");
             _label = new Label
             {
-                BackgroundColor = Color.Transparent,
+                BackgroundColor = Color.FromNonPremultiplied(0, 0, 0, 63),
                 TextColor = Color.FromNonPremultiplied(255, 255, 255, 0),
-                Transform = new Transform2(new Vector2(100, 800), new Size2(1400, 100))
+                Transform = new Transform2(new Vector2(50, 800), new Size2(1500, 100))
             };
         }
 
@@ -95,7 +95,7 @@ namespace AllPlanet.Scenes
                 _bgTransform = new Transform2(new Vector2(-0, -0), new Rotation2(0), new Size2(1920, 1080), 1.4f);
                 _velocity = new Transform2(new Vector2(-3, -1));
                 _opacity = 0;
-                _label.Text = "Within this vast expanse, there lies many galaxies, with a billion stars, surrounded by numerious planets...";
+                _label.Text = "Within this vast expanse, there lies many galaxies, with a billion stars, surrounded by planets...";
             }
 
             if (_phase == 4 && _ms > 20000)
@@ -126,7 +126,7 @@ namespace AllPlanet.Scenes
                 _phase++;
                 _velocity = new Transform2(new Vector2(-0.6f, 0.3f));
             }
-
+            
             _bgTransform = _bgTransform + _velocity;
             UpdatePlanetAnim();
         }
@@ -138,9 +138,8 @@ namespace AllPlanet.Scenes
                 _phase++;
                 _shouldDrawPlanet = true;
                 _shouldZoomPlanet = true;
-                Audio.PlayMusic("Music/planetentrance");
+                Audio.PlayMusicOnce("Music/planetentrance");
                 _opacity = 0;
-                _label.Transform = new Transform2(new Vector2(100, 600), new Size2(1400, 100));
                 _label.Text = "AND THEY HAVE DECLARED HE IS NOT ONE!";
             }
 
@@ -155,6 +154,11 @@ namespace AllPlanet.Scenes
             {
                 _phase++;
                 _shouldShrinkPlanet = false;
+            }
+
+            if (_phase == 11 && _ms > 43000)
+            {
+                World.NavigateToScene("MainMenu");
             }
 
             if (_shouldZoomPlanet)

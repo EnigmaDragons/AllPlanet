@@ -10,6 +10,11 @@ namespace AllPlanet.Transitions
             { Opening.Transition.Name, Opening.Transition },
         };
 
+        public static bool Exists(string name)
+        {
+            return _transitions.ContainsKey(name);
+        }
+
         public static Transition Create(string name)
         {
             return _transitions[name];
