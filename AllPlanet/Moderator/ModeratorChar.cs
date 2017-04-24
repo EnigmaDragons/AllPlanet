@@ -19,12 +19,14 @@ namespace AllPlanet.Debate
         {
             _transform = transform;
             World.Subscribe(EventSubscription.Create<ModeratorSays>(x => _exp = x.Expression, this));
+            World.Subscribe(EventSubscription.Create<ModeratorLeaves>(x => LeaveStage(), this));
         }
 
         public void LeaveStage()
         {
             _isLeaving = true;
             _exp = ModeratorExpression.Mic;
+            World.Unsubscribe(this);
         }
 
         public void Update(TimeSpan delta)
