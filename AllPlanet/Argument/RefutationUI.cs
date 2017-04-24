@@ -16,7 +16,7 @@ namespace AllPlanet.Argument
         private readonly ClickUIBranch _interactBranch;
         private readonly ImageButton _refuteButton;
         private readonly ImageButton _cancelButton;
-        private readonly List<TextButton> _optionButtons = new List<TextButton>();
+        private readonly List<ImageTextButton> _optionButtons = new List<ImageTextButton>();
 
         private Statement _currentStatement;
 
