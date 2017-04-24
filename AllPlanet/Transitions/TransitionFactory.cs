@@ -11,6 +11,9 @@ namespace AllPlanet.Transitions
             { LosingToEmerson.Transition.Name, LosingToEmerson.Transition },
             { ToSecondArgument.Transition.Name, ToSecondArgument.Transition },
             { PreClosingArgumentWithEmerson.Transition.Name, PreClosingArgumentWithEmerson.Transition },
+            { PreClosingArgumentWithQuinton.Transition.Name, PreClosingArgumentWithQuinton.Transition },
+            { Victory.Transition.Name, Victory.Transition },
+            { LosingToQuinton.Transition.Name, LosingToQuinton.Transition },
         };
 
         public static bool Exists(string name)
