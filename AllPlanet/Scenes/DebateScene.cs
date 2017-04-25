@@ -8,7 +8,6 @@ using MonoDragons.Core.UserInterface;
 using Microsoft.Xna.Framework;
 using MonoDragons.Core.Audio;
 using MonoDragons.Core.Inputs;
-using AllPlanet.Argument;
 
 namespace AllPlanet.Scenes
 {
@@ -21,7 +20,6 @@ namespace AllPlanet.Scenes
 
         public void Init()
         {
-            ArgumentPointFactory.Test();
             ControlHandler.Initialize(Control.A, Control.B, Control.X, Control.Y, Control.Up, Control.Down, Control.Right, Control.Left);
             ControlHandler.BindOnPress(0, Control.A, () => { RequestAdvance(); return true; });
             _player = new ArgumentLearnedUI();

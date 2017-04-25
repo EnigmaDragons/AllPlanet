@@ -7,6 +7,7 @@ using MonoDragons.Core.Memory;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
 using MonoDragons.Core.Inputs;
+using AllPlanet.Argument;
 
 namespace AllPlanet.Scenes
 {
@@ -47,6 +48,7 @@ namespace AllPlanet.Scenes
 
         public void Init()
         {
+            ArgumentPointFactory.Test();
             _clickUI = new ClickUI();
             _clickUI.Add(new SimpleClickable(new Rectangle(new Point(0, 0), new Point(1600, 900)), () => World.NavigateToScene("MainMenu")));
             Input.On(Control.A, () => World.NavigateToScene("MainMenu"));
