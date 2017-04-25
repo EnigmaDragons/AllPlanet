@@ -18,7 +18,6 @@ namespace AllPlanet.Transitions.Concrete
             new ModeratorSays(ModeratorExpression.Left, "The planet has won, I cannot believe my eyes!"),
             new CrowdResponds(CrowdExpression.Cheer),
             new OpponentResponds("You haven't seen the last of me! Stilles 33.", OpponentExpression.Proud),
-            new OpponentLeaves(),
             new NavigateToScene("YouWin"));
     }
 }

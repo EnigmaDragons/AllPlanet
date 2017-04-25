@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using AllPlanet.Argument.Concrete;
 using AllPlanet.Argument.Concrete.DrEmerson;
+using AllPlanet.Argument.Concrete.Opponent2;
 
 namespace AllPlanet.Argument
 {
@@ -16,6 +17,10 @@ namespace AllPlanet.Argument
             { FakeCertificateArgument.Argument.Name, FakeCertificateArgument.Argument },
             { IllegalSmugglerArgument.Argument.Name, IllegalSmugglerArgument.Argument },
             { LegitScientistArgument.Argument.Name, LegitScientistArgument.Argument },
+            { GravityIsTooWeakArgument.Argument.Name, GravityIsTooWeakArgument.Argument },
+            { TooSmallArgument.Argument.Name, TooSmallArgument.Argument },
+            { TooFarFromSunArgument.Argument.Name, TooFarFromSunArgument.Argument },
+            { ExpertsSayArgument.Argument.Name, ExpertsSayArgument.Argument },
         };
 
         public static bool Exists(string name)

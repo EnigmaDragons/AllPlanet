@@ -36,12 +36,12 @@ namespace AllPlanet.Argument.Concrete.DrEmerson
                     new PlanetResponds("It doesn't have moons and asteroids.", PlanetExpression.Challenging),
                     new OpponentResponds("You are wrong.", OpponentExpression.Bored),
                     new CrowdResponds(CrowdExpression.Cheer),
-                    new PlanetResponds("*How could I have been so stupid?*", PlanetExpression.Worried),
+                    new PlanetResponds("*How could I have been so stupid?*", PlanetExpression.Worried)),
                 new RefuteOption(ArgumentType.Reframe, "born in london", +3,
                     new PlanetResponds("Damn moons? I don't even know what a damn moon is!", PlanetExpression.Thinking),
                     new PlanetResponds("But that might be why it always has meteor showers, come to think of it.", PlanetExpression.Thinking),
                     new CrowdResponds(CrowdExpression.Cheer),
-                    new OpponentResponds("I didn't mean it literally...", OpponentExpression.Worried),
+                    new OpponentResponds("I didn't mean it literally...", OpponentExpression.Worried))),
             new Statement("Given how small you are, a meteor shower would surely kill you.", OpponentExpression.Challenging,
                 new RefuteOption(ArgumentType.AppealToEmotion, "born in london", 0,
                     new PlanetResponds("Aren't you guys basically trying to do the same?", PlanetExpression.Worried),
@@ -51,6 +51,6 @@ namespace AllPlanet.Argument.Concrete.DrEmerson
                     new PlanetResponds("I could easily survive meteor showers.", PlanetExpression.Proud),
                     new OpponentResponds("Not if the meteors are the same size as you.", OpponentExpression.Challenging),
                     new PlanetResponds("That...would be a planet shower.", PlanetExpression.Challenging),
-                    new CrowdResponds(CrowdExpression.Cheer)))))));
+                    new CrowdResponds(CrowdExpression.Cheer))));
     }
 }
