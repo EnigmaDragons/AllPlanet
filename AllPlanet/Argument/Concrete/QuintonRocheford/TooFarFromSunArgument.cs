@@ -18,7 +18,7 @@ namespace AllPlanet.Argument.Concrete
             }, 
             "too far from sun",
             new Statement("There is a place known as the Kuiper belt. This is the outer ring of our solar system.", OpponentExpression.Challenging,
-                new RefuteOption(ArgumentType.FakeStatistic, "quinton rebutal", +1,
+                new RefuteOption(ArgumentType.FakeStatistic, "quinton rebuttal", +1,
                     new PlanetResponds("27% of the planets in our solar system are part of this belt too!", PlanetExpression.Challenging),
                     new OpponentResponds("That is definitely not based on fact!", OpponentExpression.Challenging),
                     new CrowdResponds(CrowdExpression.Cheer)),
