@@ -8,7 +8,7 @@ namespace AllPlanet.Closing
         private static Dictionary<string, ClosingArgument> _arguments = new Dictionary<string, ClosingArgument>
         {
             { ClosingArgument1.Argument.Name, ClosingArgument1.Argument },
-            //{ QuintonRochefordClosing.Argument.Name, QuintonRochefordClosing.Argument },
+            { QuintonRochefordClosing.Argument.Name, QuintonRochefordClosing.Argument },
         };
 
         public static bool Exists(string name)
