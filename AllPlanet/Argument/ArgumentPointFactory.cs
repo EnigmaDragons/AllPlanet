@@ -2,6 +2,7 @@
 using AllPlanet.Argument.Concrete;
 using AllPlanet.Argument.Concrete.DrEmerson;
 using AllPlanet.Argument.Concrete.Opponent2;
+using MonoDragons.Core.Common;
 
 namespace AllPlanet.Argument
 {
@@ -22,6 +23,11 @@ namespace AllPlanet.Argument
             { TooFarFromSunArgument.Argument.Name, TooFarFromSunArgument.Argument },
             { ExpertsSayArgument.Argument.Name, ExpertsSayArgument.Argument },
         };
+
+        public static void Test()
+        {
+            _arguments.ForEach((p) => p.Value.Test());
+        }
 
         public static bool Exists(string name)
         {

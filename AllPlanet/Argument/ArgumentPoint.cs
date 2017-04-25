@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using AllPlanet.Player;
 using MonoDragons.Core.EventSystem;
+using MonoDragons.Core.Common;
 
 namespace AllPlanet.Argument
 {
@@ -78,6 +79,11 @@ namespace AllPlanet.Argument
             CurrentStatement = _statements[0];
             World.Publish(new ModeChanged(Mode.Refutation));
             World.Publish(new StatementChanged(CurrentStatement));
+        }
+
+        public void Test()
+        {
+            _statements.ForEach((s) => s.Test());
         }
     }
 }

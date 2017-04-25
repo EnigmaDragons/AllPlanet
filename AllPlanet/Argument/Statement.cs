@@ -2,6 +2,7 @@
 using System.Linq;
 using AllPlanet.Opponent;
 using AllPlanet.Argument.Concrete;
+using System;
 
 namespace AllPlanet.Argument
 {
@@ -46,6 +47,11 @@ namespace AllPlanet.Argument
             }
             else
                 _genericDiscredit.Choose();
+        }
+
+        public void Test()
+        {
+            _options.ForEach((o) => o.Test());
         }
     }
 }

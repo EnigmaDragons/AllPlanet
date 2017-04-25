@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using AllPlanet.Closing;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.EventSystem;
+using AllPlanet.Transitions;
 
 namespace AllPlanet.Argument
 {
@@ -47,6 +49,16 @@ namespace AllPlanet.Argument
             World.Subscribe(EventSubscription.Create<AdvanceArgument>(x => Continue(), this));
             World.Publish(new ModeChanged(Mode.Presentation));
             Continue();
+        }
+
+        public void Test()
+        {
+            if (_closingUnlock != "" || _closingLock != "")
+                ClosingArgumentFactory.Create(_concludingArgument);
+            if (!ArgumentPointFactory.Exists(_nextArgumentName)
+                && !ClosingArgumentFactory.Exists(_nextArgumentName)
+                && !TransitionFactory.Exists (_nextArgumentName))
+                    throw new Exception();
         }
 
         private void Continue()
