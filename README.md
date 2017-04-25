@@ -7,7 +7,7 @@ Defend your existence as a planet!
 
 ![screenshot](https://github.com/EnigmaDragons/AllPlanet/blob/master/Screenshots/screen5.jpg)
 
-![screenshot](https://github.com/EnigmaDragons/AllPlanet/blob/master/Screenshots/screen6.jpg)
+![screenshot](https://github.com/EnigmaDragons/AllPlanet/blob/master/Screenshots/screen6.png)
 
 <strong>Contributors</strong>:
 - SilasReinagel
