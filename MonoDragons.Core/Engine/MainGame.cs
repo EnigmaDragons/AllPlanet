@@ -30,6 +30,7 @@ namespace MonoDragons.Core.Engine
 
         protected override void Initialize()
         {
+            this.Window.Title = "Planet or Die!";
             IsMouseVisible = true;
             Resources.Init(this);
             _sprites = new SpriteBatch(GraphicsDevice);
