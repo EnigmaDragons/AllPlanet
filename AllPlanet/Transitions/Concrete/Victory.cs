@@ -11,7 +11,7 @@ namespace AllPlanet.Transitions.Concrete
         public static Transition Transition { get; } = new Transition("victory",
             new ModeratorEnters(),
             new ModeratorSays(ModeratorExpression.Mic, "Ladies and Gentlemen what a debate this has been."),
-            new ModeratorSays(ModeratorExpression.Mic, "Who know a planet could be so good at this."),
+            new ModeratorSays(ModeratorExpression.Mic, "Who knew a planet could be so good at this."),
             new ModeratorSays(ModeratorExpression.Wink, "It's like he knew to planet."),
             new ModeratorSays(ModeratorExpression.Mic, "Now it is time for the votes to be counted up."),
             new CrowdResponds(CrowdExpression.NoComment),
