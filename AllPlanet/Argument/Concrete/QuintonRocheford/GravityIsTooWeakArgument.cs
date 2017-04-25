@@ -10,7 +10,9 @@ namespace AllPlanet.Argument.Concrete
     {
         public static ArgumentPoint Argument { get; } = new ArgumentPoint(new List<object>
             {
-                new OpponentResponds("I am able to stand on this podium without so much as a pull from your gravity. You're gravity is practically non-existent", OpponentExpression.Proud),
+                new OpponentResponds("I don't think you understand the gravity of the situation.", OpponentExpression.Proud),
+                new PlanetResponds("*What does that mean?*", PlanetExpression.Thinking),
+                new OpponentResponds("I am able to stand on this podium without so much as a pull from your gravity. You're gravity is practically non-existent!", OpponentExpression.Proud),
                 new OpponentResponds("That's the reason you don't have a moon.", OpponentExpression.Challenging),
                 new OpponentResponds("You're gravity is practically non-existent.", OpponentExpression.Proud),
                 new OpponentResponds("Planet's are formed by gravity pulling things together.", OpponentExpression.Challenging),
@@ -59,7 +61,7 @@ namespace AllPlanet.Argument.Concrete
                     new CrowdResponds(CrowdExpression.Boo))),
             new Statement("With no gravity like that, you are not a planet.", OpponentExpression.Challenging,
                 new RefuteOption(ArgumentType.AppealToAuthority, "too small", +3,
-                    new PlanetResponds("Actually the scientist Dr. Regelia proved that a planet could in fact not have gravity.", PlanetExpression.Challenging),
+                    new PlanetResponds("Actually the scientist Dr. Regelia proved that a planet could, in fact, not have gravity.", PlanetExpression.Challenging),
                     new PlanetResponds("He Proved that a planet made with element 199 Rexium could actually become a pusher instead of a puller.", PlanetExpression.Challenging),
                     new OpponentResponds("Do you contain Rexium 199?", OpponentExpression.Challenging),
                     new PlanetResponds("I do.", PlanetExpression.Proud),
