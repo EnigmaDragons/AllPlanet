@@ -61,7 +61,7 @@ namespace AllPlanet.Argument.Concrete
                     new CrowdResponds(CrowdExpression.Boo))),
             new Statement("With no gravity like that, you are not a planet.", OpponentExpression.Challenging,
                 new RefuteOption(ArgumentType.AppealToAuthority, "too small", +3,
-                    new PlanetResponds("Actually the scientist Dr. Regelia proved that a planet could in fact not have gravity.", PlanetExpression.Challenging),
+                    new PlanetResponds("Actually the scientist Dr. Regelia proved that a planet could, in fact, not have gravity.", PlanetExpression.Challenging),
                     new PlanetResponds("He Proved that a planet made with element 199 Rexium could actually become a pusher instead of a puller.", PlanetExpression.Challenging),
                     new OpponentResponds("Do you contain Rexium 199?", OpponentExpression.Challenging),
                     new PlanetResponds("I do.", PlanetExpression.Proud),
