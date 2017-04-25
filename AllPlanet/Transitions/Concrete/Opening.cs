@@ -10,7 +10,7 @@ namespace AllPlanet.Transitions.Concrete
             new ModeratorEnters(),
             new ModeratorSays(ModeratorExpression.Mic, "Ladies and gentlemen, my esteemed guests, academics of the world..."),
             new ModeratorSays(ModeratorExpression.Left, "Up here on your left we have Stilles 33, the tiniest planet!"),
-            new ModeratorSays(ModeratorExpression.Mic, "He is defending his existance as a planet."),
+            new ModeratorSays(ModeratorExpression.Mic, "He is defending his existence as a planet."),
             new CrowdResponds(CrowdExpression.Cheer),
             new ModeratorSays(ModeratorExpression.Wink, "But you know what they say, it's not all about size."),
             new ModeratorSays(ModeratorExpression.Right, "And on your right we have Dr. Emerson."),
