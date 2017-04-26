@@ -1,8 +1,16 @@
 # Planet Or Die!
-Created for Ludum Dare 38 - [ldjam.com](ldjam.com)
+----
+Created for Ludum Dare 38 - [https://ldjam.com/events/ludum-dare/38/planet-or-die](ldjam.com)
+----
+
+### Play
 
 **Current Windows Release:**
 https://github.com/EnigmaDragons/AllPlanet/releases
+
+1. Download the Windows release zip
+2. Unzip it into a directory of your choice
+3. Run `AllPlanet.exe`
 
 ----
 
@@ -35,8 +43,8 @@ Use your masterful debating skills to outwit your opponent and convince an impar
 ----
 
 ### Development Team:
-* **Silas Reinagel** @silas-reinagel
-* **Noah Reinagel** @noah-reinagel
-* **timeracers** @timeracers
-* **Nate Fuller** @natefuller
-* **Caleb Reinagel** @caleb-reinagel
+* **Silas Reinagel**
+* **Noah Reinagel**
+* **timeracers**
+* **Nate Fuller**
+* **Caleb Reinagel**
