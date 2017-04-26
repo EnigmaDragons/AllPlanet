@@ -25,7 +25,7 @@ namespace AllPlanet.Scenes
             _player = new ArgumentLearnedUI();
             _debate = new DebatePresentation();
             _clickUi = new ClickUI();
-            _crowd = new Crowd();
+            _crowd = new Crowd(4, 7);
             _clickUi.Add(_debate.Branch);
             _clickUi.Add(_player.Branch);
             _clickUi.Add(new SimpleClickable(new Rectangle(new Point(0, 0), new Point(1600, 900)), RequestAdvance));
