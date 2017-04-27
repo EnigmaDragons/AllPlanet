@@ -13,8 +13,7 @@ namespace MonoDragons.Core.UserInterface
         public static readonly ClickableUIElement None = new NoneClickableUIElement();
 
         private List<ClickUIBranch> _branches = new List<ClickUIBranch> { new ClickUIBranch("Base", 0) };
-
-        private readonly Size2 _screenSize;
+        
         private readonly ColoredRectangle _elementHighlight = new ColoredRectangle { Color = Color.Transparent };
         private ClickableUIElement _currentElement = None;
         private bool _wasClicked;
@@ -23,16 +22,9 @@ namespace MonoDragons.Core.UserInterface
         private readonly Action<ClickUIBranch>[] subscribeAction;
 
         public float Scale = 1;
-
+        
         public ClickUI()
-            : this (new Size2(1600, 900)) { }
-
-        public ClickUI(int width, int height)
-            : this(new Size2(width, height)) { }
-
-        public ClickUI(Size2 screenSize)
         {
-            _screenSize = screenSize;
             _elementLayer = _branches[0];
             subscribeAction = new Action<ClickUIBranch>[] { (br) => Add(br), (br) => Remove(br) }; ;
         }
@@ -95,7 +87,7 @@ namespace MonoDragons.Core.UserInterface
 
         private bool MouseIsOutOfGame(MouseState mouse)
         {
-            return mouse.Position.X < 0 || mouse.Position.X > _screenSize.Width || mouse.Position.Y < 0 || mouse.Position.Y > _screenSize.Height;
+            return mouse.Position.X < 0 || mouse.Position.X > Config.Width || mouse.Position.Y < 0 || mouse.Position.Y > Config.Height;
         }
 
         private void OnPressed()
@@ -128,15 +120,18 @@ namespace MonoDragons.Core.UserInterface
 
         private bool WasMouseReleased(MouseState mouse)
         {
+            var position = new Point((int)Math.Round(mouse.Position.X / Scale / Config.Scale),
+                (int)Math.Round(mouse.Position.Y / Scale / Config.Scale));
             return _wasClicked 
                 && mouse.LeftButton == ButtonState.Released 
                 && new Rectangle(_currentElement.Area.Location + _currentElement.ParentLocation.ToPoint(), _currentElement.Area.Size)
-                    .Contains(mouse.Position);
+                    .Contains(position);
         }
 
         private ClickableUIElement GetElement(Point mousePosition)
         {
-            var position = new Point((int)Math.Round(mousePosition.X * Scale), (int)Math.Round(mousePosition.Y * Scale));
+            var position = new Point((int)Math.Round(mousePosition.X / Scale / Config.Scale),
+                (int)Math.Round(mousePosition.Y / Scale / Config.Scale));
             var branch = _branches.Find((b) => b.GetElement(position) != None);
             return branch != null ? branch.GetElement(position) : None ;
         }

@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using MonoDragons.Core.Memory;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.Text;
+using MonoDragons.Core.Engine;
 
 namespace MonoDragons.Core.UserInterface
 {
@@ -47,20 +48,23 @@ namespace MonoDragons.Core.UserInterface
         public static void DrawCenteredWithOffset(string imageName, Vector2 widthHeight, Vector2 offSet)
         {
             _spriteBatch.Draw(Resources.Load<Texture2D>(imageName), null,
-                new Rectangle(ScalePoint(_game.GraphicsDevice.Viewport.Width / 2 / 1 - widthHeight.X / 2 + offSet.X,
-                _game.GraphicsDevice.Viewport.Height / 2 / 1 - widthHeight.Y / 2 + offSet.Y), ScalePoint(widthHeight.X, widthHeight.Y)),
+                new Rectangle(ScalePoint(_game.GraphicsDevice.Viewport.Width / 2 / Config.Scale - widthHeight.X / 2 + offSet.X,
+                    _game.GraphicsDevice.Viewport.Height / 2 / Config.Scale - widthHeight.Y / 2 + offSet.Y),
+                    ScalePoint(widthHeight.X, widthHeight.Y)),
                 null, null, 0, new Vector2(1, 1));
         }
 
         public static void DrawText(string text, Vector2 position, Color color)
         {
-            _spriteBatch.DrawString(DefaultFont.Font, text, position, color);
+            _spriteBatch.DrawString(DefaultFont.Font, text, ScalePoint(position.X, position.Y).ToVector2(), color,
+                0, Vector2.Zero, Config.Scale, SpriteEffects.None, 1);
         }
 
         public static void DrawText(string text, Vector2 position, Color color, string font)
         {
             var spriteFont = Resources.Load<SpriteFont>(font);
-            _spriteBatch.DrawString(spriteFont, text, position, color);
+            _spriteBatch.DrawString(spriteFont, text, ScalePoint(position.X, position.Y).ToVector2(), color,
+                0, Vector2.Zero, Config.Scale, SpriteEffects.None, 1);
         }
 
         public static void DrawTextCentered(string text, Rectangle area, Color color)
@@ -85,7 +89,7 @@ namespace MonoDragons.Core.UserInterface
 
         private static Point ScalePoint(float x, float y)
         {
-            return new Point((int)Math.Round(x * 1), (int)Math.Round(y * 1));
+            return new Point((int)Math.Round(x * Config.Scale), (int)Math.Round(y * Config.Scale));
         }
     }
 }

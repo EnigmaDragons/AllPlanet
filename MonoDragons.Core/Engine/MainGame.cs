@@ -5,6 +5,7 @@ using MonoDragons.Core.Inputs;
 using MonoDragons.Core.Memory;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.UserInterface;
+using System;
 
 namespace MonoDragons.Core.Engine
 {
@@ -18,9 +19,30 @@ namespace MonoDragons.Core.Engine
         private SpriteBatch _sprites;
         private IScene _currentScene;
 
-        public MainGame(string startingViewName, ScreenSettings screenSettings, SceneFactory sceneFactory, IController controller)
+        private GraphicsDeviceManager manager;
+        private bool areScreenSettingsPreCalculated;
+        private ScreenSettings settings;
+        private Size2 defaultScreenSize;
+
+        public MainGame(string startingViewName, int defaultWidth, int defaultHeight, SceneFactory sceneFactory, IController controller)
+            : this(startingViewName, sceneFactory, controller)
         {
-            screenSettings.Apply(new GraphicsDeviceManager(this));
+            areScreenSettingsPreCalculated = false;
+            defaultScreenSize = new Size2(defaultWidth, defaultHeight);
+            //var g = new GraphicsDeviceManager(this);
+            //var hostWidth = GraphicsDevice.DisplayMode.Width;
+            //var hostHeight = GraphicsDevice.DisplayMode.Height;
+            //new ScreenSettings(800, 450, false, 0.5f).Apply(g);
+        }
+        public MainGame(string startingViewName, ScreenSettings screenSettings, SceneFactory sceneFactory, IController controller)
+            : this(startingViewName, sceneFactory, controller)
+        {
+            areScreenSettingsPreCalculated = true;
+            settings = screenSettings;
+        }
+        private MainGame(string startingViewName, SceneFactory sceneFactory, IController controller)
+        {
+            manager = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             _startingViewName = startingViewName;
             _sceneFactory = sceneFactory;
@@ -39,6 +61,20 @@ namespace MonoDragons.Core.Engine
             World.Init(this, this, _sprites);
             UI.Init(this, _sprites);
             base.Initialize();
+            if (areScreenSettingsPreCalculated)
+                settings.Apply(manager);
+            else
+            {
+                var hostWidth = GraphicsDevice.DisplayMode.Width;
+                var hostHeight = GraphicsDevice.DisplayMode.Height;
+                var widthScale = (float)hostWidth / defaultScreenSize.Width;
+                var heightScale = (float)hostHeight / defaultScreenSize.Height;
+                var scale = widthScale > heightScale ? heightScale : widthScale;
+                new ScreenSettings((int)Math.Round(defaultScreenSize.Width * scale), (int)Math.Round(defaultScreenSize.Height * scale),
+                    false, scale).Apply(manager);
+            }
+            manager.ApplyChanges();
+            Hack.TheGame.Window.Position = new Point(0, 0);
         }
 
         protected override void LoadContent()
