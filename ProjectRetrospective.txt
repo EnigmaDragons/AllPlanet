@@ -1,0 +1,43 @@
+Planet Or Die - Ludum Dare 38
+
+
+Noah
+
+Good
+- Ticket system helped with organization a TON
+- We managed to get tons of stuff done. Good focus from the whole team.
+- Role assignments were a great fit for the team members
+
+Bad
+- Too much stuff last second
+- Should have playtested a bit more near the end
+
+Improvement Ideas
+- Small set of clear rules (anyone can change anything, but if it comes up, the role owner decides)
+
+
+Silas
+
+Good
+- We nailed all of our 3 project goals
+- Team communication, organization and focus were excellent
+
+Bad
+- Later content was very rushed and unpolished
+
+Improvement Ideas
+- Be prepared for deployment strategies in advance
+
+
+Tim
+
+Good
+- Project development had a great flow
+- No major hiccups
+
+Bad
+- Untested hard-coded strings are very error-prone
+- Last-second content is not as high-quality
+
+Improvements Ideas
+- We should clearly communicate that people who make controversial decisions are responsible for the results those of decisions
