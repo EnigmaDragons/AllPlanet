@@ -29,10 +29,6 @@ namespace MonoDragons.Core.Engine
         {
             areScreenSettingsPreCalculated = false;
             defaultScreenSize = new Size2(defaultWidth, defaultHeight);
-            //var g = new GraphicsDeviceManager(this);
-            //var hostWidth = GraphicsDevice.DisplayMode.Width;
-            //var hostHeight = GraphicsDevice.DisplayMode.Height;
-            //new ScreenSettings(800, 450, false, 0.5f).Apply(g);
         }
         public MainGame(string startingViewName, ScreenSettings screenSettings, SceneFactory sceneFactory, IController controller)
             : this(startingViewName, sceneFactory, controller)
@@ -71,7 +67,7 @@ namespace MonoDragons.Core.Engine
                 var heightScale = (float)hostHeight / defaultScreenSize.Height;
                 var scale = widthScale > heightScale ? heightScale : widthScale;
                 new ScreenSettings((int)Math.Round(defaultScreenSize.Width * scale), (int)Math.Round(defaultScreenSize.Height * scale),
-                    false, scale).Apply(manager);
+                    true, scale).Apply(manager);
             }
             manager.ApplyChanges();
             Hack.TheGame.Window.Position = new Point(0, 0);
