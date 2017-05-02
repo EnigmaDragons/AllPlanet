@@ -3,35 +3,40 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using MonoDragons.Core.Engine;
-using MonoDragons.Core.PhysicsEngine;
 using System.Linq;
+using MonoDragons.Core.Render;
 
 namespace MonoDragons.Core.UserInterface
 {
-    public sealed class ClickUI : IVisualAutomaton
+    public sealed class ClickUI : IAutomaton
     {
         public static readonly ClickableUIElement None = new NoneClickableUIElement();
 
         private List<ClickUIBranch> _branches = new List<ClickUIBranch> { new ClickUIBranch("Base", 0) };
-        
+
+        private readonly Display _display;
+        private float Scale => _display.Scale;
+
         private readonly ColoredRectangle _elementHighlight = new ColoredRectangle { Color = Color.Transparent };
-        private ClickableUIElement _currentElement = None;
+        private ClickableUIElement _current = None;
         private bool _wasClicked;
         private ClickUIBranch _elementLayer;
         private bool _elementChangeAfterPressed;
         private readonly Action<ClickUIBranch>[] subscribeAction;
-
-        public float Scale = 1;
         
         public ClickUI()
+            : this(CurrentDisplay.Get()) { }
+
+        public ClickUI(Display display)
         {
+            _display = display;
             _elementLayer = _branches[0];
             subscribeAction = new Action<ClickUIBranch>[] { (br) => Add(br), (br) => Remove(br) }; ;
         }
 
         public void Add(ClickUIBranch branch)
         {
-            var branches = GetAllBrancesFrom(branch);
+            var branches = GetAllBranchesFrom(branch);
             foreach (var b in branches)
             {
                 _branches.Add(b);
@@ -40,11 +45,11 @@ namespace MonoDragons.Core.UserInterface
             _branches = _branches.OrderBy((b) => b.Priority).Reverse().ToList();
         }
 
-        private List<ClickUIBranch> GetAllBrancesFrom(ClickUIBranch branch)
+        private List<ClickUIBranch> GetAllBranchesFrom(ClickUIBranch branch)
         {
             var branches = new List<ClickUIBranch> { branch };
             foreach (ClickUIBranch subBranch in branch.SubBranches())
-                branches.AddRange(GetAllBrancesFrom(subBranch));
+                branches.AddRange(GetAllBranchesFrom(subBranch));
             return branches;
         }
 
@@ -55,7 +60,7 @@ namespace MonoDragons.Core.UserInterface
 
         public void Remove(ClickUIBranch branch)
         {
-            var branches = GetAllBrancesFrom(branch);
+            var branches = GetAllBranchesFrom(branch);
             foreach (var b in branches)
             {
                 _branches.Remove(b);
@@ -73,8 +78,8 @@ namespace MonoDragons.Core.UserInterface
             var mouse = Mouse.GetState();
             if (Hack.TheGame.IsActive)
             {
-                var newElement = GetElement(mouse.Position);
-                if (newElement != _currentElement)
+                var newElement = GetElement(mouse);
+                if (newElement != _current)
                     ChangeActiveElement(newElement);
                 else if (MouseIsOutOfGame(mouse))
                     return;
@@ -87,7 +92,8 @@ namespace MonoDragons.Core.UserInterface
 
         private bool MouseIsOutOfGame(MouseState mouse)
         {
-            return mouse.Position.X < 0 || mouse.Position.X > Config.Width || mouse.Position.Y < 0 || mouse.Position.Y > Config.Height;
+            return mouse.Position.X < 0 || mouse.Position.X > _display.GameWidth 
+                || mouse.Position.Y < 0 || mouse.Position.Y > _display.GameHeight;
         }
 
         private void OnPressed()
@@ -95,54 +101,53 @@ namespace MonoDragons.Core.UserInterface
             if (_wasClicked)
                 return;
 
-            _currentElement.OnPressed();
+            _current.OnPressed();
             _wasClicked = true;
         }
 
         private void OnReleased()
         {
-            _currentElement.OnReleased();
+            _current.OnReleased();
             _wasClicked = false;
             _elementChangeAfterPressed = false;
-            _currentElement.OnEntered();
+            _current.OnEntered();
         }
 
         private void ChangeActiveElement(ClickableUIElement newElement)
         {
             _elementChangeAfterPressed = _wasClicked;
-            _currentElement.OnExitted();
+            _current.OnExitted();
             _wasClicked = false;
-            _currentElement = newElement;
-            _currentElement.OnEntered();
-            _elementHighlight.Transform = new Transform2(_currentElement.Area);
-            _elementHighlight.Color = Color.FromNonPremultiplied(100, 100, 0, 30);
+            _current = newElement;
+            _current.OnEntered();
         }
 
         private bool WasMouseReleased(MouseState mouse)
         {
-            var position = new Point((int)Math.Round(mouse.Position.X / Scale / Config.Scale),
-                (int)Math.Round(mouse.Position.Y / Scale / Config.Scale));
-            return _wasClicked 
-                && mouse.LeftButton == ButtonState.Released 
-                && new Rectangle(_currentElement.Area.Location + _currentElement.ParentLocation.ToPoint(), _currentElement.Area.Size)
-                    .Contains(position);
+            return _wasClicked && WasReleased(mouse) && IsSameElement(mouse);
         }
 
-        private ClickableUIElement GetElement(Point mousePosition)
+        private bool IsSameElement(MouseState mouse)
         {
-            var position = new Point((int)Math.Round(mousePosition.X / Scale / Config.Scale),
-                (int)Math.Round(mousePosition.Y / Scale / Config.Scale));
+            return new Rectangle(_current.Area.Location + _current.ParentLocation.ToPoint(), _current.Area.Size)
+                .Contains(ScaleMousePosition(mouse));
+        }
+
+        private static bool WasReleased(MouseState mouse)
+        {
+            return mouse.LeftButton == ButtonState.Released;
+        }
+
+        private ClickableUIElement GetElement(MouseState mouse)
+        {
+            var position = ScaleMousePosition(mouse);
             var branch = _branches.Find((b) => b.GetElement(position) != None);
-            return branch != null ? branch.GetElement(position) : None ;
+            return branch != null ? branch.GetElement(position) : None;
         }
 
-        public void Draw(Transform2 parentTransform)
+        private Point ScaleMousePosition(MouseState mouse)
         {
-#if DEBUG
-            _elementHighlight?.Draw(parentTransform + _elementLayer.Location);
-            UI.DrawText($"Mouse: {Mouse.GetState().Position}", new Vector2(1200, 800), Color.Yellow);
-            UI.DrawText($"Clicked: {_wasClicked}, {_elementChangeAfterPressed}", new Vector2(1200, 840), Color.Yellow);
-#endif
+            return new Point((int)Math.Round(mouse.Position.X / Scale), (int)Math.Round(mouse.Position.Y / Scale));
         }
     }
 }

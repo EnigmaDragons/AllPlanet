@@ -6,6 +6,7 @@ using MonoDragons.Core.EngimaDragons;
 using MonoDragons.Core.Engine;
 using MonoDragons.Core.Inputs;
 using MonoDragons.Core.Navigation;
+using MonoDragons.Core.PhysicsEngine;
 
 namespace AllPlanet
 {
@@ -15,7 +16,7 @@ namespace AllPlanet
         [STAThread]
         static void Main()
         {
-            using (var game = new MainGame("Logo", 1600, 900, CreateSceneFactory(), CreateKeyboardController()))
+            using (var game = new MainGame("Planet or Die!", "Logo", new Size2(1600, 900), CreateSceneFactory(), CreateKeyboardController()))
                 game.Run();
         }
 

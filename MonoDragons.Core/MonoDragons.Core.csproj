@@ -54,7 +54,6 @@
     <Compile Include="Common\Subject.cs" />
     <Compile Include="Common\SubscriptionAction.cs" />
     <Compile Include="EngimaDragons\LogoScene.cs" />
-    <Compile Include="Engine\Config.cs" />
     <Compile Include="Engine\Hack.cs" />
     <Compile Include="Engine\INavigation.cs" />
     <Compile Include="Engine\IVisualAutomaton.cs" />
@@ -71,7 +70,7 @@
     <Compile Include="Engine\Map.cs" />
     <Compile Include="Engine\SceneContents.cs" />
     <Compile Include="Engine\SceneFactory.cs" />
-    <Compile Include="Engine\ScreenSettings.cs" />
+    <Compile Include="Render\Display.cs" />
     <Compile Include="Engine\World.cs" />
     <Compile Include="EventSystem\Convenience\KeyDownEventSubscription.cs" />
     <Compile Include="EventSystem\Convenience\KeyUpEventSubscription.cs" />
@@ -109,6 +108,7 @@
     <Compile Include="Render\Animations.cs" />
     <Compile Include="Render\Camera.cs" />
     <Compile Include="Navigation\FadingInScene.cs" />
+    <Compile Include="Render\CurrentDisplay.cs" />
     <Compile Include="Text\IWrapText.cs" />
     <Compile Include="Text\EnumExtensions.cs" />
     <Compile Include="Text\WrappingText.cs" />

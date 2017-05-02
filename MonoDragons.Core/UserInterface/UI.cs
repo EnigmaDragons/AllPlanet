@@ -5,6 +5,7 @@ using MonoDragons.Core.Memory;
 using MonoDragons.Core.PhysicsEngine;
 using MonoDragons.Core.Text;
 using MonoDragons.Core.Engine;
+using MonoDragons.Core.Render;
 
 namespace MonoDragons.Core.UserInterface
 {
@@ -12,11 +13,13 @@ namespace MonoDragons.Core.UserInterface
     {
         private static Game _game;
         private static SpriteBatch _spriteBatch;
+        private static Display _display;
 
-        public static void Init(Game game, SpriteBatch spriteBatch)
+        public static void Init(Game game, SpriteBatch spriteBatch, Display display)
         {
             _game = game;
             _spriteBatch = spriteBatch;
+            _display = display;
         }
 
         public static void DrawBackgroundColor(Color color)
@@ -48,8 +51,8 @@ namespace MonoDragons.Core.UserInterface
         public static void DrawCenteredWithOffset(string imageName, Vector2 widthHeight, Vector2 offSet)
         {
             _spriteBatch.Draw(Resources.Load<Texture2D>(imageName), null,
-                new Rectangle(ScalePoint(_game.GraphicsDevice.Viewport.Width / 2 / Config.Scale - widthHeight.X / 2 + offSet.X,
-                    _game.GraphicsDevice.Viewport.Height / 2 / Config.Scale - widthHeight.Y / 2 + offSet.Y),
+                new Rectangle(ScalePoint(_display.GameWidth / 2 / _display.Scale - widthHeight.X / 2 + offSet.X,
+                    _display.GameHeight / 2 / _display.Scale - widthHeight.Y / 2 + offSet.Y),
                     ScalePoint(widthHeight.X, widthHeight.Y)),
                 null, null, 0, new Vector2(1, 1));
         }
@@ -57,14 +60,14 @@ namespace MonoDragons.Core.UserInterface
         public static void DrawText(string text, Vector2 position, Color color)
         {
             _spriteBatch.DrawString(DefaultFont.Font, text, ScalePoint(position.X, position.Y).ToVector2(), color,
-                0, Vector2.Zero, Config.Scale, SpriteEffects.None, 1);
+                0, Vector2.Zero, _display.Scale, SpriteEffects.None, 1);
         }
 
         public static void DrawText(string text, Vector2 position, Color color, string font)
         {
             var spriteFont = Resources.Load<SpriteFont>(font);
             _spriteBatch.DrawString(spriteFont, text, ScalePoint(position.X, position.Y).ToVector2(), color,
-                0, Vector2.Zero, Config.Scale, SpriteEffects.None, 1);
+                0, Vector2.Zero, _display.Scale, SpriteEffects.None, 1);
         }
 
         public static void DrawTextCentered(string text, Rectangle area, Color color)
@@ -89,7 +92,7 @@ namespace MonoDragons.Core.UserInterface
 
         private static Point ScalePoint(float x, float y)
         {
-            return new Point((int)Math.Round(x * Config.Scale), (int)Math.Round(y * Config.Scale));
+            return new Point((int)Math.Round(x * _display.Scale), (int)Math.Round(y * _display.Scale));
         }
     }
 }

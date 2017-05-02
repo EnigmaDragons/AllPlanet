@@ -12,12 +12,14 @@ using MonoDragons.Core.Text;
 using MonoDragons.Core.UserInterface;
 using MonoDragons.Core.Inputs;
 using System;
+using MonoDragons.Core.Render;
 
 namespace MonoDragons.Core.Engine
 {
     public static class World
     {
-        private static readonly ColoredRectangle _darken = new ColoredRectangle { Color = Color.FromNonPremultiplied(0, 0, 0, 130), Transform = new Transform2(new Size2(1920, 1080)) };
+        private static readonly ColoredRectangle _darken = new ColoredRectangle { Color = Color.FromNonPremultiplied(0, 0, 0, 130),
+            Transform = new Transform2(new Size2(1920, 1080)) };
         private static readonly Events _events = new Events();
         private static readonly Events _persistentEvents = new Events();
         private static readonly List<EventSubscription> _eventSubs = new List<EventSubscription>();
@@ -28,13 +30,15 @@ namespace MonoDragons.Core.Engine
         private static ContentManager _content;
         private static SpriteBatch _spriteBatch;
         private static INavigation _navigation;
+        private static Display _display;
 
-        public static void Init(Game game, INavigation navigation, SpriteBatch spriteBatch)
+        public static void Init(Game game, INavigation navigation, SpriteBatch spriteBatch, Display display)
         {
             _game = game;
             _content = game.Content;
             _navigation = navigation;
             _spriteBatch = spriteBatch;
+            _display = display;
             DefaultFont.Load(_content);
         }
 
@@ -152,7 +156,7 @@ namespace MonoDragons.Core.Engine
 
         private static Point ScalePoint(Vector2 vector)
         {
-            return new Point((int)Math.Round(vector.X * Config.Scale), (int)Math.Round(vector.Y * Config.Scale));
+            return new Point((int)Math.Round(vector.X * _display.Scale), (int)Math.Round(vector.Y * _display.Scale));
         }
 
         private static Point ScalePoint(Point point)

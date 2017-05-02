@@ -35,7 +35,7 @@ namespace AllPlanet.Closing.Concrete
                     new PlanetResponds("Of course it would be!", PlanetExpression.Proud),
                     new PlanetResponds("I am made up of Carbon Monoxide, Carbon Dioxide, Nitrogen, and even 199 Rexium -- all the stuff planets are made out of.", PlanetExpression.Proud),
                     new PlanetResponds("I am in the shape of a planet, and I orbit the sun. Therefore I am a planet.", PlanetExpression.Proud)),
-                new ClosingOption("Cite the famious scientist who discovered you", +2,
+                new ClosingOption("Cite the famous scientist who discovered you", +2,
                     new PlanetResponds("In 1876, when I was first discovered as a planet, by the famous scientist Dr. Larcaster...", PlanetExpression.Challenging),
                     new PlanetResponds("He also proved that mushrooms can grow on trees, and that parrots can be trained to sing the national anthem.", PlanetExpression.Challenging),
                     new PlanetResponds("There is no way, after his many great achievements, that his findings can be questioned.", PlanetExpression.Proud))),
